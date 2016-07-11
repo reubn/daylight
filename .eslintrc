@@ -1,0 +1,60 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:import/errors", "plugin:import/warnings"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": [2, "never"],
+    "max-len": 0,
+    "func-names": 0,
+    "prefer-arrow-callback": 0,
+    "no-console": 0,
+    "comma-dangle": [2, "never"],
+    "space-before-function-paren": [2, "never"],
+    "space-before-blocks": [2, "never"],
+    "object-curly-spacing": [2, "never"],
+    "curly": [2, "multi-line"],
+    "consistent-return": 0,
+    "block-spacing": [2, "never"],
+    "space-infix-ops": 0,
+    "no-param-reassign": [2, {"props": false}],
+    "keyword-spacing": [2, {
+      "after": false,
+      "overrides": {
+        "return": {
+          "after": true
+        },
+        "import": {
+          "after": true
+        },
+        "const": {
+          "after": true
+        },
+        "else": {
+          "after": true
+        },
+        "from": {
+          "after": true,
+          "before": true
+        },
+        "case": {
+          "after": true
+        }
+      }
+    }],
+    "react/prop-types": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "../webpack.config.js"
+      }
+    },
+    "import/ignore": [(.*)?node_modules(.*)?, \.(scss|less|css)$],
+  }
+}

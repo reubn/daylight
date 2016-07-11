@@ -1,0 +1,5 @@
+node_modules/*
+front/compiled/*
+front/node_modules/*
+data/*
+*secure.js
