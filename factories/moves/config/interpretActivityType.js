@@ -1,63 +1,84 @@
+const {cycling, walking, swimming, running, climbing, fighting, surfing, dancing, bowling, volleyball, relaxing, batSports, weightlifting, racketSports, gymTraining, stickSports, rugby, frisbee, basketball, gymnastics, miscBallSports, cleaning, football, horse} = require('./colours')
+
 const colours = {
-  aerobics: '#bc4fff',
-  badminton: '#11d1cb',
-  baseball: '#fa7070',
-  basketball: '#fc6f0a',
-  beach_volleyball: '#ffb938',
-  bodypump: '#d1416c',
-  bowling: '#d68b00',
-  boxing: '#c93838',
-  circuit_training: '#eb4db4',
-  cleaning: '#96cc00',
-  climbing: '#c96a26',
-  cricket: '#96cc00',
-  dancing: '#963fcc',
-  elliptical_training: '#bc4fff',
-  fencing: '#42bdff',
-  floorball: '#22b5b0',
-  american_football: '#c93838',
-  gym_training: '#e82c64',
-  gymnastics: '#9c27e6',
-  handball: '#3e5ec7',
-  hockey: '#22b5b0',
-  indoor_cycling: '#00cdec',
-  kettlebell: '#eb4db4',
-  kite_surfing: '#00a6ff',
-  martial_arts: '#fa4646',
-  pilates: '#ff82a8',
-  polo: '#fa4646',
-  rugby: '#238755',
-  running_on_treadmill: '#f660f4',
-  scuba_diving: '#11d1cb',
-  soccer: '#4a963c',
-  spinning: '#ffa600',
-  squash: '#ab91ff',
-  stair_climbing: '#ffa600',
-  stretching: '#8ca7ff',
-  surfing: '#00a6ff',
-  swimming: '#42bdff',
-  table_tennis: '#3360f2',
-  tennis: '#ffb938',
-  volleyball: '#8ca7ff',
-  walking_on_treadmill: '#20ef5a',
-  weight_training: '#cc68c9',
-  windsurfing: '#00a6ff',
-  yoga: '#a655a3',
-  zumba: '#fa5788',
-  bandy: '#22b5b0',
-  curling: '#11d1cb',
-  ballet: '#ff82a8',
-  disc_ultimate: '#4a963c',
-  lacrosse: '#4a963c',
-  parkour: '#c96a26',
-  petanque: '#42bdff',
-  racquetball: '#2183b8',
-  wrestling: '#fc6f0a',
-  water_polo: '#cc68c9'
+  gymnastics,
+  aerobics: gymnastics,
+  pilates: gymnastics,
+
+  rugby,
+  american_football: rugby,
+
+  badminton: racketSports,
+  racquetball: racketSports,
+  squash: racketSports,
+  table_tennis: racketSports,
+  tennis: racketSports,
+
+  dancing,
+  ballet: dancing,
+  zumba: dancing,
+
+  bandy: stickSports,
+  hockey: stickSports,
+  lacrosse: stickSports,
+
+  polo: horse,
+
+  baseball: batSports,
+  cricket: batSports,
+
+  basketball,
+
+  volleyball,
+  beach_volleyball: volleyball,
+
+  bodypump: weightlifting,
+  kettlebell: weightlifting,
+  weight_training: weightlifting,
+
+  bowling,
+  curling: bowling,
+  petanque: bowling,
+
+  boxing: fighting,
+  martial_arts: fighting,
+  wrestling: fighting,
+  fencing: fighting,
+
+  circuit_training: gymTraining,
+  elliptical_training: gymTraining,
+  gym_training: gymTraining,
+
+  cleaning,
+
+  climbing,
+  parkour: climbing,
+  stair_climbing: climbing,
+
+  disc_ultimate: frisbee,
+
+  floorball: miscBallSports,
+  handball: miscBallSports,
+
+  indoor_cycling: cycling,
+  spinning: cycling,
+
+  surfing,
+  kite_surfing: surfing,
+  windsurfing: surfing,
+
+  running_on_treadmill: running,
+
+  swimming,
+  scuba_diving: swimming,
+  water_polo: swimming,
+
+  soccer: football,
+
+  stretching: relaxing,
+  yoga: relaxing,
+
+  walking_on_treadmill: walking
 }
 
-const map = {}
-
-module.exports = activity => {
-
-}
+module.exports = () => colours
