@@ -11,6 +11,8 @@ import {syncHistoryWithStore, routerReducer} from 'react-router-redux'
 import appReducer from './reducer'
 import getInitialState from './initialState'
 
+import userAction from '../../actions/user'
+
 import LoginContainer from '../LoginContainer'
 
 import {app} from './style'
@@ -21,6 +23,9 @@ function Daylight(){
     {daylight: getInitialState()},
    compose(applyMiddleware(thunk), window.devToolsExtension ? window.devToolsExtension() : f => f)
  )
+
+ // See if we have session
+  userAction(this.store.dispatch)
 
   const history = syncHistoryWithStore(browserHistory, this.store)
 
