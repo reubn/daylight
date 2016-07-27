@@ -1,57 +1,44 @@
-const axios = require('axios')
+const Day = require('../../models/Day')
 
-const chunkRange = require('./chunkRange')
+const chunkRanges = require('./chunkRanges')
+const storylineRequest = require('./storylineRequest')
 
 const placeProcessor = require('./processors/place')
 const moveProcessor = require('./processors/move')
 
-const config = require('./config')
+module.exports = (factory, user, dayPromises) => {
+  const {accessToken, startDate} = factory.diplomat.getUserData(user)
 
-module.exports = (factory, user, range) => {
-  const {accessToken} = factory.diplomat.getUserData(user)
+  return Promise.all(dayPromises)
+  .then(days =>
+    Promise.all(
+      chunkRanges(Day.daysToRanges(days), startDate)
+        .map(range =>
+          storylineRequest(accessToken, range)
+          .catch((error, {status}=error) => {
+            if(status === 401) return factory.refreshAccessToken(user).then(({accessToken: newAccessToken}) => storylineRequest(newAccessToken, range))
+            throw error
+          })
+          .then(({data: daysFromRequest}) => daysFromRequest)
+          .catch(() => Promise.all(Day.rangeToDays(range, user)).then(errorDays => errorDays.map(({date}) => ({date: date.format('YYYYMMDD'), errors: [new Error('SingleRequestError')]}))))
+        )
+    )
+    .then(requests => requests.reduce((array, request) => [...array, ...request], []))
+    .then(daysFromRequest =>
+      daysFromRequest.reduce((daysForReducing, {errors: requestErrors=[], segments, date: dateString}) => {
+        const index = daysForReducing.findIndex(({day: {date}}) => date.format('YYYYMMDD') === dateString)
+        const {day} = daysForReducing[index]
 
-  return Promise.all(
-    chunkRange(range)
-    .map(({from, to=from}) =>
-      axios.get(config.lineURL, {
-        params: {
-          from: from.format('YYYYMMDD'),
-          to: to.format('YYYYMMDD'),
-          trackPoints: true,
-          access_token: accessToken
-        },
-        validateStatus: () => true
-      })
-      .then(res => {
-        // If accessToken is invalid
-        if(res.status === 401){
-          return factory.refreshAccessToken(user)
-          .then(({accessToken: newAccessToken}) =>
-            axios.get(config.lineURL, {
-              params: {
-                from: from.format('YYYYMMDD'),
-                to: to.format('YYYYMMDD'),
-                trackPoints: true,
-                access_token: newAccessToken
-              }
-            }))
-        }
-        return res
-      })
-      .then(({data: daysFromRequest}) => daysFromRequest)
+        const {features: completeFeatures, errors: completeErrors} = (segments||[]).reduce(({features: existingFeatures=[], errors: existingErrors=[]}, segment) => {
+          if(segment.type === 'off') return {features: existingFeatures, errors: existingErrors}
+          const {features: segmentFeatures, errors: segmentErrors=[]} = (segment.type === 'move' ? moveProcessor : placeProcessor)(factory, day, segment)
+
+          return {features: [...existingFeatures, ...segmentFeatures], errors: [...existingErrors, ...segmentErrors]}
+        }, {features: [], errors: requestErrors})
+
+        daysForReducing[index] = {day, features: completeFeatures, errors: completeErrors}
+        return daysForReducing
+      }, days.map(day => ({day, features: [], errors: []})))
     )
   )
-  .then(requests => requests.reduce((array, request) => [...array, ...request], []))
-  .then(daysFromRequest =>
-    daysFromRequest.reduce((features, {segments, date: day}) => {
-      if(!segments) return features
-
-      const dayFeatures = [...features, ...segments.reduce((processed, segment) => {
-        if(segment.type === 'off') return processed
-        return [...processed, ...(segment.type === 'move' ? moveProcessor : placeProcessor)(day, user, factory, segment)]
-      }, [])]
-      return [...features, ...dayFeatures]
-    }, [])
-  )
-  .catch(err => console.log(err))
 }
