@@ -1,3 +1,4 @@
+const moment = require('moment')
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcrypt-as-promised')
@@ -9,8 +10,8 @@ const userSchema = new Schema({
   owner: Boolean,
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  birthday: {type: Date, required: true},
-  startDate: {type: Date, required: true},
+  birthday: {type: Date, required: true, get: v => moment(v)},
+  accountStartDay: {type: Date, required: true},
   factories: factories.generateDatabaseSchema()
 }, {
   collection: 'users'
@@ -30,7 +31,10 @@ userSchema.methods.comparePasswords = function(candidatePassword){
   return bcrypt.compare(candidatePassword, this.password).then(() => this)
 }
 
-userSchema.methods.clean = function(){const user = this.toObject(); return Object.assign({}, user, {password: undefined, __v: undefined, _id: undefined, id: user._id})}
+userSchema.methods.clean = function(){
+  const user = this.toObject()
+  return Object.assign({}, user, {password: undefined, __v: undefined, _id: undefined, factories: undefined, id: user._id})
+}
 
 
 module.exports = mongoose.model('User', userSchema)
