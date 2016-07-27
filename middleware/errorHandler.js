@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 module.exports = (error, req, res, next) => {
   // Login
   if(error.name === 'MismatchError' || error.message === 'NoExist') return res.status(401).json({sucess: false, reason: 'LoginFail'})
