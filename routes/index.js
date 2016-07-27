@@ -18,7 +18,7 @@ router.use('/~', protect, factories.router, errorHandler)
 
 router.post('/register', register, errorHandler)
 router.post('/login', login, errorHandler)
-router.get('/logout', function(req, res){
+router.post('/logout', function(req, res){
   req.logout()
   res.json({success: true})
 })
