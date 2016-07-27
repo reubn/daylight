@@ -3,4 +3,4 @@ const initialState = {
 }
 
 
-export default () => {console.log(initialState); return initialState}
+export default () => initialState
