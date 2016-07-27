@@ -9,6 +9,7 @@ const config = {
   tokenURL: 'https://api.moves-app.com/oauth/v1/access_token',
   refreshTokenURL: refreshToken => `https://api.moves-app.com/oauth/v1/access_token?grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${config.clientID}&client_secret=${config.clientSecret}`,
   lineURL: 'https://api.moves-app.com/api/1.1/user/storyline/daily',
+  profileURL: 'https://api.moves-app.com/api/1.1/user/profile',
   interpretMoveType
 }
 
