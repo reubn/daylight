@@ -3,3 +3,5 @@ front/compiled/*
 front/node_modules/*
 data/*
 *secure.js
+*.log
+research/*
