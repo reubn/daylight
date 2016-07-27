@@ -62,7 +62,6 @@ app.use(hpp())
 app.use(routes)
 
 // Serving
-
 serverConfig.servers.forEach(({port, secure}) => {
   const server = (secure ? https.createServer(sslConfig, app) : http.createServer(app))
   server.listen(port, () => console.info(`🚀 🚀 🚀  - Launched on ${port} -  🚀 🚀 🚀`))
