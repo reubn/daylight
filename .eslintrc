@@ -13,7 +13,7 @@
     "max-len": 0,
     "func-names": 0,
     "prefer-arrow-callback": 0,
-    "no-console": 0,
+    "no-console": 1,
     "comma-dangle": [2, "never"],
     "space-before-function-paren": [2, "never"],
     "space-before-blocks": [2, "never"],
@@ -22,6 +22,7 @@
     "consistent-return": 0,
     "block-spacing": [2, "never"],
     "space-infix-ops": 0,
+    "no-underscore-dangle": 0,
     "no-param-reassign": [2, {"props": false}],
     "keyword-spacing": [2, {
       "after": false,
