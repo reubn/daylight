@@ -1,14 +1,32 @@
 const Feature = require('./../models/Feature')
 
-module.exports = (user, arrayOfFeatures) => {
-  const featurePromises = arrayOfFeatures.map(feature => {
-    const {factory, day, startTime, lastUpdate} = feature
-    return Feature.findOne({factory, day, user: user._id, startTime})
-          .then(duplicate => {
-            if(!duplicate) return feature.save()
-            if(duplicate.lastUpdate.isBefore(lastUpdate)) return Promise.all([feature.save(), duplicate.remove()])
-            return Promise.resolve()
-          })
-  })
-  return Promise.all(featurePromises)
-}
+module.exports = (user, dayFeaturePairs) =>
+  Promise.all(dayFeaturePairs.map(({day, features=[], errors=[]}) =>
+    Promise.all(features.map(feature => {
+      const {factory, startTime, lastUpdate} = feature
+      return Feature.findOne({factory, day, startTime})
+            .then(duplicate => {
+              if(!duplicate) return feature.save().catch(() => {throw new Error('FeatureSaveError')})
+              if(duplicate.lastUpdate.isBefore(lastUpdate)){
+                return duplicate.remove()
+                       .catch(() => {throw new Error('DuplicateRemoveError')})
+                       .then(feature.save)
+                       .catch(error => {throw error.name === 'MongooseError' ? new Error('FeatureSaveError') : error})
+              }
+              return duplicate
+            })
+            .then(featureInDB => ({features: [featureInDB]}))
+            .catch((error=new Error('UnknownCommitError')) => ({errors: [error]}))
+    }))
+    .then((featuresOrErrors) => {
+      const {features: completeFeatures, errors: completeErrors} =
+        featuresOrErrors.reduce(
+          ({features: existingFeatures=[], errors: existingErrors=[]}, {features: newFeatures=[], errors: newErrors=[]}) => ({
+            features: [...existingFeatures, ...newFeatures],
+            errors: [...existingErrors, ...newErrors]
+          }),
+          {features: [], errors})
+
+      return {day, features: completeFeatures, errors: completeErrors}
+    })
+  ))
