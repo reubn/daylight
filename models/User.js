@@ -12,6 +12,7 @@ const userSchema = new Schema({
   password: {type: String, required: true},
   birthday: {type: Date, required: true, get: v => moment(v)},
   accountStartDay: {type: Date, required: true},
+  homeLocation: [Number],
   factories: factories.generateDatabaseSchema()
 }, {
   collection: 'users'
