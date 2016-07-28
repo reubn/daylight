@@ -21,11 +21,19 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         loaders: ['style',
                   `css?${(devMode ? 'localIdentName=[local]-[name]-[hash:base64:10]&' : '')}modules=true&importLoaders=1`,
                   'postcss']
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        loaders: ['style',
+                  'css?importLoaders=1',
+                  'postcss']
       }, {
-        test: /\.(eot)|(svg)|(ttf)|(woff2?)$/,
+        test: /\.(eot)|(svg)|(ttf)|(woff2?)|(png)|(jpe?g)$/,
         loader: 'file-loader'
       }
     ]
