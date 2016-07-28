@@ -14,6 +14,7 @@ import getInitialState from './initialState'
 import userAction from '../../actions/user'
 
 import LoginContainer from '../LoginContainer'
+import MapContainer from '../MapContainer'
 
 import {app} from './style'
 
@@ -33,7 +34,7 @@ function Daylight(){
     <Provider store={this.store}>
       <section className={app}>
         <Router history={history}>
-          <Route path="/" component={props => <span>{JSON.stringify(props)}</span>} />
+          <Route path="/" component={MapContainer} />
           <Route path="/login" component={LoginContainer} />
         </Router>
       </section>
