@@ -33,7 +33,7 @@ module.exports = {
                   'css?importLoaders=1',
                   'postcss']
       }, {
-        test: /\.(eot)|(svg)|(ttf)|(woff2?)|(png)|(jpe?g)$/,
+        test: /\.(eot)|(svg)|(ttf)|(woff2?)|(png)|(svg)|(jpe?g)$/,
         loader: 'file-loader'
       }
     ]
