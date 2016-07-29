@@ -1,14 +1,20 @@
 {
+  "description": "Daylight Frontend",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reubn/daylight.git#/front"
+  },
   "dependencies": {
-    "axios": "^0.12.0",
+    "axios": "^0.13.1",
     "classnames": "^2.2.5",
     "leaflet": "^0.7.7",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
     "react-enroute": "0.0.1",
     "react-leaflet": "^0.12.1",
     "react-redux": "^4.4.5",
-    "react-router": "^2.4.1",
+    "react-router": "^2.6.0",
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "redux-localstorage": "^0.4.1",

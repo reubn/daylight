@@ -2,6 +2,10 @@
   "name": "daylight",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reubn/daylight.git"
+  },
   "main": "index.js",
   "dependencies": {
     "axios": "^0.12.0",
