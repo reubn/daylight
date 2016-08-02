@@ -1,0 +1,31 @@
+.logo ~ #fillGradient stop {
+  transition: all .2s ease-in;
+}
+
+.logo ~ #strokeGradient stop {
+  transition: all .2s ease-out;
+}
+
+.logo:hover ~ #fillGradient stop {
+  transition: all .2s ease-out;
+}
+
+.logo:hover ~ #strokeGradient stop {
+  transition: all .2s ease-in;
+}
+
+.logo:hover ~ #fillGradient stop:first-child {
+  stop-color: #5dedcb;
+}
+
+.logo:hover ~ #fillGradient stop:last-child {
+  stop-color: #60cbfc;
+}
+
+.logo:hover ~ #strokeGradient stop:first-child {
+  stop-color: transparent;
+}
+
+.logo:hover ~ #strokeGradient stop:last-child {
+  stop-color: transparent;
+}

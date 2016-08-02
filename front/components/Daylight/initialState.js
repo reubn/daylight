@@ -1,7 +1,9 @@
 const initialState = {
-  user: {},
-  map: {}
   user: window.daylightUserData,
+  map: {
+    days: [],
+    visible: []
+  }
 }
 
 

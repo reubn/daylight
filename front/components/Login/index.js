@@ -1,12 +1,5 @@
 import React from 'react'
 
-// const Login = ({onSubmit, onUsername, onPassword, username, password}) =>
-//   <section>
-//     <input type=" text" value={username} onChange={onUsername} />
-//     <input type="password" value={password} onChange={onPassword} />
-//     <input type="submit" value="Login" onChange={onSubmit} />
-//   </section>
-
 export default class Login extends React.Component{
   constructor(props){
     super(props)
@@ -15,6 +8,7 @@ export default class Login extends React.Component{
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
+
   onChange(event){
     this.setState({[event.target.type === 'password' ? 'password' : 'username']: event.target.value})
   }

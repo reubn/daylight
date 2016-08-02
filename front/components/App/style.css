@@ -1,0 +1,19 @@
+.app {
+  font-family: Source Code Pro;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #1e1f1f;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapped {
+  position: absolute;
+  top: 4rem;
+  width: 100%;
+  height: calc(100% - 4rem);
+  background: #fff;
+}

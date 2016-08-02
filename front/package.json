@@ -9,6 +9,7 @@
     "axios": "^0.13.1",
     "classnames": "^2.2.5",
     "leaflet": "^0.7.7",
+    "mapbox-gl": "^0.21.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-enroute": "0.0.1",

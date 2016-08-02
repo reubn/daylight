@@ -1,8 +1,5 @@
 const webpack = require('webpack')
 
-const autoprefixer = require('autoprefixer')
-const cssnano = require('cssnano')
-
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -23,23 +20,25 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         loaders: ['style',
-                  `css?${(devMode ? 'localIdentName=[local]-[name]-[hash:base64:10]&' : '')}modules=true&importLoaders=1`,
-                  'postcss']
+                  `css?-zindex&${(devMode ? 'localIdentName=[local]-[name]-[hash:base64:10]&' : '')}modules=true`
+                ]
       },
       {
         test: /\.css$/,
         include: /node_modules/,
         loaders: ['style',
-                  'css?importLoaders=1',
-                  'postcss']
-      }, {
-        test: /\.(eot)|(svg)|(ttf)|(woff2?)|(png)|(svg)|(jpe?g)$/,
-        loader: 'file-loader'
+                  'css?-zindex']
+      },
+      {
+        test: /\.(eot)|(ttf)|(woff2?)$/,
+        loader: 'url?limit=10000'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: ['url?limit=10000',
+                  'img?minimize=true']
       }
     ]
-  },
-  postcss(){
-    return [autoprefixer, cssnano]
   },
   plugins: [
     new webpack.DefinePlugin({
