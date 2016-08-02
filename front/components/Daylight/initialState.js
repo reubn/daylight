@@ -1,6 +1,7 @@
 const initialState = {
   user: {},
   map: {}
+  user: window.daylightUserData,
 }
 
 
