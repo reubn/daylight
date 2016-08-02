@@ -14,7 +14,6 @@ import getInitialState from './initialState'
 
 import App from '../App'
 
-
 import LoginContainer from '../LoginContainer'
 import MapContainer from '../MapContainer'
 
