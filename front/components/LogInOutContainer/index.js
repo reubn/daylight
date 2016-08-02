@@ -5,7 +5,7 @@ import logoutAction from '../../actions/logout'
 
 import LogInOut from '../LogInOut'
 
-const mapStateToProps = ({daylight: {user: {id}}}) => ({signedIn: !!id})
+const mapStateToProps = ({user: {id}}) => ({signedIn: !!id})
 const mapDispatchToProps = dispatch => ({login: () => dispatch(replace('/login')), logout: () => logoutAction(dispatch)})
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogInOut)
