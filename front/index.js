@@ -2,15 +2,15 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 
-import {createStore, applyMiddleware, compose} from 'redux'
-import thunk from 'redux-thunk'
+import {createStore} from 'redux'
 
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import {syncHistoryWithStore, routerMiddleware} from 'react-router-redux'
+import {syncHistoryWithStore} from 'react-router-redux'
 import protect from './helpers/protect'
 
 import reducers from './reducers'
 import initials from './initials'
+import middleware from './middleware'
 
 import App from './components/App'
 import LoginContainer from './components/LoginContainer'
@@ -20,7 +20,7 @@ function Daylight(){
   this.store = createStore(
     reducers,
     initials,
-   compose(applyMiddleware(thunk), applyMiddleware(routerMiddleware(browserHistory)), window.devToolsExtension ? window.devToolsExtension() : f => f)
+    middleware
  )
   this.history = syncHistoryWithStore(browserHistory, this.store)
 
