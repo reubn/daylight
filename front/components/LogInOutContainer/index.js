@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import {replace} from 'react-router-redux'
-import logoutAction from '../../actions/logout'
+
+import logoutAction from '../../store/actions/logout'
 
 import LogInOut from '../LogInOut'
 
