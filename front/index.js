@@ -4,9 +4,9 @@ import {Provider} from 'react-redux'
 
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
-import protect from './helpers/protect'
 
 import store from './store'
+import protect from './helpers/protect'
 
 import App from './components/App'
 import LoginContainer from './components/LoginContainer'
