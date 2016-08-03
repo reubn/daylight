@@ -1,6 +1,6 @@
 const moment = require('moment')
 
-const Move = require('../models/Move')
+const Move = require('../../../models/Feature/Move')
 
 const {interpretMoveType} = require('../config')
 

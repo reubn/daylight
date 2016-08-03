@@ -1,6 +1,6 @@
 const moment = require('moment')
 
-const Place = require('../models/Place')
+const Place = require('../../../models/Feature/Place')
 
 module.exports = (factory, day, {place: {location: {lat, lon}, name, id: placeId}, startTime, endTime, lastUpdate}) => {
   const feature =

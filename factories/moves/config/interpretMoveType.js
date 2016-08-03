@@ -1,52 +1,48 @@
-const {cycling, walking, running, golfing, swimming, waterCraft, horse, rollerAndSkating, skateboarding, skiing, wheelChair, paintballing, flying, bus, car, accending, motorcycling, scooter, train} = require('./colours')
+const transforms = {
+  cycling: 'cycling',
+  golfing: 'golfing',
 
-const colours = {
-  cycling,
-  golfing,
+  kayaking: 'waterCraft',
+  rowing: 'waterCraft',
+  boat: 'waterCraft',
+  sailing: 'waterCraft',
 
-  kayaking: waterCraft,
-  rowing: waterCraft,
-  boat: waterCraft,
-  sailing: waterCraft,
+  paddling: 'swimming',
+  paintball: 'paintballing',
+  riding: 'horse',
 
-  paddling: swimming,
-  paintball: paintballing,
-  riding: horse,
+  rollerblading: 'rollerAndSkating',
+  rollerskating: 'rollerAndSkating',
+  skating: 'rollerAndSkating',
 
-  rollerblading: rollerAndSkating,
-  rollerskating: rollerAndSkating,
-  skating: rollerAndSkating,
+  running: 'running',
 
-  running,
+  skateboarding: 'skateboarding',
+  snowboarding: 'skateboarding',
 
-  skateboarding,
-  snowboarding: skateboarding,
+  skiing: 'skiing',
+  downhill_skiing: 'skiing',
+  cross_country_skiing: 'skiing',
+  roller_skiing: 'skiing',
+  snowshoeing: 'skiing',
 
-  skiing,
-  downhill_skiing: skiing,
-  cross_country_skiing: skiing,
-  roller_skiing: skiing,
-  snowshoeing: skiing,
+  walking: 'walking',
+  wheel_chair: 'wheelChair',
+  airplane: 'flying',
+  bus: 'bus',
 
-  walking,
-  wheel_chair: wheelChair,
-  airplane: flying,
-  bus,
-  car,
+  car: 'car',
+  transport: 'car',
 
-  escalator: accending,
-  funicular: accending,
+  escalator: 'accending',
+  funicular: 'accending',
 
-  motorcycle: motorcycling,
-  scooter,
+  motorcycle: 'motorcycling',
+  scooter: 'scooter',
 
-  train,
-  tram: train,
-  underground: train
+  train: 'train',
+  tram: 'train',
+  underground: 'train'
 }
 
-const rewrites = {
-  transport: 'car'
-}
-
-module.exports = (move, name=rewrites[move]||move) => ({name, colour: colours[name]})
+module.exports = moveType => transforms[moveType] || 'Unclassified'
