@@ -2,7 +2,7 @@ const moment = require('moment')
 
 const Place = require('../../../models/Feature/Place')
 
-module.exports = (factory, day, {place: {location: {lat, lon}, name, id: placeId}, startTime, endTime, lastUpdate}) => {
+module.exports = (factory, day, {place: {location: {lat, lon: lng}, name, id: placeId}, startTime, endTime, lastUpdate}) => {
   const feature =
       new Place({
         day,
@@ -10,10 +10,7 @@ module.exports = (factory, day, {place: {location: {lat, lon}, name, id: placeId
         placeId,
         startTime: moment(startTime),
         endTime: moment(endTime),
-        geo: {
-          type: 'Point',
-          coordinates: [lon, lat]
-        },
+        geo: [lat, lng],
         lastUpdate: moment(lastUpdate),
         factory: factory.slug
       })
