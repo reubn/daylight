@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import Map from '../Map'
 
-const mapStateToProps = ({user: {homeLocation}}) => ({homeLocation})
+const mapStateToProps = ({map, user: {homeLocation}}) => ({...map, homeLocation})
 
 export default connect(mapStateToProps)(Map)
