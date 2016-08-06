@@ -1,4 +1,5 @@
 export default {
   days: [],
-  visible: []
+  visible: [],
+  loading: false
 }

@@ -1,0 +1,44 @@
+@keyframes animation {
+  33% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+
+  66% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.one {
+  animation-delay: -.14s;
+}
+
+.two {
+  animation-delay: -.07s;
+}
+
+.three {
+  animation-delay: 0;
+}
+
+.loader {
+  position: relative;
+  top: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  animation-name: animation;
+  animation-duration: .6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  border-radius: 15%;
+  background: #fff;
+  animation-fill-mode: both;
+}
