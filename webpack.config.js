@@ -48,7 +48,10 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin()],
   resolve: {
     modulesDirectories: ['node_modules', 'components', 'actions', 'front/node_modules'],
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['', '.js', '.jsx', '.css'],
+    alias: {
+      'mapbox-gl': 'mapbox-gl/dist/mapbox-gl.js'
+    }
   },
   resolveLoader: {
     alias: {

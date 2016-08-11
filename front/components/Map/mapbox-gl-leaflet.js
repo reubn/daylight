@@ -1,5 +1,5 @@
 import L from 'leaflet'
-import mapboxgl from "mapbox-gl/dist/mapbox-gl.js"
+import mapboxgl from 'mapbox-gl'
 
 const MapboxGlLeaflet = L.Class.extend({
   initialize(options){
