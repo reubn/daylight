@@ -2,15 +2,11 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 
-import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {Router, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 
 import store from './store'
-import protect from './helpers/protect'
-
-import App from './components/App'
-import LoginContainer from './components/LoginContainer'
-import MapContainer from './components/MapContainer'
+import routes from './routes'
 
 function Daylight(){
   this.store = store
@@ -18,13 +14,7 @@ function Daylight(){
 
   render(
     <Provider store={this.store}>
-      <Router history={this.history}>
-        <Route path="/" component={App}>
-          <IndexRoute component={() => <span> HOMEPAGE </span>} />
-          <Route path="/login" component={LoginContainer} onEnter={protect(this.store, null, '/map')} />
-          <Route path="/map(/:from(/:to))" component={MapContainer} onEnter={protect(this.store, '/')} />
-        </Route>
-      </Router>
+      <Router history={this.history} routes={routes} />
     </Provider>, document.getElementById('app'))
   return this
 }
