@@ -43,8 +43,8 @@ const MapboxGlLeaflet = L.Class.extend({
     const container = this._glContainer = L.DomUtil.create('div', 'leafconst-gl-layer')
 
     const size = this._map.getSize()
-    container.style.width = size.x + 'px'
-    container.style.height = size.y + 'px'
+    container.style.width = `${size.x}px`
+    container.style.height = `${size.y}px`
   },
 
   _initGL(){
@@ -81,8 +81,8 @@ const MapboxGlLeaflet = L.Class.extend({
     tr.zoom = this._map.getZoom() - 1
 
     if(gl.transform.width !== size.x || gl.transform.height !== size.y){
-      container.style.width = size.x + 'px'
-      container.style.height = size.y + 'px'
+      container.style.width = `${size.x}px`
+      container.style.height = `${size.y}px`
       gl.resize()
     } else {
       gl._update()
