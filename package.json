@@ -62,7 +62,7 @@
     "build": "NODE_ENV=production webpack",
     "lint": "eslint ./ || true",
     "lint:fix": "eslint --fix ./ || true",
-    "update": "sudo ncu -a -u"
+    "upgrade": "npm outdated; read -p 'Press Enter to Update all dependencies to their latest versions and rewrite package.json'; sudo ncu --upgradeAll --upgrade; sudo npm update",
     "info": "git diff --stat 4b825dc642cb6eb9a060e54bf8d69288fbee4904 | cat"
   },
   "author": "Reuben Eggar",
