@@ -8,7 +8,7 @@ const featureSchema = new Schema({
   lastUpdate: {type: Date, required: true, get: moment},
   factory: {type: String, required: true},
   day: {type: Schema.Types.ObjectId, ref: 'Day', required: true},
-  geo: {type: Array, required: true}
+  geo: {}
 }, {
   collection: 'features'
 })

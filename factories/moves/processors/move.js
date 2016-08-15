@@ -10,7 +10,7 @@ module.exports = (factory, day, {activities, lastUpdate}) =>
     activity: interpretMoveType(activity),
     startTime: moment(startTime),
     endTime: moment(endTime),
-    geo: trackPoints.map(({lat, lon: lng}) => [lat, lng]),
+    geo: trackPoints.map(({lat, lon: lng, time}) => ({lat, lng, time: moment(time)})),
     lastUpdate: moment(lastUpdate),
     factory: factory.slug
   }))})

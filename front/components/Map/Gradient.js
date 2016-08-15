@@ -26,7 +26,7 @@ class Gradient extends React.Component {
 
 export default Gradient
 
-function createGradient({id, stops, coords: [[lat1, lng1], [lat2, lng2]]}){
+function createGradient({id, stops, coords: [{lat: lat1, lng: lng1}, {lat: lat2, lng: lng2}]}){
   const svgGradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient')
   svgGradient.setAttribute('id', id)
 

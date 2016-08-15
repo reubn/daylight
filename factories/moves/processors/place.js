@@ -10,7 +10,7 @@ module.exports = (factory, day, {place: {location: {lat, lon: lng}, name, id: pl
         placeId,
         startTime: moment(startTime),
         endTime: moment(endTime),
-        geo: [lat, lng],
+        geo: {lat, lng},
         lastUpdate: moment(lastUpdate),
         factory: factory.slug
       })
