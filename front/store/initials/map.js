@@ -1,5 +1,5 @@
 export default {
   days: [],
-  visible: [],
+  selected: [],
   loading: false
 }
