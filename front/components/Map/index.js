@@ -1,4 +1,5 @@
 import React from 'react'
+import {divIcon} from 'leaflet'
 import {} from 'leaflet/dist/leaflet.css'
 import {Map as LeafletMap, ZoomControl, Marker, Popup} from 'react-leaflet'
 
@@ -8,7 +9,7 @@ import MapboxGlLayer from './MapboxGlLayer'
 import Loader from '../Loader'
 
 import init from './init'
-import {map, mapContainer, loader} from './style'
+import {map, mapContainer, loader, shadow, marker} from './style'
 
 export class Map extends React.Component {
   constructor(props){
@@ -31,8 +32,8 @@ export class Map extends React.Component {
               feature =>
                 feature.type === 'Move'
                 ? <GradientPolyline key={feature.id} id={feature.id} gradient={this.props.activities[feature.activity].map((c, i, a) => ({offset: (100 * i) / (a.length - 1), colour: c}))} opacity={0.9} positions={feature.geo} />
-                : <Marker key={feature.id} id={feature.id} position={feature.geo}>
-                    <Popup>
+              : <Marker key={feature.id} id={feature.id} position={feature.geo} icon={divIcon({className: shadow, html: `<div class="${marker}"></div>`, iconSize: [32, 32], popupAnchor: [0, -18]})} onMouseover={function(){this.openPopup()}} onMouseout={function(){this.closePopup()}}>
+                    <Popup closeButton={false}>
                       <span>{feature.name}</span>
                     </Popup>
                 </Marker>
