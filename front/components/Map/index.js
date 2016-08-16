@@ -1,6 +1,6 @@
 import React from 'react'
 import {} from 'leaflet/dist/leaflet.css'
-import {Map as LeafletMap, ZoomControl, Marker} from 'react-leaflet'
+import {Map as LeafletMap, ZoomControl, Marker, Popup} from 'react-leaflet'
 
 import GradientPolyline from './GradientPolyline'
 import MapboxGlLayer from './MapboxGlLayer'
@@ -31,7 +31,11 @@ export class Map extends React.Component {
               feature =>
                 feature.type === 'Move'
                 ? <GradientPolyline key={feature.id} id={feature.id} gradient={this.props.activities[feature.activity].map((c, i, a) => ({offset: (100 * i) / (a.length - 1), colour: c}))} opacity={0.9} positions={feature.geo} />
-                : <Marker key={feature.id} id={feature.id} position={feature.geo} />
+                : <Marker key={feature.id} id={feature.id} position={feature.geo}>
+                    <Popup>
+                      <span>{feature.name}</span>
+                    </Popup>
+                </Marker>
             )], [])}
         </LeafletMap>
       </section>
