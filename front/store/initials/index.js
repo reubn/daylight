@@ -1,11 +1,11 @@
 import user from './user'
 import map from './map'
-import activities from './activities'
+import aesthetics from './aesthetics'
 
 const initials = {
   user,
   map,
-  activities
+  aesthetics
 }
 
 export default initials

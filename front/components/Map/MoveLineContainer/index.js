@@ -2,6 +2,6 @@ import {connect} from 'react-redux'
 
 import MoveLine from '../MoveLine'
 
-const mapStateToProps = ({activities}) => ({activities})
+const mapStateToProps = ({aesthetics: {activityTypes}}) => ({activityTypes})
 
 export default connect(mapStateToProps)(MoveLine)
