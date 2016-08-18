@@ -16,3 +16,7 @@
   background-image: linear-gradient(300deg, #c34ef8 0%, #5959d3 100%);
   -webkit-mask-size: contain;
 }
+
+:global(.leaflet-popup-content-wrapper), .popup{
+  text-align: center;
+}

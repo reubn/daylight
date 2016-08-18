@@ -2,7 +2,7 @@ import React from 'react'
 import {divIcon} from 'leaflet'
 import {Marker, Popup} from 'react-leaflet'
 
-import {marker, icon as iconStyle} from './style'
+import {marker, popup, icon as iconStyle} from './style'
 
 const PlaceIcon = ({placeCategories, feature}) => {
   const cat = placeCategories[feature.cat]
@@ -20,7 +20,7 @@ const PlaceIcon = ({placeCategories, feature}) => {
 
   return (
     <Marker position={feature.geo} icon={divIcon(icon)} onMouseover={function(){this.openPopup()}} onMouseout={function(){this.closePopup()}}>
-      {feature.name ? <Popup closeButton={false}><span>{feature.name}</span></Popup> : null}
+      {feature.name ? <Popup closeButton={false} className={popup}><span>{feature.name}</span></Popup> : null}
     </Marker>)
 }
 
