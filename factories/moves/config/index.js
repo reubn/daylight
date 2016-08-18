@@ -1,6 +1,6 @@
 const interpretMoveType = require('./interpretMoveType')
 
-const {clientID, clientSecret} = require('./secure')
+const {clientID, clientSecret, fSqClientID, fSqClientSecret} = require('./secure')
 
 const config = {
   clientID,
@@ -10,7 +10,10 @@ const config = {
   refreshTokenURL: refreshToken => `https://api.moves-app.com/oauth/v1/access_token?grant_type=refresh_token&refresh_token=${refreshToken}&client_id=${config.clientID}&client_secret=${config.clientSecret}`,
   lineURL: 'https://api.moves-app.com/api/1.1/user/storyline/daily',
   profileURL: 'https://api.moves-app.com/api/1.1/user/profile',
-  interpretMoveType
+  interpretMoveType,
+  fSqClientID,
+  fSqClientSecret,
+  fSqURL: 'https://api.foursquare.com/v2/venues/search'
 }
 
 module.exports = config
