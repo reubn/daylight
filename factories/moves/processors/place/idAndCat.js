@@ -1,7 +1,7 @@
 const axios = require('axios')
 const config = require('../../config')
 
-module.exports = ({name, lat, lng, movesType, movesId, foursquareId, foursquareCategoryIds, facebookPlaceId}) => new Promise((resolve, reject) => {
+module.exports = ({name, lat, lng, movesType, movesId, foursquareId, foursquareCategoryIds=[], facebookPlaceId}) => new Promise((resolve, reject) => {
   // Have 4Sq Id and 4Sq Cat
   if(foursquareId && !!foursquareCategoryIds.length) return resolve({placeId: foursquareId, cat: foursquareCategoryIds[0]})
 
