@@ -29,16 +29,21 @@ module.exports = (factory, user, dayPromises) => {
         const index = daysForReducing.findIndex(({day: {date}}) => date.format('YYYYMMDD') === dateString)
         const {day} = daysForReducing[index]
 
-        const {features: completeFeatures, errors: completeErrors} = (segments||[]).reduce(({features: existingFeatures=[], errors: existingErrors=[]}, segment) => {
-          if(segment.type === 'off') return {features: existingFeatures, errors: existingErrors}
-          const {features: segmentFeatures, errors: segmentErrors=[]} = (segment.type === 'move' ? moveProcessor : placeProcessor)(factory, day, segment)
+        const completeFeaturePromises = (segments||[]).reduce((existingPromises, segment) =>
+          (segment.type === 'off' ? existingPromises : [...existingPromises, (segment.type === 'move' ? moveProcessor : placeProcessor)(factory, day, segment)]), [])
 
-          return {features: [...existingFeatures, ...segmentFeatures], errors: [...existingErrors, ...segmentErrors]}
-        }, {features: [], errors: requestErrors})
-
-        daysForReducing[index] = {day, features: completeFeatures, errors: completeErrors}
+        daysForReducing[index] = {day, featurePromises: completeFeaturePromises, errors: requestErrors}
         return daysForReducing
-      }, days.map(day => ({day, features: [], errors: []})))
+      }, days.map(day => ({day, featurePromises: [], errors: []})))
     )
-  )
+    .then(daysWithPromises => Promise.all(
+      daysWithPromises.map(({day, featurePromises, errors: requestErrors}) =>
+        Promise.all(featurePromises)
+        .then(featuresOrErrors => featuresOrErrors.reduce(({features: existingFeatures, errors: existingErrors}, {features: segmentFeatures=[], errors: segmentErrors=[]}) =>
+          ({features: [...existingFeatures, ...segmentFeatures], errors: [...existingErrors, ...segmentErrors]}),
+          {features: [], errors: requestErrors}))
+        .then(({features, errors}) => ({day, features, errors}))
+      )
+    ))
+   )
 }
