@@ -18,29 +18,3 @@
   height: calc(100% - 4rem);
   text-align: center;
 }
-
-
-.shadow {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-image: radial-gradient(50% 49%, #FFFFFF 50%, #FCFCFC 100%);
-    box-shadow: 0px 0px 18px 6px rgba(0,0,0,0.50);
-    filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.25));
-    text-align: center;
-}
-
-.marker {
-    width: 22px;
-    height: 22px;
-    background-image: linear-gradient(300deg, #C34EF8 0%, #5959D3 100%);
-    -webkit-mask: url(https://ss0.4sqi.net/img/categories_v2/building/medical_dentist_44.png);
-    -webkit-mask-type: alpha;
-    -webkit-mask-size: contain;
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
