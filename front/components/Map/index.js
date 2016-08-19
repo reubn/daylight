@@ -8,6 +8,7 @@ import Loader from '../Loader'
 import MoveLineContainer from './MoveLineContainer'
 import PlaceIconContainer from './PlaceIconContainer'
 
+import {style, accessToken} from './config'
 import init from './init'
 import {map, mapContainer, loader} from './style'
 
@@ -25,8 +26,7 @@ export class Map extends React.Component {
         {this.props.loading ? <Loader className={loader} /> : null}
         <LeafletMap center={this.props.homeLocation} zoom={15} className={map} zoomControl={false}>
           <ZoomControl position="bottomleft" />
-          {/* <TileLayer url="https://api.mapbox.com/styles/v1/reubnn/cipu12kk1003rcxmb2uylg0no/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmV1Ym5uIiwiYSI6IkdwNWk5eXcifQ.ACZOaLvBQTPi24WU8LYUXg" /> */}
-          <MapboxGlLayer accessToken="pk.eyJ1IjoicmV1Ym5uIiwiYSI6IkdwNWk5eXcifQ.ACZOaLvBQTPi24WU8LYUXg" style="mapbox://styles/reubnn/cipu12kk1003rcxmb2uylg0no" />
+          <MapboxGlLayer accessToken={accessToken} style={style} />
           {this.props.selected.reduce(
             (polylines, {features}) => [...polylines, ...features.map(feature => (feature.type === 'Move' ? <MoveLineContainer feature={feature} key={feature.id} /> : <PlaceIconContainer feature={feature} key={feature.id} />))], [])}
         </LeafletMap>
