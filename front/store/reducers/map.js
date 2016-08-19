@@ -1,6 +1,8 @@
 import initialState from '../initials/map'
 
 const mapReducer = (state=initialState, action) => {
+  if(action.type === 'LOGOUT') return initialState
+
   if(action.type === 'MAP_LOADING') return {...state, loading: action.hasOwnProperty('status') ? action.status : true}
 
   if(action.type === 'ADD_DAYS') return {...state, days: [...state.days, ...action.days]}
