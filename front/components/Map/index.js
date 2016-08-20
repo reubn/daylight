@@ -33,7 +33,7 @@ export class Map extends React.Component {
     return (
       <section className={mapContainer}>
         {this.props.loading ? <Loader className={loader} /> : null}
-        <LeafletMap center={bounds.isValid() ? bounds.getCenter(): this.props.homeLocation} zoom={15} className={map} zoomControl={false}>
+        <LeafletMap bounds={bounds.isValid() ? bounds : new LatLngBounds([this.props.homeLocation])} zoom={15} className={map} zoomControl={false}>
           <ZoomControl position="bottomleft" />
           <MapboxGlLayer accessToken={accessToken} style={style} />
           {layers}
