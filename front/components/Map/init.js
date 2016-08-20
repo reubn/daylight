@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-export default props => {
-  if(props.params.from) props.selectDay(moment(props.params.from, 'YYYYMMDD'))
-  if(props.params.to) props.selectDay(moment(props.params.from, 'YYYYMMDD'), moment(props.params.to, 'YYYYMMDD'))
+export default ({params: {from, to}, selectDay}) => {
+  if(to) selectDay(moment(from, 'YYYYMMDD'), moment(to, 'YYYYMMDD'))
+  if(from && !to) selectDay(moment(from, 'YYYYMMDD'))
 }
