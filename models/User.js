@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt-as-promised')
 const factories = require('../factories')
 
 const userSchema = new Schema({
-  name: String,
+  name: {type: String, trim: true},
   owner: Boolean,
-  username: {type: String, required: true, unique: true},
+  username: {type: String, required: true, lowercase: true, trim: true, unique: true},
   password: {type: String, required: true},
   birthday: {type: Date, required: true, get: v => moment(v)},
   accountStartDay: {type: Date, required: true},
