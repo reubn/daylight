@@ -1,4 +1,5 @@
 import React from 'react'
+import {latLngBounds as LatLngBounds} from 'leaflet'
 import {} from 'leaflet/dist/leaflet.css'
 import {Map as LeafletMap, ZoomControl} from 'react-leaflet'
 
@@ -21,14 +22,21 @@ export class Map extends React.Component {
     if(nextProps.params.from !== this.props.params.from || nextProps.params.to !== this.props.params.to) init(nextProps)
   }
   render(){
+    const {layers, bounds} =
+      this.props.selected
+      .reduce((existingFeatures, {features}) => [...existingFeatures, ...features], [])
+      .reduce(({layers: exisingLayers, bounds: exisingBounds}, feature) => {
+        const layer = feature.type === 'Move' ? <MoveLineContainer feature={feature} key={feature.id} /> : <PlaceIconContainer feature={feature} key={feature.id} />
+        return {layers: [...exisingLayers, layer], bounds: exisingBounds.extend(feature.geo)}
+      }, {layers: [], bounds: new LatLngBounds([])})
+
     return (
       <section className={mapContainer}>
         {this.props.loading ? <Loader className={loader} /> : null}
-        <LeafletMap center={this.props.homeLocation} zoom={15} className={map} zoomControl={false}>
+        <LeafletMap center={bounds.isValid() ? bounds.getCenter(): this.props.homeLocation} zoom={15} className={map} zoomControl={false}>
           <ZoomControl position="bottomleft" />
           <MapboxGlLayer accessToken={accessToken} style={style} />
-          {this.props.selected.reduce(
-            (polylines, {features}) => [...polylines, ...features.map(feature => (feature.type === 'Move' ? <MoveLineContainer feature={feature} key={feature.id} /> : <PlaceIconContainer feature={feature} key={feature.id} />))], [])}
+          {layers}
         </LeafletMap>
       </section>
     )
