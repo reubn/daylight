@@ -3,6 +3,8 @@ import {latLngBounds as LatLngBounds} from 'leaflet'
 import {} from 'leaflet/dist/leaflet.css'
 import {Map as LeafletMap, ZoomControl} from 'react-leaflet'
 
+import KeyCombo from '../KeyCombo'
+
 import MapboxGlLayer from './MapboxGlLayer'
 
 import Loader from '../Loader'
@@ -38,6 +40,8 @@ export class Map extends React.Component {
           <MapboxGlLayer accessToken={accessToken} style={style} />
           {layers}
         </LeafletMap>
+        <KeyCombo combo="9" handler={this.props.goYesterday} />
+        <KeyCombo combo="0" handler={this.props.goTomorrow} />
       </section>
     )
   }

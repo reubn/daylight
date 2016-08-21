@@ -11,6 +11,7 @@
     "leaflet": "^0.7.7",
     "mapbox-gl": "^0.21.0",
     "moment": "^2.14.1",
+    "mousetrap": "^1.6.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-enroute": "0.0.1",
