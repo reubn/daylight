@@ -14,4 +14,14 @@ module.exports = (factories, user, dayPromises) => {
     .then(completedC => [completedP, completedC])
     .then(mergeFactoryReturns)
   )
+  // Moved from get.js
+  .then(dayPairs => dayPairs.map(({day, features: affectedFeatures, errors: existingErrors=[]}) => {
+    if(existingErrors.length !== 0) day.complete = false
+    else day.complete = true
+
+    return day.save()
+      .then(() => day.getFeatures({_id: {$nin: affectedFeatures.map(feature => feature._id)}}))
+      .then(unaffectedFeatures => ({day, features: [...affectedFeatures, ...unaffectedFeatures], errors: existingErrors}))
+  }))
+  .then(incompletePromises => Promise.all(incompletePromises))
 }

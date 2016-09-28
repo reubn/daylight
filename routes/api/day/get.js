@@ -10,16 +10,7 @@ module.exports = ({user, params: {start, end=start}}, res) => {
   .then(days => days.reduce(({c, i}, day) => (day.complete? {c: [...c, day], i} : {c, i: [...i, day]}), {c: [], i: []}))
   .then(({c: completeDays, i: incompleteDays}) => {
     const completedDayPromise = Promise.all(completeDays.map(day => day.getFeatures().then(features => ({day, features}))))
-    const incompleteDayPromise = runFactories(user, incompleteDays)
-    .then(dayPairs => dayPairs.map(({day, features: affectedFeatures, errors: existingErrors=[]}) => {
-      if(existingErrors.length !== 0) day.complete = false
-      else day.complete = true
-
-      return day.save()
-        .then(() => day.getFeatures({_id: {$nin: affectedFeatures.map(feature => feature._id)}}))
-        .then(unaffectedFeatures => ({day, features: [...affectedFeatures, ...unaffectedFeatures], errors: existingErrors}))
-    }))
-    .then(incompletePromises => Promise.all(incompletePromises))
+    const incompleteDayPromise = runFactories(user, incompleteDays) /* ...moved to runFactories */
 
     return Promise.all([completedDayPromise, incompleteDayPromise])
       .then(([daysFromComplete, daysFromIncomplete]) =>
