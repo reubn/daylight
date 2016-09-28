@@ -56,7 +56,8 @@
     }],
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
-    "react/jsx-sort-prop": 0
+    "react/jsx-sort-prop": 0,
+    "import/extensions": 0
   },
   "settings": {
     "import/resolver": {
