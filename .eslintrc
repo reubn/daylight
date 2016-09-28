@@ -18,6 +18,7 @@
     "max-len": 0,
     "func-names": 0,
     "prefer-arrow-callback": 0,
+    "arrow-parens": [2, "as-needed"],
     "no-console": 1,
     "comma-dangle": [2, "never"],
     "space-before-function-paren": [2, "never"],
@@ -57,7 +58,8 @@
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
     "react/jsx-sort-prop": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "import/newline-after-import": 0
   },
   "settings": {
     "import/resolver": {
