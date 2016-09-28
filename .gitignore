@@ -3,6 +3,6 @@ front/compiled/*
 front/node_modules/*
 data/*
 *secure.js
-*.log.*
+npm-debug.log*
 research/*
 .DS_Store
