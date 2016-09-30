@@ -39,7 +39,7 @@ module.exports = ({name, lat, lng, movesType, movesId, foursquareId, foursquareC
     }
 
     // Have Match on fSq
-    const {id: placeId, categories: [{id: cat='0'}]} = match
+    const {id: placeId, categories: [{id: cat}={id: 0}]} = match
     return resolve({placeId, cat})
   })
   .catch(reject)
