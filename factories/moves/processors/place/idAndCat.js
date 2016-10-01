@@ -32,7 +32,7 @@ module.exports = ({name, lat, lng, movesType, movesId, foursquareId, foursquareC
       if(facebookPlaceId) return resolve({placeId: facebookPlaceId, cat: '0'})
 
       // Use movesId as fallback
-      if(movesId) return resolve({placeId: facebookPlaceId, cat: '0'})
+      if(movesId) return resolve({placeId: movesId, cat: '0'})
 
       // Unknown Place w/ movesId nor facebookPlaceId
       return resolve({placeId: `(${lat},${lng})`, cat: '2'})
