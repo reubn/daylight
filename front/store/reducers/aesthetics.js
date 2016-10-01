@@ -1,7 +1,5 @@
 import initialState from '../initials/aesthetics'
 
-const aestheticsReducer = (state=initialState, action) => {
-  return state
-}
+const aestheticsReducer = (state=initialState) => state
 
 export default aestheticsReducer

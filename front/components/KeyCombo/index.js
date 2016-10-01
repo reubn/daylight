@@ -24,11 +24,14 @@ export default class KeyCombo extends React.Component {
   componentWillUnmount(){
     this.unbind(this.props)
   }
+
   bind({combo, handler, action}){
     Mousetrap.bind(combo, handler, action)
   }
+
   unbind({combo, action}){
     Mousetrap.unbind(combo, action)
   }
+
   render(){return null}
 }

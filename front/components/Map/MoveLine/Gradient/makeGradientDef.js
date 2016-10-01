@@ -1,32 +1,4 @@
-import React from 'react'
-import {PropTypes} from 'react-leaflet'
-
-class Gradient extends React.Component {
-  static contextTypes = {
-    map: PropTypes.map
-  }
-  componentDidMount(){
-    this.svgRoot = this.context.map.getPanes().overlayPane.firstChild
-    this.gradientElement = this.svgRoot.appendChild(createGradient(this.props))
-  }
-  componentDidUpdate(prevProps: Object){
-    const {id} = this.props
-    if(id !== prevProps.id){
-      this.gradientElement.remove()
-      this.gradientElement = this.svgRoot.appendChild(createGradient(this.props))
-    }
-  }
-  componentWillUnmount(){
-    this.gradientElement.remove()
-  }
-  render(){
-    return null
-  }
-}
-
-export default Gradient
-
-function createGradient({id, stops, coords: [{lat: lat1, lng: lng1}, {lat: lat2, lng: lng2}]}){
+function createGradientDef({id, stops, coords: [{lat: lat1, lng: lng1}, {lat: lat2, lng: lng2}]}){
   const svgGradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient')
   svgGradient.setAttribute('id', id)
 
@@ -45,3 +17,5 @@ function createGradient({id, stops, coords: [{lat: lat1, lng: lng1}, {lat: lat2,
 
   return svgGradient
 }
+
+export default createGradientDef

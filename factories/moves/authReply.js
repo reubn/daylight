@@ -24,5 +24,5 @@ module.exports = (factory, req, res, next) => {
     .then(startDate => factory.diplomat.saveUserData(req.user, Object.assign({}, authData, {startDate})))
   )
   .then(() => res.send('<script>console.log(opener)</script>'))
-  .catch((error) => next(new Error(error === 'invalid_grant' ? 'FactoryAuthError' : 'FactoryError')))
+  .catch(error => next(new Error(error === 'invalid_grant' ? 'FactoryAuthError' : 'FactoryError')))
 }

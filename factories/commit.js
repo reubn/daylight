@@ -18,7 +18,7 @@ module.exports = (user, dayFeaturePairs) =>
             .then(featureInDB => ({features: [featureInDB]}))
             .catch((error=new Error('UnknownCommitError')) => ({errors: [error]}))
     }))
-    .then((featuresOrErrors) => {
+    .then(featuresOrErrors => {
       const {features: completeFeatures, errors: completeErrors} =
         featuresOrErrors.reduce(
           ({features: existingFeatures=[], errors: existingErrors=[]}, {features: newFeatures=[], errors: newErrors=[]}) => ({

@@ -15,7 +15,7 @@ import {style, accessToken} from './config'
 import init from './init'
 import {map, mapContainer, loader} from './style'
 
-export class Map extends React.Component {
+class Map extends React.Component {
   constructor(props){
     super(props)
     init(props)
