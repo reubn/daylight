@@ -26,9 +26,11 @@
     "object-curly-spacing": [2, "never"],
     "curly": [2, "multi-line"],
     "consistent-return": 0,
+    "no-plusplus": 0,
     "block-spacing": [2, "never"],
     "space-infix-ops": 0,
     "no-prototype-builtins": 0,
+    "class-methods-use-this": 0,
     "no-underscore-dangle": 0,
     "no-param-reassign": [2, {"props": false}],
     "keyword-spacing": [2, {
@@ -38,6 +40,9 @@
           "after": true
         },
         "import": {
+          "after": true
+        },
+        "export": {
           "after": true
         },
         "const": {
@@ -59,7 +64,8 @@
     "react/prop-types": 0,
     "react/jsx-sort-prop": 0,
     "import/extensions": 0,
-    "import/newline-after-import": 0
+    "import/newline-after-import": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   },
   "settings": {
     "import/resolver": {
