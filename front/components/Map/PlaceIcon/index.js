@@ -19,7 +19,12 @@ const PlaceIcon = ({placeCategories, feature}) => {
   }
 
   return (
-    <Marker position={feature.geo} icon={divIcon(icon)} onMouseover={function(){this.openPopup()}} onMouseout={function(){this.closePopup()}}>
+    <Marker
+      position={feature.geo}
+      icon={divIcon(icon)}
+      onMouseover={function(){this.openPopup(); this._bringToFront()}}
+      onMouseout={function(){this.closePopup(); this._resetZIndex()}}
+    >
       {feature.name ? <Popup closeButton={false} className={popup}><span>{feature.name}</span></Popup> : null}
     </Marker>)
 }
