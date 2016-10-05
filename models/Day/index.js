@@ -35,7 +35,6 @@ daySchema.statics.fromDate = function(date, user){
   })
 }
 
-
 daySchema.statics.daysToRanges = daysToRanges
 daySchema.statics.rangeToDays = rangeToDays
 
