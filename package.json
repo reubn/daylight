@@ -7,6 +7,7 @@
     "url": "https://github.com/reubn/daylight.git"
   },
   "main": "index.js",
+  "browser": "front/index.js",
   "dependencies": {
     "axios": "^0.14.0",
     "bcrypt-as-promised": "^1.1.0",
@@ -23,7 +24,23 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "serve-static": "^1.11.1"
+    "serve-static": "^1.11.1",
+    "axios": "^0.14.0",
+    "classnames": "^2.2.5",
+    "leaflet": "^0.7.7",
+    "mapbox-gl": "^0.21.0",
+    "moment": "^2.14.1",
+    "mousetrap": "^1.6.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-enroute": "0.0.1",
+    "react-leaflet": "^0.12.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-localstorage": "^0.4.1",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
