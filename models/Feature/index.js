@@ -7,8 +7,7 @@ const featureSchema = new Schema({
   endTime: {type: Date, required: true, get: moment},
   lastUpdate: {type: Date, required: true, get: moment},
   factory: {type: String, required: true},
-  day: {type: Schema.Types.ObjectId, ref: 'Day', required: true},
-  geo: {}
+  day: {type: Schema.Types.ObjectId, ref: 'Day', required: true}
 }, {
   collection: 'features'
 })
@@ -16,6 +15,7 @@ const featureSchema = new Schema({
 featureSchema.methods.clean = function(){
   this.depopulate('user')
   this.depopulate('day')
+  this.depopulate('location')
   const feature = this.toObject()
   return Object.assign({}, feature, {__v: undefined, _id: undefined, __t: undefined, type: feature.__t, id: feature._id})
 }

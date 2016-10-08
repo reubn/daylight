@@ -4,8 +4,8 @@ import {Marker, Popup} from 'react-leaflet'
 
 import {marker, popup, icon as iconStyle} from './style'
 
-const PlaceIcon = ({placeCategories, feature}) => {
-  const cat = placeCategories[feature.cat]
+const LocationIcon = ({locationCategories, displayFeature}) => {
+  const cat = locationCategories[displayFeature.cat]
   const icon = cat.url
   ? {className: marker,
     html: `<div class="${iconStyle}" style="-webkit-mask-image: url(https://foursquare.com/img/categories_v2/${cat.url}_32.png);"></div>`,
@@ -20,14 +20,14 @@ const PlaceIcon = ({placeCategories, feature}) => {
 
   return (
     <Marker
-      position={feature.geo}
+      position={displayFeature.geo}
       icon={divIcon(icon)}
       onMouseover={function(){this.openPopup(); this._bringToFront()}}
       onMouseout={function(){this.closePopup(); this._resetZIndex()}}
     >
-      {feature.name ? <Popup closeButton={false} className={popup}><span>{feature.name}</span></Popup> : null}
+      {displayFeature.name ? <Popup closeButton={false} className={popup}><span>{displayFeature.name}</span></Popup> : null}
     </Marker>)
 }
 
 
-export default PlaceIcon
+export default LocationIcon

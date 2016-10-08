@@ -1,11 +1,11 @@
 module.exports = {
-  0: {
+  u: {
     name: 'Unknown'
   },
-  1: {
+  p: {
     name: 'Personal'
   },
-  2: {
+  n: {
     name: 'NoID'
   },
   '4d4b7104d754a06370d81259': {

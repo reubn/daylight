@@ -3,7 +3,7 @@ const Day = require('../../models/Day')
 const chunkRanges = require('./chunkRanges')
 const storylineRequest = require('./storylineRequest')
 
-const placeProcessor = require('./processors/place')
+const visitProcessor = require('./processors/visit')
 const moveProcessor = require('./processors/move')
 
 module.exports = (factory, user, dayPromises) => {
@@ -30,7 +30,7 @@ module.exports = (factory, user, dayPromises) => {
         const {day} = daysForReducing[index]
 
         const completeFeaturePromises = (segments||[]).reduce((existingPromises, segment) =>
-          (segment.type === 'off' ? existingPromises : [...existingPromises, (segment.type === 'move' ? moveProcessor : placeProcessor)(factory, day, segment)]), [])
+          (segment.type === 'off' ? existingPromises : [...existingPromises, (segment.type === 'move' ? moveProcessor : visitProcessor)(factory, day, user, segment)]), [])
 
         daysForReducing[index] = {day, featurePromises: completeFeaturePromises, errors: requestErrors}
         return daysForReducing

@@ -9,7 +9,7 @@ import MapboxGlLayer from './MapboxGlLayer'
 
 import Loader from '../Loader'
 import MoveLineContainer from './MoveLineContainer'
-import PlaceIconContainer from './PlaceIconContainer'
+import LocationIconContainer from './LocationIconContainer'
 
 import {style, accessToken} from './config'
 import init from './init'
@@ -26,10 +26,10 @@ class Map extends React.Component {
   render(){
     const {layers, bounds} =
       this.props.selected
-      .reduce((existingFeatures, {features}) => [...existingFeatures, ...features], [])
-      .reduce(({layers: exisingLayers, bounds: exisingBounds}, feature) => {
-        const layer = feature.type === 'Move' ? <MoveLineContainer feature={feature} key={feature.id} /> : <PlaceIconContainer feature={feature} key={feature.id} />
-        return {layers: [...exisingLayers, layer], bounds: exisingBounds.extend(feature.geo)}
+      .reduce((existingDisplayFeatures, {displayFeatures}) => [...existingDisplayFeatures, ...displayFeatures], [])
+      .reduce(({layers: exisingLayers, bounds: exisingBounds}, displayFeature) => {
+        const layer = displayFeature.type === 'Move' ? <MoveLineContainer displayFeature={displayFeature} key={displayFeature.id} /> : <LocationIconContainer displayFeature={displayFeature} key={displayFeature.id} />
+        return {layers: [...exisingLayers, layer], bounds: exisingBounds.extend(displayFeature.geo)}
       }, {layers: [], bounds: new LatLngBounds([])})
 
     return (

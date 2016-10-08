@@ -4,6 +4,7 @@ const Day = require('../../../models/Day')
 
 const {runFactories} = require('../../../factories')
 
+const gatherLocations = require('../../../helpers/gatherLocations')
 const prepareDaysForClient = require('../../../helpers/prepareDaysForClient')
 
 module.exports = ({user, params: {start, end=start}}, res) => {
@@ -16,6 +17,7 @@ module.exports = ({user, params: {start, end=start}}, res) => {
 
     return Promise.all([completedDayPromise, incompleteDayPromise])
       .then(([daysFromComplete, daysFromIncomplete]) => [...daysFromComplete, ...daysFromIncomplete])
+      .then(gatherLocations)
       .then(prepareDaysForClient)
   })
   .then(a => res.json(a))

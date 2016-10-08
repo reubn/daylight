@@ -1,4 +1,4 @@
-module.exports = (user, activityTypes, placeCategories) =>
+module.exports = (user, activityTypes, locationCategories) =>
 
   `<!DOCTYPE html>
   <html>
@@ -10,7 +10,7 @@ module.exports = (user, activityTypes, placeCategories) =>
     <section id="app"></section>
     <script type="text/javascript">
       window.dUD = ${JSON.stringify(user)}
-      window.dAS = ${JSON.stringify({activityTypes, placeCategories})}</script>
+      window.dAS = ${JSON.stringify({activityTypes, locationCategories})}</script>
     <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
   </body>
   </html>

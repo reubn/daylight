@@ -4,7 +4,7 @@ const Move = require('../../../models/Feature/Move')
 
 const {interpretMoveType} = require('../config')
 
-module.exports = (factory, day, {activities, lastUpdate}) =>
+module.exports = (factory, day, user, {activities, lastUpdate}) =>
   ({features: activities.map(({activity, startTime, endTime, trackPoints}) => new Move({
     day,
     activity: interpretMoveType(activity),
