@@ -1,4 +1,5 @@
 const colors = require('colors/safe')
+
 module.exports = {
   servers: [{port: 80}, {port: 443, secure: true}],
   statusIndicator: (req, {statusCode}) => ['', '', '✅', '🌀', '⚠️', '‼️'][statusCode.toString()[0]],
