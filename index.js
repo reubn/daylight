@@ -29,7 +29,7 @@ const routes = require('./routes')
 
 // Database
 mongoose.Promise = global.Promise
-mongoose.connect(databaseConfig.url).then(() => console.info('🗄 🗄 🗄  - Connected -  🗄 🗄 🗄'))
+mongoose.connect(databaseConfig.url).then(() => console.info('🗄🗄🗄 - Connected - 🗄🗄🗄'))
 
 // Auth
 app.use(expressSession(sessionConfig))
@@ -67,6 +67,6 @@ app.use(routes)
 const lex = letsEncrypt.create(sslConfig.letsEncrypt)
 
 serverConfig.servers.forEach(({port, secure}) => {
-  server.listen(port, () => console.info(`🚀 🚀 🚀  - Launched on ${port} -  🚀 🚀 🚀`))
   const server = (secure ? https.createServer(lex.httpsOptions, lex.middleware(app)) : http.createServer(lex.middleware(app)))
+  server.listen(port, () => console.info(`🚀🚀🚀 - Launched on ${port} - 🚀🚀🚀`))
 })
