@@ -19,6 +19,7 @@
     "express-session": "^1.14.1",
     "helmet": "^2.2.0",
     "hpp": "^0.2.1",
+    "letsencrypt-express": "^2.0.3",
     "moment": "^2.15.1",
     "mongoose": "^4.6.1",
     "morgan": "^1.7.0",

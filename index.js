@@ -8,6 +8,8 @@ const helmet = require('helmet')
 const hpp = require('hpp')
 const bodyParser = require('body-parser')
 
+const letsEncrypt = require('letsencrypt-express')
+
 const passport = require('passport')
 const expressSession = require('express-session')
 
@@ -62,7 +64,9 @@ app.use(hpp())
 app.use(routes)
 
 // Serving
+const lex = letsEncrypt.create(sslConfig.letsEncrypt)
+
 serverConfig.servers.forEach(({port, secure}) => {
-  const server = (secure ? https.createServer(sslConfig, app) : http.createServer(app))
   server.listen(port, () => console.info(`🚀 🚀 🚀  - Launched on ${port} -  🚀 🚀 🚀`))
+  const server = (secure ? https.createServer(lex.httpsOptions, lex.middleware(app)) : http.createServer(lex.middleware(app)))
 })
