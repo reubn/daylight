@@ -1,4 +1,5 @@
 import React from 'react'
+import {login} from './style'
 
 export default class Login extends React.Component {
   constructor(props){
@@ -17,9 +18,9 @@ export default class Login extends React.Component {
   }
   render(){
     return (
-      <section>
-        <input type="username" value={this.state.username} onChange={this.onChange} />
-        <input type="password" value={this.state.password} onChange={this.onChange} />
+      <section className={login}>
+        <input type="username" value={this.state.username} placeholder="track@your.life" onChange={this.onChange} />
+        <input type="password" value={this.state.password} placeholder="••••••••••••" onChange={this.onChange} />
         <input type="submit" value="Login" onClick={this.onSubmit} />
       </section>
     )

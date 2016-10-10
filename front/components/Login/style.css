@@ -1,0 +1,52 @@
+.login {
+    font-family: 'Source Code Pro';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 22rem;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.login input {
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.5rem;
+    text-align: center;
+    border: none;
+            appearance: none;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+.login input:focus{
+  outline: none;
+}
+
+.login input[type='username'], .login input[type='password'] {
+    margin-bottom: 1rem;
+    transition: all .1s ease-in;
+    color: #b7b7b7;
+    border: none;
+    border-bottom: solid 3px #ececec;
+}
+.login input[type='username']:focus, .login input[type='password']:focus {
+    color: #525252;
+    border-bottom-color: #60cbfc;
+}
+
+
+.login input[type='submit'] {
+    font-weight: 600;
+    transition: all .1s ease-in;
+    color: #525252;
+    background: #ececec;
+}
+
+.login input[type='submit']:hover {
+    transition: all .15s ease-in;
+    color:#fff;
+    background: #60cbfc;
+}
