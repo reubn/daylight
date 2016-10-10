@@ -5,6 +5,7 @@ const express = require('express')
 const morgan = require('morgan')
 const compression = require('compression')
 const helmet = require('helmet')
+const {HTTPS} = require('express-sslify')
 const hpp = require('hpp')
 const bodyParser = require('body-parser')
 
@@ -30,6 +31,9 @@ const routes = require('./routes')
 // Database
 mongoose.Promise = global.Promise
 mongoose.connect(databaseConfig.url).then(() => console.info('🗄🗄🗄 - Connected - 🗄🗄🗄'))
+
+// HTTPS
+app.use(HTTPS())
 
 // Auth
 app.use(expressSession(sessionConfig))
