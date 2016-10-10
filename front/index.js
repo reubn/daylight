@@ -6,6 +6,7 @@ module.exports = (user, activityTypes, locationCategories) =>
     <title>daylight 🌍</title>
     <meta charset="utf-8">
     <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
   </head>
   <body>
     <section id="app"></section>
