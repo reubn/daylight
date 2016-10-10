@@ -8,7 +8,7 @@ const LocationIcon = ({locationCategories, displayFeature}) => {
   const cat = locationCategories[displayFeature.cat]
   const icon = cat.url
   ? {className: marker,
-    html: `<div class="${iconStyle}" style="-webkit-mask-image: url(https://foursquare.com/img/categories_v2/${cat.url}_32.png);"></div>`,
+    html: `<div class="${iconStyle}" style="-webkit-mask-image: url(https://foursquare.com/img/categories_v2/${cat.url}_64.png);"></div>`,
     iconSize: [36, 36],
     popupAnchor: [0, -20]
   }

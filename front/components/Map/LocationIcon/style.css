@@ -11,6 +11,9 @@
   width: 32px;
   height: 32px;
   background: linear-gradient(300deg, #c34ef8 0%, #5959d3 100%);
+  -webkit-mask-size: 32px;
+-webkit-mask-repeat: no-repeat;
+-webkit-mask-position: center;
 }
 
 :global(.leaflet-popup-content-wrapper), .popup {
