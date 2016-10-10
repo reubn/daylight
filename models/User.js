@@ -9,6 +9,7 @@ const userSchema = new Schema({
   name: {type: String, trim: true},
   owner: Boolean,
   username: {type: String, required: true, lowercase: true, trim: true, unique: true},
+  email: {type: String, required: true, lowercase: true, trim: true, unique: true},
   password: {type: String, required: true},
   birthday: {type: Date, required: true, get: v => moment(v)},
   accountStartDay: {type: Date, required: true},
