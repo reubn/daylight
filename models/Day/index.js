@@ -4,9 +4,6 @@ const Schema = mongoose.Schema
 
 const Feature = require('../Feature')
 
-const daysToRanges = require('./daysToRanges')
-const rangeToDays = require('./rangeToDays')
-
 const daySchema = new Schema({
   date: {type: Date, required: true, get: v => moment(v)},
   lastUpdate: {type: Date, get: v => moment(v)},
@@ -26,7 +23,7 @@ daySchema.methods.getFeatures = function(search){return Feature.find(Object.assi
 daySchema.methods.toDate = function(){
   return this.date
 }
-
+// TODO ATOMIC
 daySchema.statics.fromDate = function(date, user){
   return this.findOne({user, date})
   .then(day => {
@@ -34,8 +31,5 @@ daySchema.statics.fromDate = function(date, user){
     return Promise.resolve(day)
   })
 }
-
-daySchema.statics.daysToRanges = daysToRanges
-daySchema.statics.rangeToDays = rangeToDays
 
 module.exports = mongoose.model('Day', daySchema)

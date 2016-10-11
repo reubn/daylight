@@ -1,4 +1,4 @@
-const Day = require('../../models/Day')
+const Range = require('../../models/Range')
 
 const chunkRanges = require('./chunkRanges')
 const storylineRequest = require('./storylineRequest')
@@ -12,7 +12,7 @@ module.exports = (factory, user, dayPromises) => {
   return Promise.all(dayPromises)
   .then(days =>
     Promise.all(
-      chunkRanges(Day.daysToRanges(days), startDate)
+      chunkRanges(Range.daysToRanges(days), startDate)
         .map(range =>
           storylineRequest(accessToken, range)
           .catch((error, {status}=error) => {
@@ -20,7 +20,7 @@ module.exports = (factory, user, dayPromises) => {
             throw error
           })
           .then(({data: daysFromRequest}) => daysFromRequest)
-          .catch(() => Promise.all(Day.rangeToDays(range, user)).then(errorDays => errorDays.map(({date}) => ({date: date.format('YYYYMMDD'), errors: [new Error('SingleRequestError')]}))))
+          .catch(() => Promise.all(range.toDays(user)).then(errorDays => errorDays.map(({date}) => ({date: date.format('YYYYMMDD'), errors: [new Error('SingleRequestError')]}))))
         )
     )
     .then(requests => requests.reduce((array, request) => [...array, ...request], []))

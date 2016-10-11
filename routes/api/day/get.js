@@ -1,6 +1,6 @@
 const moment = require('moment')
 
-const Day = require('../../../models/Day')
+const Range = require('../../../models/Range')
 
 const {runFactories} = require('../../../factories')
 
@@ -8,7 +8,7 @@ const gatherLocations = require('../../../helpers/gatherLocations')
 const prepareDaysForClient = require('../../../helpers/prepareDaysForClient')
 
 module.exports = ({user, params: {start, end=start}}, res) => {
-  Promise.all(Day.rangeToDays({start: moment(start, 'YYYYMMDD'), end: moment(end, 'YYYYMMDD')}, user))
+  Promise.all(new Range({start: moment(start, 'YYYYMMDD'), end: moment(end, 'YYYYMMDD')}).toDays(user))
   // Split Complete and Incomplete
   .then(days => days.reduce(({c, i}, day) => (day.complete ? {c: [...c, day], i} : {c, i: [...i, day]}), {c: [], i: []}))
   .then(({c: completeDays, i: incompleteDays}) => {
