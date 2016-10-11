@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 import {replace} from 'react-router-redux'
 
 function loginAction(dispatch, username, password){
@@ -7,7 +8,7 @@ function loginAction(dispatch, username, password){
   })
   .then(function({data: user}){
     dispatch({type: 'USER', user})
-    dispatch(replace('/map'))
+    dispatch(replace(`/map/${moment(user.accountStartDay).format('YYYYMMDD')}`))
   })
   .catch(function(error){
     console.log(error)
