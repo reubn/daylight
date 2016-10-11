@@ -5,7 +5,7 @@ const express = require('express')
 const morgan = require('morgan')
 const compression = require('compression')
 const helmet = require('helmet')
-const {HTTPS} = require('express-sslify')
+const {HTTPS: fourcehttps} = require('express-sslify')
 const hpp = require('hpp')
 const bodyParser = require('body-parser')
 
@@ -33,7 +33,7 @@ mongoose.Promise = global.Promise
 mongoose.connect(databaseConfig.url).then(() => console.info('🗄🗄🗄 - Connected - 🗄🗄🗄'))
 
 // HTTPS
-app.use(HTTPS())
+app.use(fourcehttps())
 
 // Auth
 app.use(expressSession(sessionConfig))
