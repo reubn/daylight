@@ -5,7 +5,7 @@ export default {
   },
   selected: {
     range: null,
-    days: []
+    displayFeatures: []
   },
   loading: false
 }
