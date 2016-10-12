@@ -25,8 +25,7 @@ class Map extends React.Component {
   }
   render(){
     const {layers, bounds} =
-      this.props.selected.days
-      .reduce((existingDisplayFeatures, {displayFeatures}) => [...existingDisplayFeatures, ...displayFeatures], [])
+      this.props.selected.displayFeatures
       .reduce(({layers: exisingLayers, bounds: exisingBounds}, displayFeature) => {
         const layer = displayFeature.type === 'Move' ? <MoveLineContainer displayFeature={displayFeature} key={displayFeature.id} /> : <LocationIconContainer displayFeature={displayFeature} key={displayFeature.id} />
         return {layers: [...exisingLayers, layer], bounds: exisingBounds.extend(displayFeature.geo)}
