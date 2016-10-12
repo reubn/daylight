@@ -1,6 +1,8 @@
 import moment from 'moment'
 
-export default ({params: {from, to}, selectDay}) => {
-  if(to) selectDay(moment(from, 'YYYYMMDD'), moment(to, 'YYYYMMDD'))
-  if(from && !to) selectDay(moment(from, 'YYYYMMDD'))
+import Range from '../../helpers/Range'
+
+export default ({params: {from, to}, selectRange}) => {
+  if(to) selectRange(new Range({start: moment(from, 'YYYYMMDD'), end: moment(to, 'YYYYMMDD')}), false)
+  if(from && !to) selectRange(new Range({start: moment(from, 'YYYYMMDD')}), false)
 }
