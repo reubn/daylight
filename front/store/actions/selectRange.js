@@ -1,12 +1,12 @@
 import axios from 'axios'
-import {replace} from 'react-router-redux'
+import {push} from 'react-router-redux'
 
 import Range from '../../helpers/Range'
 import getDayFromDate from '../../helpers/getDayFromDate'
 
 function selectRangeAction(dispatch, getState, range, redirect=true){
   console.log('SRA', redirect)
-  if(redirect) dispatch(replace(`/map/${range.toURL()}`))
+  if(redirect) dispatch(push(`/map/${range.toURL()}`))
   dispatch({type: 'MAP_LOADING'})
 
   const {cached: cachedDays, onServer: onServerDates} = range.toDates()
