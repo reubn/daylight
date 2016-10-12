@@ -27,7 +27,7 @@ function selectRangeAction(dispatch, getState, range, redirect=true){
   )
   Promise.all(serverPromises)
   .then(arrayOfResponces => arrayOfResponces.reduce((flat, res) => [...flat, ...res], []))
-  .then(daysFromServer => (console.log(daysFromServer), [...cachedDays, ...daysFromServer]))
+  .then(daysFromServer => [...cachedDays, ...daysFromServer])
   .then(days => {
     dispatch({type: 'SELECT_RANGE', range, days})
     dispatch({type: 'MAP_LOADING', status: false})
