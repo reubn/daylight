@@ -10,8 +10,8 @@ function selectDayAction(dispatch, getState, from, to){
   dispatch({type: 'MAP_LOADING'})
   axios.get(`/@/day/${from.format('YYYYMMDD')}/${to ? to.format('YYYYMMDD') : ''}`)
   .then(function({data: {days, locations}}){
-    dispatch({type: 'ADD_LOCATIONS', locations})
-    dispatch({type: 'ADD_DAYS', days})
+    dispatch({type: 'CACHE_LOCATIONS', locations})
+    dispatch({type: 'CACHE_DAYS', days})
     dispatch({type: 'SELECT_DAYS', dayIds: days.map(({day: {id}}) => id)})
     dispatch({type: 'MAP_LOADING', status: false})
   })

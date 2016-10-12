@@ -1,6 +1,11 @@
 export default {
-  locations: [],
-  days: [],
-  selected: [],
+  cache: {
+    locations: [],
+    days: []
+  },
+  selected: {
+    range: null,
+    days: []
+  },
   loading: false
 }

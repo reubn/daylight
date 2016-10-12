@@ -1,1 +1,1 @@
-export default (getState, date) => getState().map.days.find(({day: {date: existingDate}}) => date.isSame(existingDate))
+export default (getState, date) => getState().map.cache.days.find(({day: {date: existingDate}}) => date.isSame(existingDate))
