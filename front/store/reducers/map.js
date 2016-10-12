@@ -27,8 +27,8 @@ const mapReducer = (state=initialState, action) => {
     })
     return {...state, cache: {...state.cache, days: [...state.cache.days, ...transformed]}}
   }
-  if(action.type === 'SELECT_DAYS'){
-    return {...state, selected: {...state.selected, days: state.cache.days.filter(({day: {id}}) => action.dayIds.includes(id))}}
+  if(action.type === 'SELECT_RANGE'){
+    return {...state, selected: {...state.selected, range: action.range, days: state.cache.days.filter(({day: {id}}) => action.dayIds.includes(id))}}
   }
   return state
 }
