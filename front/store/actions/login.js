@@ -8,7 +8,7 @@ function loginAction(dispatch, username, password){
   })
   .then(function({data: user}){
     dispatch({type: 'USER', user})
-    dispatch(replace(`/map/${moment(user.accountStartDay).format('YYYYMMDD')}`))
+    dispatch(replace('/map'))
   })
   .catch(function(error){
     console.log(error)
