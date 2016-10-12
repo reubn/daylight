@@ -19,7 +19,7 @@
     "func-names": 0,
     "prefer-arrow-callback": 0,
     "arrow-parens": [2, "as-needed"],
-    "no-console": 1,
+    "no-console": 0,
     "comma-dangle": [2, "never"],
     "space-before-function-paren": [2, "never"],
     "space-before-blocks": [2, {"functions": "never", "keywords": "never", "classes": "always"}],
