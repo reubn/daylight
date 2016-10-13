@@ -6,7 +6,7 @@ import goTomorrowAction from '../../store/actions/goTomorrow'
 
 import Map from '../Map'
 
-const mapStateToProps = ({map: {selected}, user: {homeLocation, accountStartDay}}) => ({selected, homeLocation, accountStartDay})
+const mapStateToProps = ({map: {selected, loading}, user: {homeLocation, accountStartDay}}) => ({loading, selected, homeLocation, accountStartDay})
 const mapDispatchToProps = dispatch => ({
   selectRange: (...args) => dispatch((d, getState) => selectRangeAction(dispatch, getState, ...args)),
   goYesterday: () => dispatch((d, getState) => goYesterdayAction(dispatch, getState)),
