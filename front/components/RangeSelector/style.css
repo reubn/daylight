@@ -1,0 +1,40 @@
+.rangeSelector{
+  line-height: 4rem;
+  font-weight: 600;
+}
+.arrow {
+    font-size: 1.25rem;
+    vertical-align: top;
+    margin: 0 2rem;
+    width:2rem;
+    height:2rem;
+    padding:0.5rem;
+}
+.arrow:hover{
+    background: #fff;
+    color:#232323
+}
+
+.slash {
+    color: #60cbfc;
+}
+
+.start:hover {
+    color: #5dedcb;
+}
+
+.end:hover {
+    color: #ff3a8e;
+}
+
+.rangeSelector:hover .slash {
+    color: #ff3a8e;
+}
+
+.start:hover ~ .slash {
+    color: #5dedcb;
+}
+
+.arrow:hover ~ .slash {
+    color: #5dedcb;
+}
