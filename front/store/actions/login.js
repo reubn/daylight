@@ -1,5 +1,4 @@
 import axios from 'axios'
-import moment from 'moment'
 import {replace} from 'react-router-redux'
 
 function loginAction(dispatch, username, password){
