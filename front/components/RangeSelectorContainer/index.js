@@ -4,7 +4,7 @@ import selectRangeAction from '../../store/actions/selectRange'
 import goYesterdayAction from '../../store/actions/goYesterday'
 import goTomorrowAction from '../../store/actions/goTomorrow'
 
-import MapNav from '../MapNav'
+import RangeSelector from '../RangeSelector'
 
 const mapStateToProps = ({map: {selected: {range}}}) => ({range})
 const mapDispatchToProps = dispatch => ({
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
   goTomorrow: () => dispatch((d, getState) => goTomorrowAction(dispatch, getState))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapNav)
+export default connect(mapStateToProps, mapDispatchToProps)(RangeSelector)

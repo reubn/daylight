@@ -1,40 +1,12 @@
-.mapnav{
-  line-height: 4rem;
-  font-weight: 600;
-}
-.arrow {
-    font-size: 1.25rem;
-    vertical-align: top;
-    margin: 0 2rem;
-    width:2rem;
-    height:2rem;
-    padding:0.5rem;
-}
-.arrow:hover{
-    background: #fff;
-    color:#232323
-}
-
-.slash {
-    color: #60cbfc;
-}
-
-.start:hover {
-    color: #5dedcb;
-}
-
-.end:hover {
-    color: #ff3a8e;
-}
-
-.mapnav:hover .slash {
-    color: #ff3a8e;
-}
-
-.start:hover ~ .slash {
-    color: #5dedcb;
-}
-
-.arrow:hover ~ .slash {
-    color: #5dedcb;
+.mapNav {
+  position: absolute;
+  z-index: 10000;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4rem;
+  color: #fff;
+  background: rgba(30, 31, 31, .4);
+  text-align: center;
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import {latLngBounds as LatLngBounds} from 'leaflet'
 import {} from 'leaflet/dist/leaflet.css'
-import {Map as LeafletMap, ZoomControl} from 'react-leaflet'
+import {Map as LeafletMap} from 'react-leaflet'
 
 import KeyCombo from '../KeyCombo'
+import MapNav from '../MapNav'
 
 import MapboxGlLayer from './MapboxGlLayer'
 
@@ -34,11 +35,11 @@ class Map extends React.Component {
     return (
       <section className={mapContainer}>
         {this.props.loading ? <Loader className={loader} /> : null}
-        <LeafletMap bounds={bounds.isValid() ? bounds : undefined} boundsOptions={{maxZoom: 20}} center={this.props.homeLocation} zoom={20} className={map} zoomControl={false}>
-          <ZoomControl position="bottomleft" />
+        <LeafletMap bounds={bounds.isValid() ? bounds : undefined} boundsOptions={{maxZoom: 20}} center={this.props.homeLocation} zoom={20} className={map} zoomControl={false} attributionControl={false}>
           <MapboxGlLayer accessToken={accessToken} style={style} />
           {layers}
         </LeafletMap>
+        <MapNav />
         <KeyCombo combo="9" handler={this.props.goYesterday} />
         <KeyCombo combo="0" handler={this.props.goTomorrow} />
       </section>
