@@ -19,6 +19,24 @@
   border-radius: 0;
 }
 
+:global(.react-datepicker__year-read-view--selected-year) {
+    color: #fff;
+}
+
+:global(.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow) {
+    border-top-color: #ececec;
+}
+
+:global(.react-datepicker__year-dropdown) {
+    background-color: #f7f7f7;
+    border-radius: 0;
+    border: none;
+}
+
+:global(.react-datepicker__year-option), :global(.react-datepicker__year-option:first-of-type), :global(.react-datepicker__year-option:last-of-type) {
+    border-radius: 0;
+}
+
 :global(.react-datepicker__current-month) {
   color: #fff;
 }

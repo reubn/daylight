@@ -17,6 +17,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range}) => {
     <DatePicker
       customInput={<StartDate />}
       dateFormat="YYYYMMDD"
+      showYearDropdown
       selectsStart
       startDate={range.start}
       endDate={range.end}
@@ -30,6 +31,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range}) => {
     <DatePicker
       customInput={<EndDate />}
       dateFormat="YYYYMMDD"
+      showYearDropdown
       selectsEnd
       startDate={range.start}
       endDate={range.end}
