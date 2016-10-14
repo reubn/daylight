@@ -9,17 +9,19 @@ import './react-datepicker.css'
 
 import Range from '../../helpers/Range'
 
-import {rangeSelector, arrow, slash, start, end} from './style'
+import {rangeSelector, arrow, slash} from './style'
+import StartDate from './StartDate.js'
+import EndDate from './EndDate.js'
 
 const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStartDay}) => {
   if(!range) return null
 
-  const StartDate = props => <span className={start} onClick={props.onClick}>{props.value}</span>
   const StartPicker = (
     <DatePicker
       customInput={<StartDate />}
       dateFormat="YYYYMMDD"
       minDate={moment(accountStartDay)}
+      maxDate={moment()}
       showYearDropdown
       selectsStart
       startDate={range.start}
@@ -29,12 +31,12 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStar
     />
 )
 
-  const EndDate = props => <span className={end} onClick={props.onClick}>{props.value}</span>
   const EndPicker = (
     <DatePicker
       customInput={<EndDate />}
       dateFormat="YYYYMMDD"
       minDate={moment(accountStartDay)}
+      maxDate={moment()}
       showYearDropdown
       selectsEnd
       startDate={range.start}
