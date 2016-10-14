@@ -16,6 +16,10 @@
     color:#232323
 }
 
+.start, .end{
+  cursor: pointer;
+}
+
 .slash {
     color: #60cbfc;
 }
