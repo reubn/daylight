@@ -9,7 +9,7 @@ import Range from '../../helpers/Range'
 
 import {rangeSelector, arrow, slash, start, end} from './style'
 
-const RangeSelector = ({goYesterday, goTomorrow, selectRange, range}) => {
+const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStartDay}) => {
   if(!range) return null
 
   const StartDate = props => <span className={start} onClick={props.onClick}>{props.value}</span>
@@ -17,6 +17,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range}) => {
     <DatePicker
       customInput={<StartDate />}
       dateFormat="YYYYMMDD"
+      minDate={accountStartDay}
       showYearDropdown
       selectsStart
       startDate={range.start}
@@ -31,6 +32,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range}) => {
     <DatePicker
       customInput={<EndDate />}
       dateFormat="YYYYMMDD"
+      minDate={accountStartDay}
       showYearDropdown
       selectsEnd
       startDate={range.start}
