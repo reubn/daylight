@@ -9,4 +9,5 @@
   color: #fff;
   background: rgba(30, 31, 31, .4);
   text-align: center;
+  user-select: none;
 }

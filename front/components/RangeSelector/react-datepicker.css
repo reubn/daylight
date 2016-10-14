@@ -7,6 +7,7 @@
 
 :global(.react-datepicker) {
   font-family: Source Code Pro, monospace;
+  user-select: none;
   background: #fff;
   color: #000;
   border: none;
