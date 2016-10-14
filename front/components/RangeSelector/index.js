@@ -20,6 +20,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStar
       customInput={<StartDate />}
       dateFormat="YYYYMMDD"
       minDate={moment(accountStartDay)}
+      maxDate={moment()}
       showYearDropdown
       selectsStart
       startDate={range.start}
@@ -35,6 +36,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStar
       customInput={<EndDate />}
       dateFormat="YYYYMMDD"
       minDate={moment(accountStartDay)}
+      maxDate={moment()}
       showYearDropdown
       selectsEnd
       startDate={range.start}
