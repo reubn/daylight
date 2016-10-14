@@ -1,17 +1,50 @@
 import React from 'react'
 
-import {rangeSelector, arrow, start, slash, end} from './style'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
+import './react-datepicker.css'
+
+import Range from '../../helpers/Range'
+
+import {rangeSelector, arrow, slash, start, end} from './style'
 
 const RangeSelector = ({goYesterday, goTomorrow, selectRange, range}) => {
-  const freeRange = range || {}
-  const startDisplay = freeRange.start ? range.start.format('YYYYMMDD') : null
-  const endDisplay = (freeRange.end && !freeRange.start.isSame(freeRange.end)) ? range.end.format('YYYYMMDD') : null
+  if(!range) return null
+
+  const StartDate = props => <span className={start} onClick={props.onClick}>{props.value}</span>
+  const StartPicker = (
+    <DatePicker
+      customInput={<StartDate />}
+      dateFormat="YYYYMMDD"
+      showYearDropdown
+      selectsStart
+      startDate={range.start}
+      endDate={range.end}
+      selected={range.start}
+      onChange={date => selectRange(new Range({start: date, end: range.date}))}
+    />
+)
+
+  const EndDate = props => <span className={end} onClick={props.onClick}>{props.value}</span>
+  const EndPicker = (
+    <DatePicker
+      customInput={<EndDate />}
+      dateFormat="YYYYMMDD"
+      showYearDropdown
+      selectsEnd
+      startDate={range.start}
+      endDate={range.end}
+      selected={range.end}
+      onChange={date => selectRange(new Range({start: range.start, end: date}))}
+    />
+)
   return (
     <span className={rangeSelector}>
       <span className={arrow} onClick={goYesterday}>&lt;-</span>
-      <span className={start}>{startDisplay}</span>
+      {StartPicker}
       <span className={slash}>/</span>
-      <span className={end}>{endDisplay}</span>
+      {EndPicker}
       <span className={arrow} onClick={goTomorrow}>-&gt;</span>
     </span>
   )}

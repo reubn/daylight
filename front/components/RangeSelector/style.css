@@ -27,15 +27,3 @@
 .end:hover {
     color: #ff3a8e;
 }
-
-.rangeSelector:hover .slash {
-    color: #ff3a8e;
-}
-
-.start:hover ~ .slash {
-    color: #5dedcb;
-}
-
-.arrow:hover ~ .slash {
-    color: #5dedcb;
-}
