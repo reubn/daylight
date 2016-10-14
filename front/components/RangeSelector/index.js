@@ -3,6 +3,8 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
+import moment from 'moment'
+
 import './react-datepicker.css'
 
 import Range from '../../helpers/Range'
@@ -17,7 +19,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStar
     <DatePicker
       customInput={<StartDate />}
       dateFormat="YYYYMMDD"
-      minDate={accountStartDay}
+      minDate={moment(accountStartDay)}
       showYearDropdown
       selectsStart
       startDate={range.start}
@@ -32,7 +34,7 @@ const RangeSelector = ({goYesterday, goTomorrow, selectRange, range, accountStar
     <DatePicker
       customInput={<EndDate />}
       dateFormat="YYYYMMDD"
-      minDate={accountStartDay}
+      minDate={moment(accountStartDay)}
       showYearDropdown
       selectsEnd
       startDate={range.start}

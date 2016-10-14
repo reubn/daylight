@@ -7,7 +7,7 @@ import toURL from './toURL'
 import fromURL from './fromURL'
 
 function Range({start, end=start}){
-  if(end.isBefore(start)) [start, end] = [end, start]
+  if(end.isBefore(start)) end = start
 
   this.start = moment(start)
   this.end = moment(end)
