@@ -5,7 +5,6 @@ import Range from '../../helpers/Range'
 import getDayFromDate from '../../helpers/getDayFromDate'
 
 function selectRangeAction(dispatch, getState, range, redirect=true){
-  console.log('SRA', redirect)
   if(redirect) dispatch(push(`/map/${range.toURL()}`))
   dispatch({type: 'MAP_LOADING'})
 
