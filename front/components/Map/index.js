@@ -40,8 +40,8 @@ class Map extends React.Component {
           {layers}
         </LeafletMap>
         <MapNav />
-        <KeyCombo combo="9" handler={this.props.goYesterday} />
-        <KeyCombo combo="0" handler={this.props.goTomorrow} />
+        <KeyCombo combo="pagedown" handler={this.props.goYesterday} />
+        <KeyCombo combo="pageup" handler={this.props.goTomorrow} />
       </section>
     )
   }
