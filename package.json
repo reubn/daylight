@@ -7,7 +7,7 @@
     "url": "https://github.com/reubn/daylight.git"
   },
   "main": "index.js",
-  "browser": "front/index.js",
+  "browser": "front/app.js",
   "dependencies": {
     "axios": "^0.14.0",
     "bcrypt-as-promised": "^1.1.0",
