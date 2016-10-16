@@ -1,10 +1,13 @@
-.updateButton{
-    line-height: 4rem;
+.updateButton {
+    line-height: 2rem;
     font-weight: 600;
     padding: 0.75rem 2rem;
     background: #FF3A8D;
+    position: relative;
+    right: .5rem;
+    top: .25rem;
+    float: right;
 }
-
 
 .updateButton:hover {
     background: #e40d68;
