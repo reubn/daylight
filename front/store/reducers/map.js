@@ -14,7 +14,7 @@ const mapReducer = (state=initialState, action) => {
       if(index === -1) return [...cache, day]
       cache[index] = day
       return cache
-    }, state.cache.days) : action.days
+    }, state.cache.days) : [...state.cache.days, ...action.days]
 
     return {...state, cache: {...state.cache, days}}
   }
