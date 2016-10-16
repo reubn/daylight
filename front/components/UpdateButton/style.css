@@ -1,0 +1,11 @@
+.updateButton{
+    line-height: 4rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    background: #FF3A8D;
+}
+
+
+.updateButton:hover {
+    background: #e40d68;
+}
