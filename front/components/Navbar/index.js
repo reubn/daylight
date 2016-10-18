@@ -3,13 +3,16 @@ import React from 'react'
 import Logo from '../Logo'
 import LogInOutContainer from '../LogInOutContainer'
 
-import {navbar, logo} from './style'
+import {navbar, logo, handle, mapMode as mapModeStyle} from './style'
 
-const Navbar = () => (
-  <header className={navbar}>
-    <Logo className={logo} />
-    <LogInOutContainer />
-  </header>
+const Navbar = ({mapMode}) => (
+  <span>
+    <span className={handle} />
+    <header className={`${navbar} ${mapMode ? mapModeStyle : ''}`}>
+      <Logo className={logo} />
+      <LogInOutContainer />
+    </header>
+  </span>
 )
 
 export default Navbar
