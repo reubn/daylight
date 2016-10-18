@@ -8,7 +8,7 @@ const mapReducer = (state=initialState, action) => {
   if(action.type === 'CACHE_LOCATIONS') return {...state, cache: {...state.cache, locations: {...state.cache.locations, ...action.locations.reduce((interLocations, {cat, name, geo, id}) => ({...interLocations, [id]: {cat, name, geo}}), {})}}}
 
   if(action.type === 'CACHE_DAYS'){
-    const replace = action.hasOwnProperty('update') ? action.status : false
+    const replace = action.hasOwnProperty('update') ? action.update : false
     const days = replace ? action.days.reduce((cache, day) => {
       const index = cache.findIndex(cacheDay => cacheDay.day.id === day.day.id)
       if(index === -1) return [...cache, day]
