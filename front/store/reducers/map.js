@@ -28,7 +28,7 @@ const mapReducer = (state=initialState, action) => {
       const location = locationInDone || {...state.cache.locations[feature.location]}
       if(!location) throw new Error('Location was not sent')
 
-      location.type = 'Visit'
+      location.type = 'Location'
       location.id = feature.location
       location.visits = location.visits ? [...location.visits, feature] : [feature]
 
