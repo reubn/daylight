@@ -3,6 +3,7 @@ import React from 'react'
 import FeaturePopup from '../FeaturePopup'
 import GradientPolyline from './GradientPolyline'
 
+const MoveLine = ({displayFeature, activityTypes}) => (
   <GradientPolyline
     id={displayFeature.id}
     gradient={activityTypes[displayFeature.activity].map((colour, index, array) => ({offset: (100 * index) / (array.length - 1), colour}))}
@@ -14,6 +15,6 @@ import GradientPolyline from './GradientPolyline'
     onMouseout={function(){this.bringToBack(); this.closePopup()}}
   >
     <FeaturePopup displayFeature={displayFeature} />
-  </GradientPolyline>
+  </GradientPolyline>)
 
 export default MoveLine
