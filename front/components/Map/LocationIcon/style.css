@@ -15,3 +15,12 @@
 -webkit-mask-repeat: no-repeat;
 -webkit-mask-position: center;
 }
+
+.selected{
+    background: linear-gradient(300deg,#60cbfc,#38f);
+    border: #fff solid 2px;
+}
+
+.selected .icon{
+  background: #fff;
+}
