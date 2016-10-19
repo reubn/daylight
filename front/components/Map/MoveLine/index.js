@@ -15,7 +15,7 @@ const MoveLine = ({activityTypes, displayFeature}) =>
     onMousemove={function(e){this._openPopup(e)}}
     onMouseout={function(){this.bringToBack(); this.closePopup()}}
   >
-    <Popup closeButton={false}><span>{displayFeature.activity}</span></Popup>
+    <Popup closeButton={false}><span>{(([f, ...r]) => f.toUpperCase()+r.join``)(displayFeature.activity)}</span></Popup>
   </GradientPolyline>
 
 export default MoveLine
