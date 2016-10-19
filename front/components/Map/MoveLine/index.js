@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {Popup} from 'react-leaflet'
+
 import GradientPolyline from './GradientPolyline'
 
 const MoveLine = ({activityTypes, displayFeature}) =>
@@ -10,7 +12,10 @@ const MoveLine = ({activityTypes, displayFeature}) =>
     weight={5}
     positions={displayFeature.geo}
     onMouseover={function(){this.bringToFront()}}
-    onMouseout={function(){this.bringToBack()}}
-  />
+    onMousemove={function(e){this._openPopup(e)}}
+    onMouseout={function(){this.bringToBack(); this.closePopup()}}
+  >
+    <Popup closeButton={false}><span>{displayFeature.activity}</span></Popup>
+  </GradientPolyline>
 
 export default MoveLine
