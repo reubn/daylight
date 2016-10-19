@@ -1,10 +1,8 @@
 import React from 'react'
 
-import {Popup} from 'react-leaflet'
-
+import FeaturePopup from '../FeaturePopup'
 import GradientPolyline from './GradientPolyline'
 
-const MoveLine = ({activityTypes, displayFeature}) =>
   <GradientPolyline
     id={displayFeature.id}
     gradient={activityTypes[displayFeature.activity].map((colour, index, array) => ({offset: (100 * index) / (array.length - 1), colour}))}
@@ -15,7 +13,7 @@ const MoveLine = ({activityTypes, displayFeature}) =>
     onMousemove={function(e){this._openPopup(e)}}
     onMouseout={function(){this.bringToBack(); this.closePopup()}}
   >
-    <Popup closeButton={false}><span>{(([f, ...r]) => f.toUpperCase()+r.join``)(displayFeature.activity)}</span></Popup>
+    <FeaturePopup displayFeature={displayFeature} />
   </GradientPolyline>
 
 export default MoveLine

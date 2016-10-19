@@ -1,8 +1,10 @@
 import React from 'react'
 import {divIcon} from 'leaflet'
-import {Marker, Popup} from 'react-leaflet'
+import {Marker} from 'react-leaflet'
 
-import {marker, popup, icon as iconStyle} from './style'
+import FeaturePopup from '../FeaturePopup'
+
+import {marker, icon as iconStyle} from './style'
 
 const LocationIcon = ({locationCategories, iconImageSize, displayFeature}) => {
   const cat = locationCategories[displayFeature.cat]
@@ -25,7 +27,7 @@ const LocationIcon = ({locationCategories, iconImageSize, displayFeature}) => {
       onMouseover={function(){this.openPopup(); this._bringToFront()}}
       onMouseout={function(){this.closePopup(); this._resetZIndex()}}
     >
-      {displayFeature.name ? <Popup closeButton={false} className={popup}><span>{displayFeature.name}</span></Popup> : null}
+      <FeaturePopup displayFeature={displayFeature} />
     </Marker>)
 }
 

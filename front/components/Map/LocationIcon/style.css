@@ -15,7 +15,3 @@
 -webkit-mask-repeat: no-repeat;
 -webkit-mask-position: center;
 }
-
-:global(.leaflet-popup-content-wrapper), .popup {
-  text-align: center;
-}
