@@ -35,7 +35,7 @@ const mapReducer = (state=initialState, action) => {
       if(locationInDone) return allDisplayFeatures
       return [...allDisplayFeatures, location]
     }, [])
-    return {...state, selected: {...state.selected, range: action.range, displayFeatures}}
+    return {...state, selected: {...state.selected, range: action.range, selectedFeature: null, displayFeatures}}
   }
 
   if(action.type === 'SELECT_FEATURE') return {...state, selected: {...state.selected, selectedFeature: action.displayFeature}}
