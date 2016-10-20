@@ -47,7 +47,15 @@ class Map extends React.Component {
       <section className={mapContainer}>
         <span className={`${mapHolder} ${selectedFeatureSelected ? featureInfoIsOpen : ''}`}>
           {this.props.loading ? <Loader className={loader} /> : null}
-          <LeafletMap bounds={bounds.isValid() ? bounds : undefined} boundsOptions={{maxZoom: 16}} center={this.props.homeLocation} zoom={16} className={map} zoomControl={false} attributionControl={false}>
+          <LeafletMap
+            bounds={bounds.isValid() ? bounds : undefined}
+            boundsOptions={{maxZoom: 16}}
+            center={this.props.homeLocation}
+            zoom={16}
+            className={map}
+            zoomControl={false}
+            attributionControl={false}
+          >
             <MapboxGlLayer accessToken={accessToken} style={style} />
             {layers}
           </LeafletMap>
