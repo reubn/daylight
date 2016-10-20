@@ -25,16 +25,20 @@ class Map extends React.Component {
     if(nextProps.params.from !== this.props.params.from || nextProps.params.to !== this.props.params.to) init(nextProps)
   }
   render(){
-    const {layers, bounds} =
+    const selectedFeatureSelected = !!this.props.selected.selectedFeature
+
+    const {layers, layerBounds} =
       this.props.selected.displayFeatures
-      .reduce(({layers: exisingLayers, bounds: exisingBounds}, displayFeature) => {
+      .reduce(({layers: exisingLayers, layerBounds: exisingBounds}, displayFeature) => {
         const layer =
           displayFeature.type === 'Move' ?
             <MoveLineContainer displayFeature={displayFeature} key={displayFeature.id} /> :
             <LocationIconContainer displayFeature={displayFeature} key={displayFeature.id} />
 
-        return {layers: [...exisingLayers, layer], bounds: exisingBounds.extend(displayFeature.geo)}
-      }, {layers: [], bounds: new LatLngBounds([])})
+        return {layers: [...exisingLayers, layer], layerBounds: exisingBounds.extend(displayFeature.geo)}
+      }, {layers: [], layerBounds: new LatLngBounds([])})
+
+    const bounds = selectedFeatureSelected ? new LatLngBounds([selectedFeature.geo]) : layerBounds
 
     return (
       <section className={mapContainer}>
