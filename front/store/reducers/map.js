@@ -37,6 +37,9 @@ const mapReducer = (state=initialState, action) => {
     }, [])
     return {...state, selected: {...state.selected, range: action.range, displayFeatures}}
   }
+
+  if(action.type === 'SELECT_FEATURE') return {...state, selected: {...state.selected, selectedFeature: action.displayFeature}}
+
   return state
 }
 
