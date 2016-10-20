@@ -6,7 +6,7 @@ import FeaturePopup from '../FeaturePopup'
 
 import {marker, icon as iconStyle} from './style'
 
-const LocationIcon = ({locationCategories, iconImageSize, displayFeature}) => {
+const LocationIcon = ({locationCategories, iconImageSize, displayFeature, selectFeature}) => {
   const cat = locationCategories[displayFeature.cat]
   const icon = cat.url
   ? {className: marker,
@@ -26,6 +26,7 @@ const LocationIcon = ({locationCategories, iconImageSize, displayFeature}) => {
       icon={divIcon(icon)}
       onMouseover={function(){this.openPopup(); this._bringToFront()}}
       onMouseout={function(){this.closePopup(); this._resetZIndex()}}
+      onClick={() => selectFeature(displayFeature)}
     >
       <FeaturePopup displayFeature={displayFeature} />
     </Marker>)
