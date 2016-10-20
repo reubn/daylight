@@ -10,6 +10,7 @@
   height: 100vh;
   background: #1e1f1f;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 .wrapped {
