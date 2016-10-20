@@ -5,6 +5,7 @@ import {Map as LeafletMap} from 'react-leaflet'
 
 import KeyCombo from '../KeyCombo'
 import MapNav from '../MapNav'
+import FeatureInfoContainer from '../FeatureInfoContainer'
 
 import MapboxGlLayer from './MapboxGlLayer'
 
@@ -14,7 +15,7 @@ import LocationIconContainer from './LocationIconContainer'
 
 import {style, accessToken} from './config'
 import init from './init'
-import {map, mapContainer, loader} from './style'
+import {map, mapContainer, mapHolder, featureInfoIsOpen, loader} from './style'
 
 class Map extends React.Component {
   constructor(props){
@@ -44,12 +45,15 @@ class Map extends React.Component {
 
     return (
       <section className={mapContainer}>
-        {this.props.loading ? <Loader className={loader} /> : null}
-        <LeafletMap bounds={bounds.isValid() ? bounds : undefined} boundsOptions={{maxZoom: 16}} center={this.props.homeLocation} zoom={16} className={map} zoomControl={false} attributionControl={false}>
-          <MapboxGlLayer accessToken={accessToken} style={style} />
-          {layers}
-        </LeafletMap>
-        <MapNav />
+        <span className={`${mapHolder} ${selectedFeatureSelected ? featureInfoIsOpen : ''}`}>
+          {this.props.loading ? <Loader className={loader} /> : null}
+          <LeafletMap bounds={bounds.isValid() ? bounds : undefined} boundsOptions={{maxZoom: 16}} center={this.props.homeLocation} zoom={16} className={map} zoomControl={false} attributionControl={false}>
+            <MapboxGlLayer accessToken={accessToken} style={style} />
+            {layers}
+          </LeafletMap>
+          <MapNav />
+        </span>
+        <FeatureInfoContainer />
         <KeyCombo combo="pagedown" handler={this.props.goYesterday} />
         <KeyCombo combo="pageup" handler={this.props.goTomorrow} />
       </section>
