@@ -18,8 +18,19 @@
   background: linear-gradient(300deg,#60cbfc,#38f);
   text-align: center;
   color: #fff;
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+.title {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 17rem;
+}
+.latlng {
+    width: 100%;
+    line-height: 3rem;
+    height: 3rem;
+    color: #ffffff;
+    display: block;
+    font-size: 1rem;
 }
