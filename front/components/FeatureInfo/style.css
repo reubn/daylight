@@ -26,6 +26,10 @@
     justify-content: center;
     height: 17rem;
 }
+.title > span {
+    position: relative;
+    top: 1.5rem;
+}
 .latlng {
     width: 100%;
     line-height: 3rem;
