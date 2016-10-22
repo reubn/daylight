@@ -13,7 +13,7 @@ const FeatureInfo = ({feature, activityTypes, close}) => {
       <header className={header}>
         <span className={title}>
           <span>
-            {feature.name}
+            {feature.name || 'Unknown'}
           </span>
         </span>
         <CopyToClipboard text={latlngFormatted}>
