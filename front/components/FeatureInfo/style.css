@@ -19,12 +19,36 @@
   text-align: center;
   color: #fff;
 }
+.close {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    color:#fff;
+    position: relative;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    top: 1rem;
+    left: 1rem;
+    float: left;
+    transition: top 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+    cursor: pointer;
+    z-index: 50;
+}
+.header:hover .close{
+    top: 3rem;
+}
 .title {
     font-size: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 17rem;
+}
+.title > span {
+    position: relative;
+    top: 1.5rem;
+    right: 1rem;
 }
 .latlng {
     width: 100%;
