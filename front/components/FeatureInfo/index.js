@@ -1,6 +1,8 @@
 import React from 'react'
+import moment from 'moment'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
+import humanizeDuration from 'humanize-duration'
 
 import {featureInfo, hidden, header, title, latlng, close as closeStyle, field} from './style'
 
@@ -13,7 +15,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
     return (
       <span>
         <header className={header}>
-          <span className={closeStyle} onClick={close}>{'>'}</span>
+          <span className={closeStyle} onClick={close}>{'->'}</span>
           <span className={title}>
             <span>
               {feature.name || 'Unknown'}
@@ -35,10 +37,12 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
 
   const move = () => {
     const activityName = (([f, ...r]) => f.toUpperCase()+r.join``)(feature.activity)
+    const duration = humanizeDuration(moment.duration(moment(feature.endTime).diff(feature.startTime)))
+    console.log(moment.duration(moment(feature.endTime).diff(feature.startTime)))
     return (
       <span>
         <header className={header} style={{background: `linear-gradient(300deg,${activityTypes[feature.activity].join()})`}}>
-          <span className={closeStyle} onClick={close}>{'>'}</span>
+          <span className={closeStyle} onClick={close}>{'->'}</span>
           <span className={title}>
             <span>
               {activityName}
@@ -48,6 +52,10 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
         <span className={field}>
           <label>Activity</label>
           <value>{activityName}</value>
+        </span>
+        <span className={field}>
+          <label>Duration</label>
+          <value>{duration}</value>
         </span>
       </span>
     )
