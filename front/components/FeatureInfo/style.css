@@ -63,3 +63,30 @@
 .latlng:hover{
   font-weight: bold;
 }
+.field {
+    display: block;
+    width: 100%;
+    border-bottom: #bbb solid 1px;
+}
+.field:hover{
+  background: #f9f9f9;
+}
+.field label {
+    font-size: 0.8rem;
+    width: 100%;
+    display: block;
+    position: relative;
+    left: 1rem;
+    color: #999;
+    height: 2rem;
+    line-height: 2rem;
+    user-select: none;
+}
+
+.field value {
+    position: relative;
+    left: 2rem;
+    color: #525252;
+    display: block;
+    padding-bottom: 0.5rem;
+}
