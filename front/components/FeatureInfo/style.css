@@ -1,6 +1,7 @@
 .featureInfo{
   height: 100%;
   width: 25rem;
+  max-width: calc(100% + 2px);
   float: right;
   background: #fff;
   overflow: hidden;
