@@ -4,7 +4,7 @@ import moment from 'moment'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import humanizeDuration from 'humanize-duration'
 
-import {featureInfo, hidden, header, title, latlng, close as closeStyle, field} from './style'
+import {featureInfo, hidden, header, title, latlng, close as closeStyle, main, field} from './style'
 
 const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
   if(!feature) return <section className={`${featureInfo} ${hidden}`} />
@@ -27,9 +27,11 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             </span>
           </CopyToClipboard>
         </header>
-        <span className={field}>
-          <label>Category</label>
-          <value>{cat.name}</value>
+        <span className={main}>
+          <span className={field}>
+            <label>Category</label>
+            <value>{cat.name}</value>
+          </span>
         </span>
       </span>
     )
@@ -49,13 +51,15 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             </span>
           </span>
         </header>
-        <span className={field}>
-          <label>Activity</label>
-          <value>{activityName}</value>
-        </span>
-        <span className={field}>
-          <label>Duration</label>
-          <value>{duration}</value>
+        <span className={main}>
+          <span className={field}>
+            <label>Activity</label>
+            <value>{activityName}</value>
+          </span>
+          <span className={field}>
+            <label>Duration</label>
+            <value>{duration}</value>
+          </span>
         </span>
       </span>
     )
@@ -64,7 +68,6 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
   return (
     <section className={featureInfo}>
       {feature.activity ? move() : location()}
-      {JSON.stringify(feature)}
     </section>
   )
 }
