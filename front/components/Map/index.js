@@ -35,8 +35,8 @@ class Map extends React.Component {
         const selectedFeatureMode = selectedFeatureSelected && selectedFeature.id === displayFeature.id
         const layer =
           displayFeature.type === 'Move' ?
-            <MoveLineContainer displayFeature={displayFeature} selected={selectedFeatureMode} key={displayFeature.id} /> :
-            <LocationIconContainer displayFeature={displayFeature} selected={selectedFeatureMode} key={displayFeature.id} />
+            <MoveLineContainer displayFeature={displayFeature} selected={selectedFeatureMode} selectedFeatureSelected={selectedFeatureSelected} key={displayFeature.id} /> :
+            <LocationIconContainer displayFeature={displayFeature} selected={selectedFeatureMode} selectedFeatureSelected={selectedFeatureSelected} key={displayFeature.id} />
 
         return {layers: [...exisingLayers, layer], layerBounds: exisingBounds.extend(displayFeature.geo)}
       }, {layers: [], layerBounds: new LatLngBounds([])})
