@@ -11,11 +11,12 @@ class Gradient extends React.Component {
     this.svgRoot = this.context.map.getPanes().overlayPane.firstChild
     this.gradientElement = this.svgRoot.appendChild(createGradientDef(this.props))
   }
-  componentDidUpdate(prevProps: Object){
-    const {id} = this.props
-    if(id !== prevProps.id){
+  componentDidUpdate(prevProps){
+    const {id, stops} = this.props
+    if(id !== prevProps.id || stops.some(({colour, offset}, index) => !(colour === prevProps.stops[index].colour && offset === prevProps.stops[index].offset))){
       this.gradientElement.remove()
       this.gradientElement = this.svgRoot.appendChild(createGradientDef(this.props))
+      return
     }
   }
   componentWillUnmount(){
