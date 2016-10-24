@@ -20,6 +20,7 @@
     "express-sslify": "^1.1.0",
     "helmet": "^2.3.0",
     "hpp": "^0.2.1",
+    "humanize-duration": "^3.9.1",
     "leaflet": "^1.0.1",
     "letsencrypt-express": "^2.0.5",
     "mapbox-gl": "^0.26.0",
