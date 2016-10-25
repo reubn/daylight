@@ -1,14 +1,12 @@
 import initialState from '../initials/map'
 
-import Location from '../../models/Location'
-
 const mapReducer = (state=initialState, action) => {
   if(action.type === 'LOGOUT') return initialState
 
   if(action.type === 'MAP_LOADING') return {...state, loading: action.hasOwnProperty('status') ? action.status : true}
 
   if(action.type === 'CACHE_LOCATIONS'){
-    const newLocations = action.locations.reduce((interLocations, location) => ({...interLocations, [location.id]: new Location(location)}), {})
+    const newLocations = action.locations.reduce((interLocations, location) => ({...interLocations, [location.id]: location}), {})
     return {...state, cache: {...state.cache, locations: {...state.cache.locations, ...newLocations}}}
   }
 
