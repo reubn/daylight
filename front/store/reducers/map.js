@@ -27,7 +27,6 @@ const mapReducer = (state=initialState, action) => {
     .reduce((flatFeatures, {features}) => [...flatFeatures, ...features], [])
     .reduce((allDisplayFeatures, feature) => {
       // If is not a Visit, just append to list of displayFeatures
-      console.log(feature)
       if(feature.type !== 'Visit') return [...allDisplayFeatures, feature]
 
       // Search in the displayFeatures we have already created, and try to find a Location that matches this Visit's id
