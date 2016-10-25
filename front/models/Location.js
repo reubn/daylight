@@ -7,6 +7,9 @@ class Location {
     this.name = name
     this.visits = visits
   }
+  get formattedLatLng(){
+    return `${this.geo.lat.toFixed(5)}, ${this.geo.lng.toFixed(5)}`
+  }
 }
 
 export default Location
