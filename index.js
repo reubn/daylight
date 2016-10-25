@@ -13,6 +13,7 @@ const letsEncrypt = require('letsencrypt-express')
 
 const passport = require('passport')
 const expressSession = require('express-session')
+const RedisStore = require('connect-redis')(expressSession)
 
 const mongoose = require('mongoose')
 
@@ -36,7 +37,7 @@ mongoose.connect(databaseConfig.url).then(() => console.info('🗄🗄🗄 - Con
 app.use(fourcehttps())
 
 // Auth
-app.use(expressSession(sessionConfig))
+app.use(expressSession(sessionConfig(RedisStore)))
 app.use(passport.initialize())
 app.use(passport.session())
 
