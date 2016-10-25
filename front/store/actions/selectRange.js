@@ -2,7 +2,9 @@ import axios from 'axios'
 import {push} from 'react-router-redux'
 
 import Range from '../../models/Range'
-import getDayFromDate from '../../helpers/getDayFromDate'
+import Day from '../../models/Day'
+import Location from '../../models/Location'
+
 
 function selectRangeAction(dispatch, getState, range, redirect=true){
   if(redirect) dispatch(push(`/map/${range.toURL()}`))
@@ -10,7 +12,7 @@ function selectRangeAction(dispatch, getState, range, redirect=true){
 
   const {cached: cachedDays, onServer: onServerDates} = range.toDates()
   .reduce(({cached, onServer}, date) => {
-    const cachedDay = getDayFromDate(getState, date)
+    const cachedDay = Day.fromDate(getState, date)
     if(cachedDay) return {cached: [...cached, cachedDay], onServer}
     return {cached, onServer: [...onServer, date]}
   }, {cached: [], onServer: []})
@@ -19,9 +21,11 @@ function selectRangeAction(dispatch, getState, range, redirect=true){
   .reduce((promises, serverRange) =>
     [...promises, axios.get(`/@/day/${serverRange.toURL()}`)
     .then(function({data: {days, locations}}){
-      dispatch({type: 'CACHE_LOCATIONS', locations})
-      dispatch({type: 'CACHE_DAYS', days})
-      return days
+      const dayInstances = days.map(day => new Day(day))
+      const locationInstances = locations.map(location => new Location(location))
+      dispatch({type: 'CACHE_LOCATIONS', locations: locationInstances})
+      dispatch({type: 'CACHE_DAYS', days: dayInstances})
+      return dayInstances
     })], []
   )
   Promise.all(serverPromises)

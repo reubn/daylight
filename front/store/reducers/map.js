@@ -1,5 +1,7 @@
 import initialState from '../initials/map'
 
+import Location from '../../models/Location'
+
 const mapReducer = (state=initialState, action) => {
   if(action.type === 'LOGOUT') return initialState
 
@@ -10,7 +12,7 @@ const mapReducer = (state=initialState, action) => {
   if(action.type === 'CACHE_DAYS'){
     const replace = action.hasOwnProperty('update') ? action.update : false
     const days = replace ? action.days.reduce((cache, day) => {
-      const index = cache.findIndex(cacheDay => cacheDay.day.id === day.day.id)
+      const index = cache.findIndex(cacheDay => cacheDay.id === day.id)
       if(index === -1) return [...cache, day]
       cache[index] = day
       return cache
@@ -23,16 +25,23 @@ const mapReducer = (state=initialState, action) => {
     const displayFeatures = action.days
     .reduce((flatFeatures, {features}) => [...flatFeatures, ...features], [])
     .reduce((allDisplayFeatures, feature) => {
+      // If is not a Visit, just append to list of displayFeatures
+      console.log(feature)
       if(feature.type !== 'Visit') return [...allDisplayFeatures, feature]
-      const locationInDone = allDisplayFeatures.find(l => l.id === feature.location)
-      const location = locationInDone || {...state.cache.locations[feature.location]}
-      if(!location) throw new Error('Location was not sent')
 
-      location.type = 'Location'
-      location.id = feature.location
+      // Search in the displayFeatures we have already created, and try to find a Location that matches this Visit's id
+      const locationInDisplayFeatures = allDisplayFeatures.find(location => location.id === feature.location)
+
+      // If we do not find one, clone the Location from the Location cache
+      const location = locationInDisplayFeatures || Object.assign(Object.create(state.cache.locations[feature.location]), state.cache.locations[feature.location])
+
+      // Add this Visit to the Location's visits array
       location.visits = location.visits ? [...location.visits, feature] : [feature]
 
-      if(locationInDone) return allDisplayFeatures
+      // If the Location was found in our displayFeatures then we can just return it, as we've overridden the previous copy held there
+      if(locationInDisplayFeatures) return allDisplayFeatures
+
+      // Else, append it to the end of displayFeatures
       return [...allDisplayFeatures, location]
     }, [])
     return {...state, selected: {...state.selected, range: action.range, selectedFeature: null, displayFeatures}}
