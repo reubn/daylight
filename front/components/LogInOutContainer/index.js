@@ -5,7 +5,7 @@ import logoutAction from '../../store/actions/logout'
 
 import LogInOut from '../LogInOut'
 
-const mapStateToProps = ({user: {id}}) => ({signedIn: !!id})
+const mapStateToProps = ({user: {loggedIn}}) => ({loggedIn})
 const mapDispatchToProps = {
   login: () => replace('/login'),
   logout: () => dispatch => logoutAction(dispatch)

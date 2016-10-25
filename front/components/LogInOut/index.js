@@ -2,10 +2,10 @@ import React from 'react'
 
 import {login as loginStyle, logout as logoutStyle, punc} from './style'
 
-const LogInOut = ({signedIn, login, logout}) => (
-  <span className={signedIn ? logoutStyle : loginStyle} onClick={signedIn ? logout : login}>
-    {signedIn ? 'Logout' : 'Login'}
-    <span className={punc}>{signedIn ? '?' : '!'}</span>
+const LogInOut = ({loggedIn, login, logout}) => (
+  <span className={loggedIn ? logoutStyle : loginStyle} onClick={loggedIn ? logout : login}>
+    {loggedIn ? 'Logout' : 'Login'}
+    <span className={punc}>{loggedIn ? '?' : '!'}</span>
   </span>
   )
 
