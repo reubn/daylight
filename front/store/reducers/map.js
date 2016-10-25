@@ -7,7 +7,10 @@ const mapReducer = (state=initialState, action) => {
 
   if(action.type === 'MAP_LOADING') return {...state, loading: action.hasOwnProperty('status') ? action.status : true}
 
-  if(action.type === 'CACHE_LOCATIONS') return {...state, cache: {...state.cache, locations: {...state.cache.locations, ...action.locations.reduce((interLocations, {cat, name, geo, id}) => ({...interLocations, [id]: {cat, name, geo}}), {})}}}
+  if(action.type === 'CACHE_LOCATIONS'){
+    const newLocations = action.locations.reduce((interLocations, location) => ({...interLocations, [location.id]: new Location(location)}), {})
+    return {...state, cache: {...state.cache, locations: {...state.cache.locations, ...newLocations}}}
+  }
 
   if(action.type === 'CACHE_DAYS'){
     const replace = action.hasOwnProperty('update') ? action.update : false
