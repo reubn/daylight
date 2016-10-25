@@ -12,16 +12,14 @@ const protect = require('../middleware/protect')
 const historyFallback = require('./historyFallback')
 const register = require('./register')
 const login = require('./login')
+const logout = require('./logout')
 
 router.use('/@', protect, api, errorHandler)
 router.use('/~', protect, factories.router, errorHandler)
 
 router.post('/register', register, errorHandler)
 router.post('/login', login, errorHandler)
-router.post('/logout', function(req, res){
-  req.logout()
-  res.json({success: true})
-})
+router.post('/logout', logout)
 
 // Serve Static Assets
 router.use(serveStatic('front/compiled/', {
