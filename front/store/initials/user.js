@@ -1,5 +1,3 @@
-const user = {
-  homeLocation: [0, 0]
-}
+import User from '../../models/User'
 
-export default {...user, ...window.dUD}
+export default new User(window.dUD.id ? window.dUD : {})
