@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {push} from 'react-router-redux'
 
-import Range from '../../helpers/Range'
+import Range from '../../models/Range'
 import getDayFromDate from '../../helpers/getDayFromDate'
 
 function selectRangeAction(dispatch, getState, range, redirect=true){

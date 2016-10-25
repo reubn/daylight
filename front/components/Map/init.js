@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import Range from '../../helpers/Range'
+import Range from '../../models/Range'
 
 export default ({params: {from, to}, location: {action}, accountStartDay, selectRange}) => {
   if(!from && !to) return selectRange(new Range({start: moment(accountStartDay)}))

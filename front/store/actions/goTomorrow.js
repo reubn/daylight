@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import Range from '../../helpers/Range'
+import Range from '../../models/Range'
 import selectRange from '../actions/selectRange'
 
 function goTomorrowAction(dispatch, getState){
