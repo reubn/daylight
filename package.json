@@ -74,6 +74,7 @@
     "start:dev": "NODE_ENV=development sudo node --harmony index.js",
     "start": "NODE_ENV=production sudo node --harmony index.js",
     "mongo": "sudo mongod --dbpath data/db",
+    "redis": "sudo redis-server data/redis.conf",
     "build:dev": "NODE_ENV=development webpack --progress --display-reasons --display-error-details --watch",
     "build": "NODE_ENV=production webpack",
     "lint": "eslint ./ || true",
