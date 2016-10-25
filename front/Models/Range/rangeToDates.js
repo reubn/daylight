@@ -1,7 +1,7 @@
 /* eslint no-param-reassign: 0 */
 import moment from 'moment'
 
-export default function rangeToDays({start, end}){
+export default function rangeToDates({start, end}){
   start.startOf('day'); end.startOf('day')
   if(start.isAfter(end)) [end, start] = [start, end]
 
