@@ -13,7 +13,7 @@ function updateRangeAction(dispatch, getState, range, redirect=true){
       const dayInstances = days.map(day => new Day(day))
       const locationInstances = locations.map(location => new Location(location))
       dispatch({type: 'CACHE_LOCATIONS', locations: locationInstances})
-      dispatch({type: 'CACHE_DAYS', days: dayInstances})
+      dispatch({type: 'CACHE_DAYS', days: dayInstances, update: true})
       dispatch({type: 'SELECT_RANGE', range, days: dayInstances})
       dispatch({type: 'MAP_LOADING', status: false})
       return dayInstances
