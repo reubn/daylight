@@ -15,7 +15,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
           <span className={closeStyle} onClick={close}>{'->'}</span>
           <span className={title}>
             <span>
-              {feature.name || 'Unknown'}
+              {feature.name || '????'}
             </span>
           </span>
           <CopyToClipboard text={feature.formattedLatLng}>
@@ -29,6 +29,18 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             <label>Category</label>
             <value>{cat.name}</value>
           </span>
+          {feature.visits.map(visit => (
+            <span>
+              <span className={field}>
+                <label>Start -> End</label>
+                <value>{`${visit.startTime.format('H:mm:ss')} -> ${visit.endTime.format('H:mm:ss')}`}</value>
+              </span>
+              <span className={field}>
+                <label>Duration</label>
+                <value>{visit.duration}</value>
+              </span>
+            </span>
+          ))}
         </span>
       </span>
     )
