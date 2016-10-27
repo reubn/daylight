@@ -2,7 +2,7 @@ import React from 'react'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-import {featureInfo, hidden, header, title, latlng, close as closeStyle, main, field} from './style'
+import {featureInfo, hidden, header, title, latlng, close as closeStyle, main, field, group} from './style'
 
 const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
   if(!feature) return <section className={`${featureInfo} ${hidden}`} />
@@ -30,7 +30,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             <value>{cat.name}</value>
           </span>
           {feature.visits.map(visit => (
-            <span>
+            <span className={group}>
               <span className={field}>
                 <label>Start -> End</label>
                 <value>{`${visit.startTime.format('H:mm:ss')} -> ${visit.endTime.format('H:mm:ss')}`}</value>

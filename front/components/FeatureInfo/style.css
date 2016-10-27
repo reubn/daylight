@@ -97,3 +97,16 @@
     display: block;
     padding-bottom: 0.5rem;
 }
+
+.group{
+    margin-top: 3rem;
+    display: block;
+    border-bottom: #bbb solid 1px;
+    border-top: #bbb solid 1px;
+}
+.group .field{
+  border-bottom: none;
+}
+.group .field:not(:last-of-type){
+  border-bottom: #dadada solid 1px;
+}
