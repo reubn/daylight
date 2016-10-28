@@ -34,7 +34,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
               <label>Visit</label>
               <span className={field}>
                 <label>{'Start -> End'}</label>
-                <value>{`${visit.startTime.format('H:mm:ss')} -> ${visit.endTime.format('H:mm:ss')}`}</value>
+                <value>{visit.startEndDescriptor}</value>
               </span>
               <span className={field}>
                 <label>Duration</label>
@@ -65,6 +65,10 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
         <span className={field}>
           <label>Duration</label>
           <value>{feature.duration}</value>
+        </span>
+        <span className={field}>
+          <label>{'Start -> End'}</label>
+          <value>{feature.startEndDescriptor}</value>
         </span>
       </span>
     </span>
