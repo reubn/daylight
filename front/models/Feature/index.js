@@ -13,8 +13,7 @@ class Feature {
     return humanizeDuration(moment.duration(moment(this.endTime).diff(this.startTime)))
   }
   get startEndDescriptor(){
-    if(!this.startTime.isSame(this.endTime, 'day')) return `${this.startTime.format('H:mm:ss, Do')} -> ${this.endTime.format('H:mm:ss, Do')}`
-    return `${this.startTime.format('H:mm:ss')} -> ${this.endTime.format('H:mm:ss')}`
+    return `${this.startTime.format('H:mm:ss, Do')} -> ${this.endTime.format('H:mm:ss, Do')}`
   }
 }
 
