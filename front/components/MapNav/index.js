@@ -6,10 +6,10 @@ import UpdateButtonContainer from '../UpdateButtonContainer'
 import {mapNav} from './style'
 
 const MapNav = () => (
-  <header className={mapNav}>
+  <footer className={mapNav}>
     <RangeSelectorContainer />
     <UpdateButtonContainer />
-  </header>
+  </footer>
 )
 
 export default MapNav
