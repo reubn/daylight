@@ -31,6 +31,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
           </span>
           {feature.visits.map(visit => (
             <span className={group}>
+              <label>Visit</label>
               <span className={field}>
                 <label>{'Start -> End'}</label>
                 <value>{`${visit.startTime.format('H:mm:ss')} -> ${visit.endTime.format('H:mm:ss')}`}</value>
