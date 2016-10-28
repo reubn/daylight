@@ -30,7 +30,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             <value>{cat.name}</value>
           </span>
           {feature.visits.map(visit => (
-            <span className={group}>
+            <span className={group} key={visit.id}>
               <label>Visit</label>
               <span className={field}>
                 <label>{'Start -> End'}</label>
