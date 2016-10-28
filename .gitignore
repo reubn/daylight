@@ -4,5 +4,6 @@ front/node_modules/*
 data/*
 *secure.js
 npm-debug.log*
+yarn-error.log*
 research/*
 .DS_Store
