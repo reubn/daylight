@@ -29,7 +29,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             <label>Category</label>
             <value>{cat.name}</value>
           </span>
-          {feature.visits.map(visit => (
+          {feature.visits.sort(({startTime: a}, {startTime: b}) => a.diff(b)).map(visit => (
             <span className={group} key={visit.id}>
               <label>Visit</label>
               <span className={field}>
