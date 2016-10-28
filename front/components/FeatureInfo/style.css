@@ -103,6 +103,7 @@
     display: block;
     border-bottom: #bbb solid 1px;
     border-top: #bbb solid 1px;
+    background: #fbfbfb;
 }
 .group > label {
     font-size: 1rem;
