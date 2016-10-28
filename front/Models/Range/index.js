@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 import moment from 'moment'
 
 import rangeToDates from './rangeToDates'

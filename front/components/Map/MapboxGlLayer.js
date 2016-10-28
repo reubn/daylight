@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import {MapLayer} from 'react-leaflet'
 
 import L from 'leaflet'

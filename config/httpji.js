@@ -77,6 +77,6 @@ const method = m => {
   return '😜'
 }
 
-const secure = s => s ? '🔐' : '🔓'
+const secure = s => (s ? '🔐' : '🔓')
 
 module.exports = {method, status, secure}
