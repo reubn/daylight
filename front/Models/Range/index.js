@@ -5,9 +5,6 @@ import moment from 'moment'
 import rangeToDates from './rangeToDates'
 import datesToRanges from './datesToRanges'
 
-import toURL from './toURL'
-import fromURL from './fromURL'
-
 class Range {
   constructor({start, end=start}){
     if(end.isBefore(start)) start = end
@@ -19,7 +16,7 @@ class Range {
     return rangeToDates(this)
   }
   toURL(){
-    return toURL(this)
+    return `${this.start.format('YYYYMMDD')}/${!this.isSame(this.end) ? this.end.format('YYYYMMDD') : ''}`
   }
   isSameAs(range2){
     if(!range2) return false
@@ -30,7 +27,8 @@ class Range {
     return datesToRanges(Range, dates)
   }
   static fromURL(url){
-    return fromURL(Range, url)
+    const [start, end=start] = url.split('/')
+    return new Range({start: moment(start, 'YYYYMMDD'), end: end ? moment(end, 'YYYYMMDD') : moment(start, 'YYYYMMDD')})
   }
 }
 
