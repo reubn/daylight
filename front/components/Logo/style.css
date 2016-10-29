@@ -22,6 +22,14 @@
   stop-color: #60cbfc;
 }
 
+.logo.birthday:hover ~ #fillGradient stop:first-child {
+  stop-color: #ffee62;
+}
+
+.logo.birthday:hover ~ #fillGradient stop:last-child {
+  stop-color: #ff3a8e;
+}
+
 .logo:hover ~ #strokeGradient stop:first-child {
   stop-color: transparent;
 }
