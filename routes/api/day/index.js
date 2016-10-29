@@ -1,10 +1,10 @@
 const {Router} = require('express')
 const router = new Router()
 
-const getRoute = require('./get')
-const updateRoute = require('./update')
+const get = require('./get')
+const update = require('./update')
 
-router.get('/:start/:end*?', getRoute)
-router.put('/:start/:end*?', updateRoute)
+router.get('/:start/:end*?', get)
+router.put('/:start/:end*?', update)
 
 module.exports = router
