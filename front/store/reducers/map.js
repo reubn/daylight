@@ -4,6 +4,7 @@ const mapReducer = (state=initialState, action) => {
   if(action.type === 'LOGOUT') return initialState
 
   if(action.type === 'MAP_LOADING') return {...state, loading: action.hasOwnProperty('status') ? action.status : true}
+  if(action.type === 'MAP_UPDATING') return {...state, updating: action.hasOwnProperty('status') ? action.status : true}
 
   if(action.type === 'CACHE_LOCATIONS'){
     const newLocations = action.locations.reduce((interLocations, location) => ({...interLocations, [location.id]: location}), {})

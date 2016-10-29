@@ -7,6 +7,7 @@ import Location from '../../models/Location'
 function updateRangeAction(dispatch, getState, range, redirect=true){
   if(redirect) dispatch(push(`/map/${range.toURL()}`))
   dispatch({type: 'MAP_LOADING'})
+  dispatch({type: 'MAP_UPDATING'})
 
   return axios.put(`/@/day/${range.toURL()}`)
     .then(function({data: {days, locations}}){
@@ -16,6 +17,7 @@ function updateRangeAction(dispatch, getState, range, redirect=true){
       dispatch({type: 'CACHE_DAYS', days: dayInstances, update: true})
       dispatch({type: 'SELECT_RANGE', range, days: dayInstances})
       dispatch({type: 'MAP_LOADING', status: false})
+      dispatch({type: 'MAP_UPDATING', status: false})
       return dayInstances
     })
 }

@@ -8,5 +8,6 @@ export default {
     displayFeatures: [],
     selectedFeature: null
   },
-  loading: false
+  loading: false,
+  updating: false
 }
