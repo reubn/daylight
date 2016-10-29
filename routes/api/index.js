@@ -1,12 +1,12 @@
 const {Router} = require('express')
 const router = new Router()
 
-const userRoute = require('./user')
-const dayRoute = require('./day')
-const activityTypesRoute = require('./activityTypes')
+const user = require('./user')
+const day = require('./day')
+const activityTypes = require('./activityTypes')
 
-router.all('/user', userRoute)
-router.use('/day', dayRoute)
-router.get('/activityTypes', activityTypesRoute)
+router.all('/user', user)
+router.use('/day', day)
+router.get('/activityTypes', activityTypes)
 
 module.exports = router
