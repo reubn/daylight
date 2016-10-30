@@ -1,11 +1,13 @@
 import user from './user'
 import map from './map'
 import aesthetics from './aesthetics'
+import loginForm from './loginForm'
 
 const initials = {
   user,
   map,
-  aesthetics
+  aesthetics,
+  loginForm
 }
 
 export default initials

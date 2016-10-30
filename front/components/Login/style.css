@@ -52,3 +52,12 @@
     color:#fff;
     background: #60cbfc;
 }
+
+.errors input[type='submit'] {
+    color:#fff;
+    background: #ff5757;
+}
+
+.errors input[type='submit']:hover {
+    background: #ff6060;
+}
