@@ -7,28 +7,30 @@ const epochToId = n => Math.round((n * 0.008388608 - 11024476.5839159095) * 1000
 const getUserIdAndCSRFToken = username =>
     axios.get(`https://www.instagram.com/${username}/?__a=1`)
     .then(({data: {user: {id}}, headers: {'set-cookie': cookies}}) => ({
-            username,
-            userId: id,
-            CSRFToken: (/csrftoken=(.+?);/g).exec(cookies.find(c => c.startsWith('csrftoken')))[1]
-        }))
+      username,
+      userId: id,
+      CSRFToken: (/csrftoken=(.+?);/g).exec(cookies.find(c => c.startsWith('csrftoken')))[1]
+    }))
 
 
-const getPhotos = ({username, userId, CSRFToken}, {start, end=start}) => {
-  const endEpoch = moment(start).endOf('d').unix()
+const getPhotos = ({username, userId, CSRFToken}, {start: rawStart, end: rawEnd=rawStart}) => {
+  const start = moment(rawStart)
+  const end = moment(rawEnd)
+  const endEpoch = end.endOf('d').unix()
   const endId = epochToId(endEpoch)
   const request = {
-        headers: {
-            cookie: `csrftoken=${CSRFToken}`,
-            referer: `https://www.instagram.com/${username}/`,
-            'x-csrftoken': CSRFToken
-        },
-        params: {
-          q: `ig_user(${userId}) { media.after(${endId}, 1) {nodes {    caption,    date,    created_time,    dimensions {      height,      width    },    display_src,    id,    is_video,    location {      lat,      lng,      id    },    thumbnail_src}} }`,
-          ref: 'users::show'
-        }
+    headers: {
+      cookie: `csrftoken=${CSRFToken}`,
+      referer: `https://www.instagram.com/${username}/`,
+      'x-csrftoken': CSRFToken
+    },
+    params: {
+      q: `ig_user(${userId}) { media.after(${endId}, 2) {nodes {    caption,    date,    created_time,    dimensions {      height,      width    },    display_src,    id,    is_video,    location {      lat,      lng,      id    },    thumbnail_src}} }`,
+      ref: 'users::show'
     }
+  }
 
-    return axios.post('https://www.instagram.com/query/', {}, request)
+  return axios.post('https://www.instagram.com/query/', {}, request)
 }
 
 getUserIdAndCSRFToken('reubn')
