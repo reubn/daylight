@@ -35,5 +35,5 @@ const getPhotos = ({username, userId, CSRFToken}, {start: rawStart, end: rawEnd=
 
 getUserIdAndCSRFToken('reubn')
 .then(a => getPhotos(a, {start: moment([2016, 7, 20])}))
-.then(({data}) => console.log(JSON.stringify(data)))
+.then(({data}) => console.log(JSON.stringify(data, null, 4)))
 .catch(console.error)
