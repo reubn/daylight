@@ -1,8 +1,8 @@
 const axios = require('axios')
 const moment = require('moment')
 
-const idToEpoch = n => Math.round((n / 1000000000000 + 11024476.5839159095) / 0.008388608)
-const epochToId = n => Math.round((n * 0.008388608 - 11024476.5839159095) * 1000000000000)
+// const idToEpoch = n => Math.round((n / 1000000000000 + 11024476.5839159095) / 0.008388608)
+const epochToId = n => Math.round(((n * 0.008388608) - 11024476.5839159095) * 1000000000000)
 
 const getUserIdAndCSRFToken = ({username}) =>
     axios.get(`https://www.instagram.com/${username}/?__a=1`)
@@ -12,8 +12,7 @@ const getUserIdAndCSRFToken = ({username}) =>
     }))
 
 const fetchPhotos = ({username, userId, CSRFToken, end, start, count}, previousPhotos=[]) => {
-  const endEpoch = end.unix()
-  const endId = epochToId(endEpoch)
+  const endId = epochToId(end.unix())
   const request = {
     headers: {
       cookie: `csrftoken=${CSRFToken}`,
