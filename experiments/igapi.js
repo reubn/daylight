@@ -31,8 +31,9 @@ const fetchPhotos = ({username, userId, CSRFToken, end, start, count}, previousP
     const {photos: includedPhotos, checkNext: checkNextFlag} = nodes.reduce(({photos}, photo, index) => {
       photo.date = moment.unix(photo.date)
       const include = !!photo.date.isAfter(start)
+      const photoAlreadyIncluded = photos.some(({id}) => id === photo.id)
       // console.log(include, photo.date.format('YYYYMMDD'), index, nodes.length-1)
-      return {photos: include ? [...photos, photo] : photos, checkNext: index === nodes.length-1 && include}
+      return {photos: !photoAlreadyIncluded && include ? [...photos, photo] : photos, checkNext: index === nodes.length-1 && include}
     }, {photos: previousPhotos, checkNext: false})
 
     if(checkNextFlag) return fetchPhotos({username, userId, CSRFToken, end: includedPhotos[includedPhotos.length-1].date, start, count}, includedPhotos)
