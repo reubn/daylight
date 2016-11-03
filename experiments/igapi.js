@@ -4,19 +4,15 @@ const moment = require('moment')
 const idToEpoch = n => Math.round((n / 1000000000000 + 11024476.5839159095) / 0.008388608)
 const epochToId = n => Math.round((n * 0.008388608 - 11024476.5839159095) * 1000000000000)
 
-const getUserIdAndCSRFToken = username =>
+const getUserIdAndCSRFToken = ({username}) =>
     axios.get(`https://www.instagram.com/${username}/?__a=1`)
     .then(({data: {user: {id}}, headers: {'set-cookie': cookies}}) => ({
-      username,
       userId: id,
       CSRFToken: (/csrftoken=(.+?);/g).exec(cookies.find(c => c.startsWith('csrftoken')))[1]
     }))
 
-
-const getPhotos = ({username, userId, CSRFToken}, {start: rawStart, end: rawEnd=rawStart}) => {
-  const start = moment(rawStart)
-  const end = moment(rawEnd)
-  const endEpoch = end.endOf('d').unix()
+const fetchPhotos = ({username, userId, CSRFToken, end, start, count}, previousPhotos=[]) => {
+  const endEpoch = end.unix()
   const endId = epochToId(endEpoch)
   const request = {
     headers: {
@@ -25,15 +21,42 @@ const getPhotos = ({username, userId, CSRFToken}, {start: rawStart, end: rawEnd=
       'x-csrftoken': CSRFToken
     },
     params: {
-      q: `ig_user(${userId}) { media.after(${endId}, 2) {nodes {    caption,    date,    created_time,    dimensions {      height,      width    },    display_src,    id,    is_video,    location {      lat,      lng,      id    },    thumbnail_src}} }`,
+      q: `ig_user(${userId}) { media.after(${endId}, ${count}) {nodes {    caption,    date,    created_time,    dimensions {      height,      width    },    display_src,    id,    is_video,    location {      lat,      lng,      id    },    thumbnail_src}} }`,
       ref: 'users::show'
     }
   }
 
   return axios.post('https://www.instagram.com/query/', {}, request)
+  .then(({data: {media: {nodes}}}) => {
+    const {photos: includedPhotos, checkNext: checkNextFlag} = nodes.reduce(({photos}, photo, index) => {
+      photo.date = moment.unix(photo.date)
+      const include = !!photo.date.isAfter(start)
+      // console.log(include, photo.date.format('YYYYMMDD'), index, nodes.length-1)
+      return {photos: include ? [...photos, photo] : photos, checkNext: index === nodes.length-1 && include}
+    }, {photos: previousPhotos, checkNext: false})
+
+    if(checkNextFlag) return fetchPhotos({username, userId, CSRFToken, end: includedPhotos[includedPhotos.length-1].date, start, count}, includedPhotos)
+    return includedPhotos
+  })
 }
 
-getUserIdAndCSRFToken('reubn')
-.then(a => getPhotos(a, {start: moment([2016, 7, 20])}))
-.then(({data}) => console.log(JSON.stringify(data, null, 4)))
+const getPhotos = ({username}, {start: rawStart, end: rawEnd=rawStart}) => {
+  const start = moment(rawStart).startOf('d')
+  const end = moment(rawEnd).endOf('d')
+
+  const averagePhotosPerDay = 0.02
+  const count = Math.max(2, Math.ceil(averagePhotosPerDay * (end.diff(start, 'd') + 1)))
+
+  return (
+    // Check if we have valid token in DB
+    getUserIdAndCSRFToken({username})
+    .then(({userId, CSRFToken}) => (
+      fetchPhotos({username, userId, CSRFToken, end, start, count})
+    ))
+  )
+}
+
+
+getPhotos({username: 'reubn'}, {start: moment([2015, 6, 20]), end: moment([2016, 7, 20])})
+.then(data => console.log(JSON.stringify(data, null, 4)))
 .catch(console.error)
