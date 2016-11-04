@@ -3,8 +3,8 @@ const Feature = require('./../models/Feature')
 module.exports = (user, dayFeaturePairs) =>
   Promise.all(dayFeaturePairs.map(({day, features=[], errors=[]}) =>
     Promise.all(features.map(feature => {
-      const {factory, startTime, lastUpdate} = feature
-      return Feature.findOne({factory, day, startTime})
+      const {factory, startTime, endTime, lastUpdate} = feature
+      return Feature.findOne({factory, day, startTime, endTime})
             .then(duplicate => {
               if(!duplicate) return feature.save().catch(() => {throw new Error('FeatureSaveError')})
               if(duplicate.lastUpdate.isBefore(lastUpdate)){
