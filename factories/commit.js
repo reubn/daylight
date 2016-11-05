@@ -4,7 +4,7 @@ module.exports = (user, dayFeaturePairs) =>
   Promise.all(dayFeaturePairs.map(({day, features=[], errors=[]}) =>
     Promise.all(features.map(feature => {
       const {factory, startTime, endTime, lastUpdate} = feature
-      return Feature.findOne({factory, day, startTime, endTime})
+      return Feature.findOne({factory, day, $or: [{startTime}, {endTime}]})
             .then(duplicate => {
               if(!duplicate) return feature.save().catch(() => {throw new Error('FeatureSaveError')})
               if(duplicate.lastUpdate.isBefore(lastUpdate)){
