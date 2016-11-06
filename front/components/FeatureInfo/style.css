@@ -18,6 +18,7 @@
   background: linear-gradient(300deg,#60cbfc,#38f);
   text-align: center;
   color: #fff;
+  position: relative;
 }
 .close {
     display: block;
@@ -64,6 +65,22 @@
 .latlng:hover{
   font-weight: bold;
 }
+.edit {
+    padding: 0 0.75rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 3rem;
+    line-height: 3rem;
+    transition: border 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+    border: rgba(255, 255, 255, 0) solid 1px;
+    border-bottom:none;
+    border-right:none;
+}
+.edit:hover {
+    font-weight:bold;
+    border-color:rgba(255, 255, 255, 0.15)
+}
 .main{
     display: block;
     overflow: hidden;
@@ -104,6 +121,10 @@
     border-bottom: #bbb solid 1px;
     border-top: #bbb solid 1px;
     background: #fbfbfb;
+    position: relative;
+}
+.group:hover {
+  border-color: #8c8c8c
 }
 .group > label {
     font-size: 1rem;
@@ -124,4 +145,32 @@
 }
 .group .field:not(:last-of-type){
   border-bottom: #dadada solid 1px;
+}
+
+.inlineEdit {
+    display: block;
+    height: 100%;
+    width: 2rem;
+    position: absolute;
+    background: #fbfbfb;
+    z-index: 1;
+    top: 0;
+    right: calc(-2rem - 1px);
+    border-left: #DADAD9 solid 1px;
+    transition: right 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    line-height: 2rem;
+    text-align: center;
+    color: #999;
+    user-select: none;
+    cursor:pointer;
+}
+
+.inlineEdit:hover{
+    background:#f9f9f9;
+}
+
+.group:hover .inlineEdit{
+    right:0;
 }

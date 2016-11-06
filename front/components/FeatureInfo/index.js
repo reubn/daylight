@@ -2,7 +2,7 @@ import React from 'react'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-import {featureInfo, hidden, header, title, latlng, close as closeStyle, main, field, group} from './style'
+import {featureInfo, hidden, header, title, latlng, edit, close as closeStyle, main, field, group, inlineEdit} from './style'
 
 const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
   if(!feature) return <section className={`${featureInfo} ${hidden}`} />
@@ -23,6 +23,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
               {feature.formattedLatLng}
             </span>
           </CopyToClipboard>
+          <span className={edit}>Edit</span>
         </header>
         <span className={main}>
           <span className={field}>
@@ -40,6 +41,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
                 <label>Duration</label>
                 <value>{visit.duration}</value>
               </span>
+              <span className={inlineEdit}>EDIT</span>
             </span>
           ))}
         </span>
@@ -56,6 +58,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             {feature.activityName}
           </span>
         </span>
+        <span className={edit}>Edit</span>
       </header>
       <span className={main}>
         <span className={field}>
