@@ -4,6 +4,8 @@ module.exports = (user, dayFeaturePairs) =>
   Promise.all(dayFeaturePairs.map(({day, features=[], errors=[]}) =>
     Promise.all(features.map(feature => {
       const {factory, startTime, endTime, lastUpdate} = feature
+
+      // NEED TO IMP PROPER MATCHING AND REWRITING
       return Feature.findOne({factory, day, $or: [{startTime}, {endTime}]})
             .then(duplicate => {
               if(!duplicate) return feature.save().catch(() => {throw new Error('FeatureSaveError')})
