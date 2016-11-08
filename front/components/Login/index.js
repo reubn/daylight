@@ -11,7 +11,9 @@ export default class Login extends React.Component {
   }
 
   onChange(event){
-    this.setState({[event.target.type === 'password' ? 'password' : 'username']: event.target.value})
+    const field = event.target.type === 'password' ? 'password' : 'username'
+    if(this.props.errors && this.state[field] !== event.target.value) this.props.resetErrors()
+    this.setState({[field]: event.target.value})
   }
   onSubmit(){
     this.props.onSubmit(this.state)
