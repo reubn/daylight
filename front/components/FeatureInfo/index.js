@@ -2,7 +2,7 @@ import React from 'react'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-import {featureInfo, hidden, header, title, latlng, edit, close as closeStyle, main, field, group, inlineEdit} from './style'
+import {featureInfo, hidden, header, title, latlng, edit, close as closeStyle, main, field, group, inlineEdit, idFooter} from './style'
 
 const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
   if(!feature) return <section className={`${featureInfo} ${hidden}`} />
@@ -10,7 +10,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
   const location = () => {
     const cat = locationCategories[feature.cat]
     return (
-      <span>
+      <section className={featureInfo}>
         <header className={header}>
           <span className={closeStyle} onClick={close}>{'->'}</span>
           <span className={title}>
@@ -45,12 +45,13 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             </span>
           ))}
         </span>
-      </span>
+        <footer className={idFooter}><CopyToClipboard text={feature.id}><span>{feature.id}</span></CopyToClipboard></footer>
+      </section>
     )
   }
 
   const move = () => (
-    <span>
+    <section className={featureInfo}>
       <header className={header} style={{background: `linear-gradient(300deg,${activityTypes[feature.activity].join()})`}}>
         <span className={closeStyle} onClick={close}>{'->'}</span>
         <span className={title}>
@@ -74,14 +75,11 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
           <value>{feature.startEndDescriptor}</value>
         </span>
       </span>
-    </span>
+      <footer className={idFooter}><CopyToClipboard text={feature.id}><span>{feature.id}</span></CopyToClipboard></footer>
+    </section>
     )
 
-  return (
-    <section className={featureInfo}>
-      {feature.activity ? move() : location()}
-    </section>
-  )
+  return feature.activity ? move() : location()
 }
 
 export default FeatureInfo

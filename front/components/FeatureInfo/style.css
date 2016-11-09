@@ -3,11 +3,12 @@
   width: 25rem;
   max-width: calc(100% + 2px);
   float: right;
-  background: #fff;
   overflow: hidden;
   box-sizing: border-box;
   border-left: #333 solid 2px;
   transition: width 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+  display: flex;
+  flex-direction: column;
 }
 .hidden{
   width: 0;
@@ -19,6 +20,7 @@
   text-align: center;
   color: #fff;
   position: relative;
+  flex: 0 1 auto;
 }
 .close {
     display: block;
@@ -85,7 +87,9 @@
     display: block;
     overflow: hidden;
     overflow-y: auto;
-    height: calc(100% - 20rem);
+    max-height: calc(100% - 20rem);
+    background: #fff;
+    flex: 0 1 auto;
 }
 .field {
     display: block;
@@ -173,4 +177,15 @@
 
 .group:hover .inlineEdit{
     right:0;
+}
+
+.idFooter{
+flex: 1 1 auto;
+text-align: center;
+display: flex;
+justify-content: center;
+flex-direction: column;
+background: #f2f2f2;
+color: #ccc;
+cursor: pointer;
 }
