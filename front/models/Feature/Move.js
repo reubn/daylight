@@ -12,6 +12,9 @@ class Move extends Feature {
   get activityName(){
     return (([f, ...r]) => f.toUpperCase()+r.join``)(this.activity)
   }
+  get distance(){
+    return this.geo.slice(1).reduce(({total, prev}, current) => ({total: total + prev.distanceTo(current), prev: current}), {total: 0, prev: this.geo[0]}).total / 1000
+  }
 }
 
 export default Move
