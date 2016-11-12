@@ -1,9 +1,11 @@
+import {latLng} from 'leaflet'
+
 class Location {
   constructor({cat='u', geo, name, visits=[], id}={}){
     this.type = 'Location'
     this.id = id
     this.cat = cat
-    this.geo = geo
+    this.geo = latLng(geo)
     this.name = name
     this.visits = visits
   }
