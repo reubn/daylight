@@ -1,5 +1,5 @@
 import React from 'react'
-import {login, errors} from './style'
+import {login} from './style'
 
 export default class Login extends React.Component {
   constructor(props){
@@ -12,18 +12,17 @@ export default class Login extends React.Component {
 
   onChange(event){
     const field = event.target.type === 'password' ? 'password' : 'username'
-    if(this.props.errors && this.state[field] !== event.target.value) this.props.resetErrors()
-    this.setState({[field]: event.target.value})
+    this.setState({[field]: event.target.value}, () => this.props.onChange(this.state))
   }
   onSubmit(){
     this.props.onSubmit(this.state)
   }
   render(){
     return (
-      <section className={`${login} ${this.props.errors ? errors : ''}`}>
-        <input type="username" value={this.state.username} placeholder="track@your.life" onChange={this.onChange} />
-        <input type="password" value={this.state.password} placeholder="••••••••••••" onChange={this.onChange} />
-        <input type="submit" value={this.props.loading ? '...' : 'Login'} onClick={this.onSubmit} />
+      <section className={login}>
+        <input type="username" value={this.state.username} data-valid={this.props.errors.username ? this.props.errors.username.valid : true} placeholder="track@your.life" onChange={this.onChange} />
+        <input type="password" value={this.state.password} data-valid={this.props.errors.password ? this.props.errors.password.valid : true} placeholder="••••••••••••" onChange={this.onChange} />
+        <input type="submit" value={this.props.loading ? '...' : 'Login'} onClick={this.onSubmit} disabled={!this.props.valid} />
       </section>
     )
   }

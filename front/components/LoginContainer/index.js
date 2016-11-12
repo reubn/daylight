@@ -1,11 +1,11 @@
 import {connect} from 'react-redux'
 import Login from '../Login'
-import loginAction from '../../store/actions/login'
+import loginFormValidateAction from '../../store/actions/loginFormValidate'
 
-const mapStateToProps = ({user: {id}, loginForm: {errors, loading}}) => ({signedIn: !!id, errors, loading})
+const mapStateToProps = ({user: {id}, loginForm: {valid, errors, loading}}) => ({signedIn: !!id, valid, errors, loading})
 const mapDispatchToProps = {
-  onSubmit: ({username, password}) => dispatch => loginAction(dispatch, username, password),
-  resetErrors: () => ({type: 'LOGINFORM_ERRORS_RESET'})
+  onChange: form => dispatch => loginFormValidateAction(dispatch, form, false),
+  onSubmit: form => dispatch => loginFormValidateAction(dispatch, form, true)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

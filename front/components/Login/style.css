@@ -38,6 +38,9 @@
     border-bottom-color: #60cbfc;
 }
 
+.login .login input[type='username'][data-valid='false']:focus, .login input[type='password'][data-valid='false']:focus {
+    border-bottom-color: #ff5757;
+}
 
 .login input[type='submit'] {
     font-weight: 600;
@@ -53,11 +56,8 @@
     background: #60cbfc;
 }
 
-.errors input[type='submit'] {
-    color:#fff;
-    background: #ff5757;
-}
-
-.errors input[type='submit']:hover {
-    background: #ff6060;
+.login input[type="submit"][disabled] {
+    background: #5a5a5a;
+    cursor: not-allowed;
+    color:#7b7b7b
 }

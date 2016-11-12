@@ -3,12 +3,9 @@ import {replace} from 'react-router-redux'
 
 import User from '../../models/User'
 
-function loginAction(dispatch, username, password){
-  dispatch({type: 'LOGINFORM_ERRORS', errors: false})
+function loginAction(dispatch, form){
   dispatch({type: 'LOGINFORM_LOADING'})
-  axios.post('/login', {
-    username, password
-  })
+  axios.post('/login', form)
   .then(function({data: user}){
     dispatch({type: 'USER', user: new User(user)})
     dispatch(replace('/map'))

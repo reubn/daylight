@@ -1,4 +1,5 @@
 export default {
-  errors: false,
+  errors: {},
+  valid: false,
   loading: false
 }
