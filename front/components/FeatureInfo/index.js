@@ -74,6 +74,10 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
           <label>{'Start -> End'}</label>
           <value>{feature.startEndDescriptor}</value>
         </span>
+        <span className={field}>
+          <label>{'Distance'}</label>
+          <value>{`${feature.distance.toFixed(5)}km`}</value>
+        </span>
       </span>
       <footer className={idFooter}><CopyToClipboard text={feature.id}><span>{feature.id}</span></CopyToClipboard></footer>
     </section>
