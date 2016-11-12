@@ -14,11 +14,12 @@ const register = require('./register')
 const login = require('./login')
 const logout = require('./logout')
 
-router.use('/@', protect, api, errorHandler)
-router.use('/~', protect, factories.router, errorHandler)
 
-router.post('/register', register, errorHandler)
-router.post('/login', login, errorHandler)
+router.use('/@', protect, api)
+router.use('/~', protect, factories.router)
+
+router.use('/register', register)
+router.use('/login', login)
 router.post('/logout', logout)
 
 // Serve Static Assets
@@ -28,5 +29,8 @@ router.use(serveStatic('front/compiled/', {
 
 // History API Fallback
 router.use(historyFallback)
+
+// Error Handling
+router.use(errorHandler)
 
 module.exports = router
