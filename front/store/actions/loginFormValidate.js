@@ -1,7 +1,6 @@
 import loginAction from '../../store/actions/login'
 
 function loginFormValidateAction(dispatch, form, submit){
-  console.log(form, submit)
   const validations = {
     username(string){
       return {valid: !!string, error: 'username must not be empty'}
