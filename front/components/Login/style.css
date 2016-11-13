@@ -18,28 +18,33 @@
     text-align: center;
     border: none;
     border-radius: 0;
-            appearance: none;
+    appearance: none;
     -webkit-appearance: none;
     -webkit-font-smoothing: subpixel-antialiased;
 }
-.login input:focus{
-  outline: none;
+
+.login input:focus {
+    outline: none;
 }
 
-.login input[type='username'], .login input[type='password'] {
-    margin-bottom: 1rem;
+.login input[type='username'],
+.login input[type='password'] {
+    margin-bottom: 0.5rem;
     transition: all .1s ease-in;
     color: #b7b7b7;
     border: none;
     border-bottom: solid 3px #ececec;
 }
-.login input[type='username']:focus, .login input[type='password']:focus {
+
+.login input[type='username']:focus,
+.login input[type='password']:focus {
     color: #525252;
     border-bottom-color: #60cbfc;
 }
 
-.login .login input[type='username'][data-valid='false']:focus, .login input[type='password'][data-valid='false']:focus {
-    border-bottom-color: #ff5757;
+.login input[type='username'][data-valid='false']:focus,
+.login input[type='password'][data-valid='false']:focus {
+    border-bottom-color: #f55;
 }
 
 .login input[type='submit'] {
@@ -52,12 +57,12 @@
 
 .login input[type='submit']:hover {
     transition: all .15s ease-in;
-    color:#fff;
+    color: #fff;
     background: #60cbfc;
 }
 
-.login input[type="submit"][disabled] {
+.login input[type="submit"][disabled]:hover {
     background: #5a5a5a;
     cursor: not-allowed;
-    color:#7b7b7b
+    color: #7b7b7b
 }
