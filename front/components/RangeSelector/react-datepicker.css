@@ -43,7 +43,7 @@
 }
 
 :global(.react-datepicker__navigation--previous) {
-  border-right-color: var(--globals-colors-white-0)fff;
+  border-right-color: var(--globals-colors-white-0);
 }
 
 :global(.react-datepicker__navigation--previous:hover) {
