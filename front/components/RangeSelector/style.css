@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 .arrow:hover{
-    background: var(--globals-colors-white-0)f;
+    background: var(--globals-colors-white-0);
     color:var(--globals-colors-black-1)
 }
 
