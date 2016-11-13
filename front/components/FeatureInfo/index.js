@@ -76,7 +76,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
         </span>
         <span className={field}>
           <label>{'Distance'}</label>
-          <value>{`${feature.distance.toFixed(5)}km`}</value>
+          <value>{feature.displayDistance}</value>
         </span>
       </span>
       <footer className={idFooter}><CopyToClipboard text={feature.id}><span>{feature.id}</span></CopyToClipboard></footer>
