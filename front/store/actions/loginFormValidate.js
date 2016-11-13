@@ -3,15 +3,17 @@ import loginAction from '../../store/actions/login'
 function loginFormValidateAction(dispatch, form, submit){
   const validations = {
     username(string){
-      return {valid: !!string, error: 'username must not be empty'}
+      const valid = !!string
+      return {valid, reason: valid ? 'username must not be empty' : ''}
     },
     password(string){
-      return {valid: !!string, error: 'password must not be empty'}
+      const valid = !!string
+      return {valid, reason: valid ? 'password must not be empty' : ''}
     }
   }
 
   const report = Object.keys(validations).reduce(({valid, errors}, key) => {
-    const status = form[key] ? validations[key](form[key]) : {valid: false, error: `${key} must not be empty`}
+    const status = form[key] ? validations[key](form[key]) : {valid: false, reason: `${key} must not be empty`}
     return {
       valid: valid && status.valid,
       errors: {
