@@ -87,5 +87,6 @@
 }
 
 :global(.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range)) {
-  background-color: rgba(96, 203, 252, 0.5);
+  background-color: var(--globals-colors-blue);
+  opacity: 0.5;
 }
