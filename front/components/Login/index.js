@@ -1,6 +1,8 @@
 import React from 'react'
 import {login} from './style'
 
+import Message from '../Message'
+
 export default class Login extends React.Component {
   constructor(props){
     super(props)
@@ -21,7 +23,9 @@ export default class Login extends React.Component {
     return (
       <section className={login}>
         <input type="username" value={this.state.username} data-valid={this.props.errors.username ? this.props.errors.username.valid : true} placeholder="track@your.life" onChange={this.onChange} />
+        <Message error={this.props.errors.username} />
         <input type="password" value={this.state.password} data-valid={this.props.errors.password ? this.props.errors.password.valid : true} placeholder="••••••••••••" onChange={this.onChange} />
+        <Message error={this.props.errors.password} />
         <input type="submit" value={this.props.loading ? '...' : 'Login'} onClick={this.onSubmit} disabled={!this.props.valid} />
       </section>
     )
