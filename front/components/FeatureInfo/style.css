@@ -5,7 +5,7 @@
   float: right;
   overflow: hidden;
   box-sizing: border-box;
-  border-left: #333 solid 2px;
+  border-left: var(--globals-colors-black-1) solid 2px;
   transition: width 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
   display: flex;
   flex-direction: column;
@@ -16,9 +16,9 @@
 .header{
   width: 100%;
   height: 20rem;
-  background: linear-gradient(300deg,#60cbfc,#38f);
+  background: linear-gradient(300deg, var(--globals-colors-blue), var(--globals-colors-blue-dark));
   text-align: center;
-  color: #fff;
+  color: var(--globals-colors-white-0);
   position: relative;
   flex: 0 1 auto;
 }
@@ -26,7 +26,7 @@
     display: block;
     width: 2rem;
     height: 2rem;
-    color:#fff;
+    color:var(--globals-colors-white-0);
     position: relative;
     line-height: 2rem;
     text-align: center;
@@ -59,7 +59,7 @@
     width: 100%;
     line-height: 3rem;
     height: 3rem;
-    color: #ffffff;
+    color: var(--globals-colors-white-0);
     display: block;
     font-size: 1rem;
     cursor: pointer;
@@ -88,16 +88,16 @@
     overflow: hidden;
     overflow-y: auto;
     max-height: calc(100% - 20rem);
-    background: #fff;
+    background: var(--globals-colors-white-0);
     flex: 0 1 auto;
 }
 .field {
     display: block;
     width: 100%;
-    border-bottom: #bbb solid 1px;
+    border-bottom: var(--globals-colors-grey-1) solid 1px;
 }
 .field:hover{
-  background: #f9f9f9;
+  background: var(--globals-colors-white-2);
 }
 .field label {
     font-size: 0.8rem;
@@ -105,7 +105,7 @@
     display: block;
     position: relative;
     left: 1rem;
-    color: #999;
+    color: var(--globals-colors-grey-2);
     height: 2rem;
     line-height: 2rem;
     user-select: none;
@@ -114,7 +114,7 @@
 .field value {
     position: relative;
     left: 2rem;
-    color: #525252;
+    color: var(--globals-colors-black-3);
     display: block;
     padding-bottom: 0.5rem;
 }
@@ -122,13 +122,13 @@
 .group{
     margin-top: 1.5rem;
     display: block;
-    border-bottom: #bbb solid 1px;
-    border-top: #bbb solid 1px;
-    background: #fbfbfb;
+    border-bottom: var(--globals-colors-grey-1) solid 1px;
+    border-top: var(--globals-colors-grey-1) solid 1px;
+    background: var(--globals-colors-white-1);
     position: relative;
 }
 .group:hover {
-  border-color: #8c8c8c
+  border-color: var(--globals-colors-grey-4)
 }
 .group > label {
     font-size: 1rem;
@@ -136,19 +136,19 @@
     display: block;
     position: relative;
     top: -1.15rem;
-    color: #676767;
+    color: var(--globals-colors-black-5);
     margin-bottom: -2rem;
     height: 2rem;
     line-height: 2rem;
     user-select: none;
     text-align: center;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 3px 3px 0 #fff;
+    text-shadow: -1px -1px 0 var(--globals-colors-white-0), 1px -1px 0 var(--globals-colors-white-0), -1px 1px 0 var(--globals-colors-white-0), 1px 1px 0 var(--globals-colors-white-0), -2px -2px 0 var(--globals-colors-white-0), 2px -2px 0 var(--globals-colors-white-0), -2px 2px 0 var(--globals-colors-white-0), 2px 2px 0 var(--globals-colors-white-0), -3px -3px 0 var(--globals-colors-white-0), 3px -3px 0 var(--globals-colors-white-0), -3px 3px 0 var(--globals-colors-white-0), 3px 3px 0 var(--globals-colors-white-0);
 }
 .group .field{
   border-bottom: none;
 }
 .group .field:not(:last-of-type){
-  border-bottom: #dadada solid 1px;
+  border-bottom: var(--globals-colors-grey-0) solid 1px;
 }
 
 .inlineEdit {
@@ -156,23 +156,23 @@
     height: 100%;
     width: 2rem;
     position: absolute;
-    background: #fbfbfb;
+    background: var(--globals-colors-white-1);
     z-index: 1;
     top: 0;
     right: calc(-2rem - 1px);
-    border-left: #DADAD9 solid 1px;
+    border-left: var(--globals-colors-grey-0) solid 1px;
     transition: right 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
     writing-mode: vertical-lr;
     text-orientation: upright;
     line-height: 2rem;
     text-align: center;
-    color: #999;
+    color: var(--globals-colors-grey-2);
     user-select: none;
     cursor:pointer;
 }
 
 .inlineEdit:hover{
-    background:#f9f9f9;
+    background:var(--globals-colors-white-2);
 }
 
 .group:hover .inlineEdit{
@@ -185,7 +185,7 @@ text-align: center;
 display: flex;
 justify-content: center;
 flex-direction: column;
-background: #f2f2f2;
-color: #ccc;
+background: var(--globals-colors-white-3);
+color: var(--globals-colors-grey-0);
 cursor: pointer;
 }

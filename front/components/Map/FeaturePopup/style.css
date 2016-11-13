@@ -1,3 +1,4 @@
 :global(.leaflet-popup-content-wrapper), .popup {
+  font-family: var(--globals-font-family);
   text-align: center;
 }

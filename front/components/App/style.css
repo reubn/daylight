@@ -1,14 +1,14 @@
-@import './fonts';
+@import './globals';
 
 .app {
-  font-family: Source Code Pro;
+  font-family: var(--globals-font-family);
   position: absolute;
   top: 0;
   left: 0;
   display: block;
   width: 100vw;
   height: 100vh;
-  background: #1e1f1f;
+  background: var(--globals-colors-black-0);
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }

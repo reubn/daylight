@@ -31,38 +31,38 @@
 .login input[type='password'] {
     margin-bottom: 0.5rem;
     transition: all .1s ease-in;
-    color: #b7b7b7;
+    color: var(--globals-colors-grey-1);
     border: none;
-    border-bottom: solid 3px #ececec;
+    border-bottom: solid 3px var(--globals-colors-white-4);
 }
 
 .login input[type='username']:focus,
 .login input[type='password']:focus {
-    color: #525252;
-    border-bottom-color: #60cbfc;
+    color: var(--globals-colors-black-3);
+    border-bottom-color: var(--globals-colors-blue);
 }
 
 .login input[type='username'][data-valid='false']:focus,
 .login input[type='password'][data-valid='false']:focus {
-    border-bottom-color: #f55;
+    border-bottom-color: var(--globals-colors-red);
 }
 
 .login input[type='submit'] {
     font-weight: 600;
     transition: all .1s ease-in;
-    color: #525252;
-    background: #ececec;
+    color: var(--globals-colors-black-3);
+    background: var(--globals-colors-white-4);
     cursor: pointer;
 }
 
 .login input[type='submit']:hover {
     transition: all .15s ease-in;
-    color: #fff;
-    background: #60cbfc;
+    color: var(--globals-colors-white-0);
+    background: var(--globals-colors-blue);
 }
 
 .login input[type="submit"][disabled]:hover {
-    background: #5a5a5a;
+    background: var(--globals-colors-black-3);
     cursor: not-allowed;
-    color: #7b7b7b
+    color: var(--globals-colors-grey-5)
 }

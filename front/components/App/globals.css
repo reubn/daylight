@@ -1,0 +1,38 @@
+@import './fonts';
+
+:root {
+  --globals-colors-red: #f55;
+  --globals-colors-yellow: #ffee62;
+
+  --globals-colors-green: #5dedcb;
+  --globals-colors-green-hover: #41f1c7;
+
+  --globals-colors-blue: #60cbfc;
+  --globals-colors-blue-hover: #36c0ff;
+  --globals-colors-blue-dark: #38f;
+
+  --globals-colors-pink: #ff3a8e;
+  --globals-colors-pink-hover: #e40d68;
+
+  --globals-colors-purple: #c34ef8;
+  --globals-colors-purple-dark: #5959d3;
+
+  --globals-colors-black-0: #1e1f1f;
+  --globals-colors-black-1: #333;
+  --globals-colors-black-3: #525252;
+  --globals-colors-black-5: #676767;
+
+  --globals-colors-grey-0: #dadada;
+  --globals-colors-grey-1: #bbb;
+  --globals-colors-grey-2: #999;
+  --globals-colors-grey-4: #8c8c8c;
+  --globals-colors-grey-5: #7b7b7b;
+
+  --globals-colors-white-0: #fff;
+  --globals-colors-white-1: #fbfbfb;
+  --globals-colors-white-2: #f9f9f9;
+  --globals-colors-white-3: #f2f2f2;
+  --globals-colors-white-4: #ececec;
+
+  --globals-font-family: Source Code Pro;
+}

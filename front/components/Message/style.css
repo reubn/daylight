@@ -10,8 +10,8 @@
     height: 2.5rem;
     line-height: 2.5rem;
     position: absolute;
-    background: #f55;
-    color: #fff;
+    background: var(--globals-colors-red);
+    color: var(--globals-colors-white-0);
     z-index: 2;
     left: 0;
     top: -0.5rem;
@@ -27,7 +27,7 @@
 
 .indicator {
     float: right;
-    color: #f55;
+    color: var(--globals-colors-red);
     position: relative;
     right: 1rem;
     opacity: 0;

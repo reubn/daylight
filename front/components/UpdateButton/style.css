@@ -2,7 +2,7 @@
     line-height: 2rem;
     font-weight: 600;
     padding: 0.5rem 2rem;
-    background: #FF3A8D;
+    background: var(--globals-colors-pink);
     position: relative;
     right: 0.5rem;
     top: 0.5rem;
@@ -10,5 +10,5 @@
 }
 
 .updateButton:hover {
-    background: #e40d68;
+    background: var(--globals-colors-pink-hover);
 }
