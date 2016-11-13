@@ -12,7 +12,7 @@ function loginAction(dispatch, form){
     dispatch({type: 'LOGINFORM_LOADING', status: false})
   })
   .catch(function(error){
-    dispatch({type: 'LOGINFORM_ERRORS'})
+    dispatch({type: 'LOGINFORM_ERRORS', errors: {password: {valid: false, reason: 'password incorrect'}}})
     dispatch({type: 'LOGINFORM_LOADING', status: false})
     console.log(error)
   })
