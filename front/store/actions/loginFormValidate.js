@@ -1,6 +1,6 @@
 import loginAction from '../../store/actions/login'
 
-function loginFormValidateAction(dispatch, form, submit){
+function loginFormValidateAction(dispatch, getState, form, submit){
   const validations = {
     username(string){
       const valid = !!string
@@ -23,7 +23,7 @@ function loginFormValidateAction(dispatch, form, submit){
     }
   }, {valid: true, errors: {}})
   dispatch({type: 'LOGINFORM_ERRORS', ...report})
-  if(submit) return loginAction(dispatch, form)
+  if(submit) return loginAction(dispatch, getState, form)
 }
 
 export default loginFormValidateAction
