@@ -73,6 +73,7 @@ const MapboxGlLeaflet = L.Layer.extend({
   },
 
   onRemove(map){
+    if(this._requestAnimFrame) L.Util.cancelAnimFrame(this._requestAnimFrame)
     map.getPanes().tilePane.removeChild(this._glContainer)
     this._glMap.remove()
     this._glMap = null
@@ -181,7 +182,7 @@ const MapboxGlLeaflet = L.Layer.extend({
     const offset = this._map.latLngToContainerPoint(this._map.getBounds().getNorthWest())
 
       // update the map on the next available frame to avoid stuttering
-    L.Util.requestAnimFrame(function(){
+    this._requestAnimFrame = L.Util.requestAnimFrame(function(){
         // reset the scale and offset
       L.DomUtil.setTransform(this._glMap._canvas, offset, 1)
 
