@@ -13,6 +13,6 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={() => <span> HOMEPAGE </span>} />
     <Route path="/login" component={LoginContainer} onEnter={protect(store, null, '/map')} />
-    <Route path="/map(/:from(/:to))" component={MapContainer} onEnter={protect(store, '/')} />
+    <Route path="/map(/:from(/:to))" component={MapContainer} onEnter={protect(store, '/login')} />
   </Route>
 )
