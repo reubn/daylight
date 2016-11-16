@@ -1,5 +1,6 @@
 export default {
   errors: {},
   valid: false,
-  loading: false
+  loading: false,
+  redirect: null
 }

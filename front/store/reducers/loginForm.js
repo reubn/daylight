@@ -5,6 +5,8 @@ const loginFormReducer = (state=initialState, action) => {
 
   if(action.type === 'LOGINFORM_LOADING') return {...state, loading: action.hasOwnProperty('status') ? action.status : true}
 
+  if(action.type === 'LOGINFORM_REDIRECT') return {...state, redirect: action.hasOwnProperty('url') ? action.url : false}
+
   return state
 }
 
