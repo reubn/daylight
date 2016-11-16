@@ -18,9 +18,8 @@ import init from './init'
 import {map, mapContainer, mapHolder, featureInfoIsOpen, loader} from './style'
 
 class Map extends React.Component {
-  constructor(props){
-    super(props)
-    init(props)
+  componentWillMount(){
+    init(this.props)
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.params.from !== this.props.params.from || nextProps.params.to !== this.props.params.to) init(nextProps)
