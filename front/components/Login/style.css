@@ -9,6 +9,13 @@
     text-align: center;
 }
 
+.login .banner{
+    font-size: 1.25rem;
+    background: var( --globals-colours-orange);
+    color: var( --globals-colours-white-0);
+    padding: 0.25rem;
+}
+
 .login input {
     font-family: inherit;
     font-size: 1rem;
