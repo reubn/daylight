@@ -9,6 +9,7 @@ function loginAction(dispatch, getState, form){
   .then(function({data: user}){
     dispatch({type: 'USER', user: new User(user)})
     dispatch(replace(getState().loginForm.redirect || '/map'))
+    dispatch({type: 'LOGINFORM_REDIRECT'})
     dispatch({type: 'LOGINFORM_LOADING', status: false})
   })
   .catch(function(error){
