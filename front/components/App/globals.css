@@ -1,42 +1,42 @@
 @import './fonts';
 
 :root {
-  --globals-colors-red: #f55;
-  --globals-colors-yellow: #ffee62;
+  --globals-colours-red: #f55;
+  --globals-colours-yellow: #ffee62;
 
-  --globals-colors-green: #5dedcb;
-  --globals-colors-green-hover: #41f1c7;
+  --globals-colours-green: #5dedcb;
+  --globals-colours-green-hover: #41f1c7;
 
-  --globals-colors-blue: #60cbfc;
-  --globals-colors-blue-hover: #36c0ff;
-  --globals-colors-blue-dark: #38f;
+  --globals-colours-blue: #60cbfc;
+  --globals-colours-blue-hover: #36c0ff;
+  --globals-colours-blue-dark: #38f;
 
-  --globals-colors-pink: #ff3a8e;
-  --globals-colors-pink-hover: #e40d68;
+  --globals-colours-pink: #ff3a8e;
+  --globals-colours-pink-hover: #e40d68;
 
-  --globals-colors-purple: #c34ef8;
-  --globals-colors-purple-dark: #5959d3;
+  --globals-colours-purple: #c34ef8;
+  --globals-colours-purple-dark: #5959d3;
 
-  --globals-colors-black-0: #1e1f1f;
-  --globals-colors-black-1: #333;
-  --globals-colors-black-2: #444;
-  --globals-colors-black-3: #525252;
-  --globals-colors-black-4: #5d5d5d;
-  --globals-colors-black-5: #676767;
+  --globals-colours-black-0: #1e1f1f;
+  --globals-colours-black-1: #333;
+  --globals-colours-black-2: #444;
+  --globals-colours-black-3: #525252;
+  --globals-colours-black-4: #5d5d5d;
+  --globals-colours-black-5: #676767;
 
-  --globals-colors-grey-0: #dadada;
-  --globals-colors-grey-1: #bbb;
-  --globals-colors-grey-2: #999;
-  --globals-colors-grey-3: #939393;
-  --globals-colors-grey-4: #8c8c8c;
-  --globals-colors-grey-5: #7b7b7b;
+  --globals-colours-grey-0: #dadada;
+  --globals-colours-grey-1: #bbb;
+  --globals-colours-grey-2: #999;
+  --globals-colours-grey-3: #939393;
+  --globals-colours-grey-4: #8c8c8c;
+  --globals-colours-grey-5: #7b7b7b;
 
-  --globals-colors-white-0: #fff;
-  --globals-colors-white-1: #fbfbfb;
-  --globals-colors-white-2: #f9f9f9;
-  --globals-colors-white-3: #f2f2f2;
-  --globals-colors-white-4: #ececec;
-  --globals-colors-white-5: #e2e2e2;
+  --globals-colours-white-0: #fff;
+  --globals-colours-white-1: #fbfbfb;
+  --globals-colours-white-2: #f9f9f9;
+  --globals-colours-white-3: #f2f2f2;
+  --globals-colours-white-4: #ececec;
+  --globals-colours-white-5: #e2e2e2;
 
   --globals-font-family: "Source Code Pro", monospace;
 }

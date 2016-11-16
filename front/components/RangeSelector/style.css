@@ -12,8 +12,8 @@
     cursor: pointer;
 }
 .arrow:hover{
-    background: var(--globals-colors-white-0);
-    color:var(--globals-colors-black-1)
+    background: var(--globals-colours-white-0);
+    color:var(--globals-colours-black-1)
 }
 
 .start, .end{
@@ -21,13 +21,13 @@
 }
 
 .slash {
-    color: var(--globals-colors-blue);
+    color: var(--globals-colours-blue);
 }
 
 .start:hover {
-    color: var(--globals-colors-green);
+    color: var(--globals-colours-green);
 }
 
 .end:hover {
-    color: var(--globals-colors-pink);
+    color: var(--globals-colours-pink);
 }

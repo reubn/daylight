@@ -14,5 +14,5 @@
 
 .login:hover .punc, .logout:hover .punc {
   transition: color .2s ease-out;
-  color: var(--globals-colors-green);
+  color: var(--globals-colours-green);
 }

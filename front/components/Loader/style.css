@@ -39,6 +39,6 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   border-radius: 15%;
-  background: var(--globals-colors-white-0);
+  background: var(--globals-colours-white-0);
   animation-fill-mode: both;
 }

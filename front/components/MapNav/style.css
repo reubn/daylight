@@ -6,7 +6,7 @@
   display: block;
   width: inherit;
   height: 4rem;
-  color: var(--globals-colors-white-0);
+  color: var(--globals-colours-white-0);
   background: rgba(30, 31, 31, .4);
   text-align: center;
   user-select: none;

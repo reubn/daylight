@@ -31,38 +31,38 @@
 .login input[type='password'] {
     margin-bottom: 0.5rem;
     transition: all .1s ease-in;
-    color: var(--globals-colors-grey-1);
+    color: var(--globals-colours-grey-1);
     border: none;
-    border-bottom: solid 3px var(--globals-colors-white-4);
+    border-bottom: solid 3px var(--globals-colours-white-4);
 }
 
 .login input[type='username']:focus,
 .login input[type='password']:focus {
-    color: var(--globals-colors-black-3);
-    border-bottom-color: var(--globals-colors-blue);
+    color: var(--globals-colours-black-3);
+    border-bottom-color: var(--globals-colours-blue);
 }
 
 .login input[type='username'][data-valid='false']:focus,
 .login input[type='password'][data-valid='false']:focus {
-    border-bottom-color: var(--globals-colors-red);
+    border-bottom-color: var(--globals-colours-red);
 }
 
 .login input[type='submit'] {
     font-weight: 600;
     transition: all .1s ease-in;
-    color: var(--globals-colors-black-3);
-    background: var(--globals-colors-white-4);
+    color: var(--globals-colours-black-3);
+    background: var(--globals-colours-white-4);
     cursor: pointer;
 }
 
 .login input[type='submit']:hover {
     transition: all .15s ease-in;
-    color: var(--globals-colors-white-0);
-    background: var(--globals-colors-blue);
+    color: var(--globals-colours-white-0);
+    background: var(--globals-colours-blue);
 }
 
 .login input[type="submit"][disabled]:hover {
-    background: var(--globals-colors-black-3);
+    background: var(--globals-colours-black-3);
     cursor: not-allowed;
-    color: var(--globals-colors-grey-5)
+    color: var(--globals-colours-grey-5)
 }

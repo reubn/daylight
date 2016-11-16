@@ -15,19 +15,19 @@
 }
 
 .logo:hover ~ #fillGradient stop:first-child {
-  stop-color: var(--globals-colors-green);
+  stop-color: var(--globals-colours-green);
 }
 
 .logo:hover ~ #fillGradient stop:last-child {
-  stop-color: var(--globals-colors-blue);
+  stop-color: var(--globals-colours-blue);
 }
 
 .logo.birthday:hover ~ #fillGradient stop:first-child {
-  stop-color: var(--globals-colors-yellow);
+  stop-color: var(--globals-colours-yellow);
 }
 
 .logo.birthday:hover ~ #fillGradient stop:last-child {
-  stop-color: var(--globals-colors-pink);
+  stop-color: var(--globals-colours-pink);
 }
 
 .logo:hover ~ #strokeGradient stop:first-child {
