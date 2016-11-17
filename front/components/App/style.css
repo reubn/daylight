@@ -8,7 +8,7 @@
   display: block;
   width: 100vw;
   height: 100vh;
-  background: var(--globals-colours-black-0);
+  background: var(--globals-colours-black);
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }

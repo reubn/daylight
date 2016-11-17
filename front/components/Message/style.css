@@ -11,7 +11,7 @@
     line-height: 2.5rem;
     position: absolute;
     background: var(--globals-colours-red);
-    color: var(--globals-colours-white-0);
+    color: var(--globals-colours-white);
     z-index: 2;
     left: 0;
     top: -0.5rem;

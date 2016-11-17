@@ -18,7 +18,7 @@
   height: 20rem;
   background: linear-gradient(300deg, var(--globals-colours-blue), var(--globals-colours-blue-dark));
   text-align: center;
-  color: var(--globals-colours-white-0);
+  color: var(--globals-colours-white);
   position: relative;
   flex: 0 1 auto;
 }
@@ -26,7 +26,7 @@
     display: block;
     width: 2rem;
     height: 2rem;
-    color:var(--globals-colours-white-0);
+    color:var(--globals-colours-white);
     position: relative;
     line-height: 2rem;
     text-align: center;
@@ -59,7 +59,7 @@
     width: 100%;
     line-height: 3rem;
     height: 3rem;
-    color: var(--globals-colours-white-0);
+    color: var(--globals-colours-white);
     display: block;
     font-size: 1rem;
     cursor: pointer;
@@ -88,7 +88,7 @@
     overflow: hidden;
     overflow-y: auto;
     max-height: calc(100% - 20rem);
-    background: var(--globals-colours-white-0);
+    background: var(--globals-colours-white);
     flex: 0 1 auto;
 }
 .field {
@@ -142,13 +142,13 @@
     line-height: 2rem;
     user-select: none;
     text-align: center;
-    text-shadow: -1px -1px 0 var(--globals-colours-white-0), 1px -1px 0 var(--globals-colours-white-0), -1px 1px 0 var(--globals-colours-white-0), 1px 1px 0 var(--globals-colours-white-0), -2px -2px 0 var(--globals-colours-white-0), 2px -2px 0 var(--globals-colours-white-0), -2px 2px 0 var(--globals-colours-white-0), 2px 2px 0 var(--globals-colours-white-0), -3px -3px 0 var(--globals-colours-white-0), 3px -3px 0 var(--globals-colours-white-0), -3px 3px 0 var(--globals-colours-white-0), 3px 3px 0 var(--globals-colours-white-0);
+    text-shadow: -1px -1px 0 var(--globals-colours-white), 1px -1px 0 var(--globals-colours-white), -1px 1px 0 var(--globals-colours-white), 1px 1px 0 var(--globals-colours-white), -2px -2px 0 var(--globals-colours-white), 2px -2px 0 var(--globals-colours-white), -2px 2px 0 var(--globals-colours-white), 2px 2px 0 var(--globals-colours-white), -3px -3px 0 var(--globals-colours-white), 3px -3px 0 var(--globals-colours-white), -3px 3px 0 var(--globals-colours-white), 3px 3px 0 var(--globals-colours-white);
 }
 .group .field{
   border-bottom: none;
 }
 .group .field:not(:last-of-type){
-  border-bottom: var(--globals-colours-grey-0) solid 1px;
+  border-bottom: var(--globals-colours-grey) solid 1px;
 }
 
 .inlineEdit {
@@ -160,7 +160,7 @@
     z-index: 1;
     top: 0;
     right: calc(-2rem - 1px);
-    border-left: var(--globals-colours-grey-0) solid 1px;
+    border-left: var(--globals-colours-grey) solid 1px;
     transition: right 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
     writing-mode: vertical-lr;
     text-orientation: upright;
@@ -186,6 +186,6 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 background: var(--globals-colours-white-3);
-color: var(--globals-colours-grey-0);
+color: var(--globals-colours-grey);
 cursor: pointer;
 }

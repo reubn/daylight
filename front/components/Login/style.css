@@ -12,7 +12,7 @@
 .login .banner{
     font-size: 1.25rem;
     background: var( --globals-colours-orange);
-    color: var( --globals-colours-white-0);
+    color: var( --globals-colours-white);
     padding: 0.25rem;
 }
 
@@ -64,7 +64,7 @@
 
 .login input[type='submit']:hover {
     transition: all .15s ease-in;
-    color: var(--globals-colours-white-0);
+    color: var(--globals-colours-white);
     background: var(--globals-colours-blue);
 }
 

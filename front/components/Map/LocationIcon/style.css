@@ -1,7 +1,7 @@
 .marker {
   display: flex;
   border-radius: 50%;
-  background: radial-gradient(50% 49%, var(--globals-colours-white-0) 50%, var(--globals-colours-white-1) 100%);
+  background: radial-gradient(50% 49%, var(--globals-colours-white) 50%, var(--globals-colours-white-1) 100%);
   box-shadow: 0 0 18px 6px rgba(0, 0, 0, .50);
   justify-content: center;
   align-items: center;
@@ -18,23 +18,23 @@
 
 .selected{
     background: linear-gradient(300deg,var(--globals-colours-blue), var(--globals-colours-blue-dark));
-    border: var(--globals-colours-white-0) solid 2px;
+    border: var(--globals-colours-white) solid 2px;
 }
 
 .selected .icon{
-  background: var(--globals-colours-white-0);
+  background: var(--globals-colours-white);
 }
 
 .photo {
     display: block;
     width: 1.25rem;
     background-size: contain;
-    border: var(--globals-colours-white-0) solid 2px;
+    border: var(--globals-colours-white) solid 2px;
     height: 1.25rem;
     border-radius: 50%;
     line-height: 1.25rem;
     text-align: center;
-    color: var(--globals-colours-white-0);
+    color: var(--globals-colours-white);
     font-weight: bold;
     box-shadow: 0 0 6px 1px rgba(0, 0, 0, .50);
     z-index: 2;
