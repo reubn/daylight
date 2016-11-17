@@ -19,6 +19,7 @@
   --globals-colours-purple-dark: #5959d3;
 
   --globals-colours-black: #1e1f1f;
+  --globals-colours-black-trans: rgba(30, 31, 31, .4);
   --globals-colours-black-1: #333;
   --globals-colours-black-2: #444;
   --globals-colours-black-3: #525252;
