@@ -15,7 +15,7 @@ const FeaturePopup = ({displayFeature}) => {
     <Popup closeButton={false} className={popup}>
       <span>{content}</span>
     </Popup>
-    )
+  )
 }
 
 export default FeaturePopup
