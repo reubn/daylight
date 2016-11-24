@@ -13,10 +13,12 @@ function loginAction(dispatch, getState, form){
     dispatch({type: 'LOGINFORM_LOADING', status: false})
   })
   .catch(function(error){
-    const {response: {data: {reason}}} = error
     dispatch({type: 'LOGINFORM_LOADING', status: false})
+
+    const {response: {data: {reason}}} = error
     if(reason === 'LoginFail') return dispatch({type: 'LOGINFORM_ERRORS', errors: {password: {valid: false, reason: 'password incorrect'}}})
-    throw error
+
+    return dispatch({type: 'ERROR', error})
   })
 }
 

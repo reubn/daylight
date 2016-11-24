@@ -20,5 +20,6 @@ function updateRangeAction(dispatch, getState, range, redirect=true){
       dispatch({type: 'MAP_UPDATING', status: false})
       return dayInstances
     })
+    .catch(error => dispatch({type: 'ERROR', error}))
 }
 export default updateRangeAction

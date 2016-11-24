@@ -7,7 +7,7 @@ function logoutAction(dispatch){
     dispatch({type: 'LOGOUT'})
     dispatch(replace('/'))
   })
-  .catch(error => console.error(error))
+  .catch(error => dispatch({type: 'ERROR', error})
 }
 
 export default logoutAction

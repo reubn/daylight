@@ -26,7 +26,9 @@ function selectRangeAction(dispatch, getState, range, redirect=true){
       dispatch({type: 'CACHE_LOCATIONS', locations: locationInstances})
       dispatch({type: 'CACHE_DAYS', days: dayInstances})
       return dayInstances
-    })], []
+    })
+  .catch(error => dispatch({type: 'ERROR', error})
+  )], []
   )
   Promise.all(serverPromises)
   .then(arrayOfResponces => arrayOfResponces.reduce((flat, res) => [...flat, ...res], []))
