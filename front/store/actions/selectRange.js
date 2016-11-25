@@ -30,7 +30,8 @@ function selectRangeAction(dispatch, getState, range, redirect=true){
     .catch(error => dispatch({type: 'ERROR', error}))
     ], []
   )
-  Promise.all(serverPromises)
+
+  return Promise.all(serverPromises)
   .then(arrayOfResponces => arrayOfResponces.reduce((flat, res) => [...flat, ...res], []))
   .then(daysFromServer => [...cachedDays, ...daysFromServer])
   .then(days => {

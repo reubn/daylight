@@ -16,7 +16,7 @@ class Range {
     return rangeToDates(this)
   }
   toURL(){
-    return `${this.start.format('YYYYMMDD')}/${!this.start.isSame(this.end) ? this.end.format('YYYYMMDD') : ''}`
+    return `${this.start.format('YYYYMMDD')}/${!this.start.isSame(this.end) ? `${this.end.format('YYYYMMDD')}/` : ''}`
   }
   isSameAs(range2){
     if(!range2) return false
