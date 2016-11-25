@@ -17,6 +17,9 @@ import {style, accessToken} from './config'
 import init from './init'
 import {map, mapContainer, mapHolder, featureInfoIsOpen, loader} from './style'
 
+import {FeatureGroup, Circle} from 'react-leaflet'
+import EditControl from './EditControl'
+
 class Map extends React.Component {
   componentWillMount(){
     init(this.props)
@@ -56,7 +59,10 @@ class Map extends React.Component {
             attributionControl={false}
           >
             <MapboxGlLayer accessToken={accessToken} style={style} />
-            {layers}
+            <FeatureGroup>
+             <EditControl position="topright" onEdit={this._onEditPath} />
+              {layers}
+            </FeatureGroup>
           </LeafletMap>
           <MapNav />
         </span>
