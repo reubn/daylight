@@ -1,16 +1,16 @@
 @import './globals';
 
 .app {
-  font-family: var(--globals-font-family);
   position: absolute;
   top: 0;
   left: 0;
   display: block;
   width: 100vw;
   height: 100vh;
-  background: var(--globals-colours-black);
-  -webkit-font-smoothing: antialiased;
   overflow: hidden;
+  font-family: var(--globals-font-family);
+  -webkit-font-smoothing: antialiased;
+  background: var(--globals-colours-black);
 }
 
 .wrapped {
@@ -22,14 +22,14 @@
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 4px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background:#fff;
+  background: #fff;
+  border-radius: 4px;
 }

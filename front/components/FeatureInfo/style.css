@@ -1,191 +1,209 @@
-.featureInfo{
-  height: 100%;
-  width: 25rem;
-  max-width: calc(100% + 2px);
-  float: right;
-  overflow: hidden;
-  box-sizing: border-box;
-  border-left: var(--globals-colours-black-1) solid 2px;
-  transition: width 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+.featureInfo {
   display: flex;
+  float: right;
+  width: 25rem;
+  height: 100%;
+  max-width: calc(100% + 2px);
+  overflow: hidden;
+  border-left: var(--globals-colours-black-1) solid 2px;
+  box-sizing: border-box;
+  transition: width .25s cubic-bezier(.65, .05, .36, 1);
   flex-direction: column;
 }
-.hidden{
+
+.hidden {
   width: 0;
 }
-.header{
+
+.header {
+  position: relative;
   width: 100%;
   height: 20rem;
-  background: linear-gradient(300deg, var(--globals-colours-blue), var(--globals-colours-blue-dark));
-  text-align: center;
   color: var(--globals-colours-white);
-  position: relative;
+  text-align: center;
+  background: linear-gradient(300deg, var(--globals-colours-blue), var(--globals-colours-blue-dark));
   flex: 0 1 auto;
 }
+
 .close {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    color:var(--globals-colours-white);
-    position: relative;
-    line-height: 2rem;
-    text-align: center;
-    font-size: 1.5rem;
-    top: 1rem;
-    left: 1rem;
-    float: left;
-    transition: top 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
-    cursor: pointer;
-    z-index: 50;
-    user-select: none;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  display: block;
+  float: left;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--globals-colours-white);
+  text-align: center;
+  cursor: pointer;
+  transition: top .25s cubic-bezier(.65, .05, .36, 1);
+  user-select: none;
 }
-.header:hover .close{
-    top: 3rem;
+
+.header:hover .close {
+  top: 3rem;
 }
+
 .title {
-    font-size: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 17rem;
-    overflow-y: auto;
+  display: flex;
+  height: 17rem;
+  overflow-y: auto;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
 }
+
 .title > span {
-    position: relative;
-    top: 1.5rem;
-    right: 1rem;
+  position: relative;
+  top: 1.5rem;
+  right: 1rem;
 }
+
 .latlng {
-    width: 100%;
-    line-height: 3rem;
-    height: 3rem;
-    color: var(--globals-colours-white);
-    display: block;
-    font-size: 1rem;
-    cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+  line-height: 3rem;
+  color: var(--globals-colours-white);
+  cursor: pointer;
 }
-.latlng:hover{
+
+.latlng:hover {
   font-weight: bold;
 }
+
 .edit {
-    padding: 0 0.75rem;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 3rem;
-    line-height: 3rem;
-    transition: border 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
-    border: rgba(255, 255, 255, 0) solid 1px;
-    border-bottom:none;
-    border-right:none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 3rem;
+  padding: 0 .75rem;
+  line-height: 3rem;
+  border: rgba(255, 255, 255, 0) solid 1px;
+  border-right: none;
+  border-bottom: none;
+  transition: border .25s cubic-bezier(.65, .05, .36, 1);
 }
+
 .edit:hover {
-    font-weight:bold;
-    border-color:rgba(255, 255, 255, 0.15)
+  font-weight: bold;
+  border-color: rgba(255, 255, 255, .15);
 }
-.main{
-    display: block;
-    overflow: hidden;
-    overflow-y: auto;
-    max-height: calc(100% - 20rem);
-    background: var(--globals-colours-white);
-    flex: 0 1 auto;
+
+.main {
+  display: block;
+  max-height: calc(100% - 20rem);
+  overflow: hidden;
+  overflow-y: auto;
+  background: var(--globals-colours-white);
+  flex: 0 1 auto;
 }
+
 .field {
-    display: block;
-    width: 100%;
-    border-bottom: var(--globals-colours-grey-1) solid 1px;
+  display: block;
+  width: 100%;
+  border-bottom: var(--globals-colours-grey-1) solid 1px;
 }
-.field:hover{
+
+.field:hover {
   background: var(--globals-colours-white-2);
 }
+
 .field label {
-    font-size: 0.8rem;
-    width: 100%;
-    display: block;
-    position: relative;
-    left: 1rem;
-    color: var(--globals-colours-grey-2);
-    height: 2rem;
-    line-height: 2rem;
-    user-select: none;
+  position: relative;
+  left: 1rem;
+  display: block;
+  width: 100%;
+  height: 2rem;
+  font-size: .8rem;
+  line-height: 2rem;
+  color: var(--globals-colours-grey-2);
+  user-select: none;
 }
 
 .field value {
-    position: relative;
-    left: 2rem;
-    color: var(--globals-colours-black-3);
-    display: block;
-    padding-bottom: 0.5rem;
+  position: relative;
+  left: 2rem;
+  display: block;
+  padding-bottom: .5rem;
+  color: var(--globals-colours-black-3);
 }
 
-.group{
-    margin-top: 1.5rem;
-    display: block;
-    border-bottom: var(--globals-colours-grey-1) solid 1px;
-    border-top: var(--globals-colours-grey-1) solid 1px;
-    background: var(--globals-colours-white-1);
-    position: relative;
+.group {
+  position: relative;
+  display: block;
+  margin-top: 1.5rem;
+  background: var(--globals-colours-white-1);
+  border-top: var(--globals-colours-grey-1) solid 1px;
+  border-bottom: var(--globals-colours-grey-1) solid 1px;
 }
+
 .group:hover {
-  border-color: var(--globals-colours-grey-4)
+  border-color: var(--globals-colours-grey-4);
 }
+
 .group > label {
-    font-size: 1rem;
-    width: 100%;
-    display: block;
-    position: relative;
-    top: -1.15rem;
-    color: var(--globals-colours-black-5);
-    margin-bottom: -2rem;
-    height: 2rem;
-    line-height: 2rem;
-    user-select: none;
-    text-align: center;
-    text-shadow: -1px -1px 0 var(--globals-colours-white), 1px -1px 0 var(--globals-colours-white), -1px 1px 0 var(--globals-colours-white), 1px 1px 0 var(--globals-colours-white), -2px -2px 0 var(--globals-colours-white), 2px -2px 0 var(--globals-colours-white), -2px 2px 0 var(--globals-colours-white), 2px 2px 0 var(--globals-colours-white), -3px -3px 0 var(--globals-colours-white), 3px -3px 0 var(--globals-colours-white), -3px 3px 0 var(--globals-colours-white), 3px 3px 0 var(--globals-colours-white);
+  position: relative;
+  top: -1.15rem;
+  display: block;
+  width: 100%;
+  height: 2rem;
+  margin-bottom: -2rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: var(--globals-colours-black-5);
+  text-align: center;
+  text-shadow: -1px -1px 0 var(--globals-colours-white), 1px -1px 0 var(--globals-colours-white), -1px 1px 0 var(--globals-colours-white), 1px 1px 0 var(--globals-colours-white), -2px -2px 0 var(--globals-colours-white), 2px -2px 0 var(--globals-colours-white), -2px 2px 0 var(--globals-colours-white), 2px 2px 0 var(--globals-colours-white), -3px -3px 0 var(--globals-colours-white), 3px -3px 0 var(--globals-colours-white), -3px 3px 0 var(--globals-colours-white), 3px 3px 0 var(--globals-colours-white);
+  user-select: none;
 }
-.group .field{
+
+.group .field {
   border-bottom: none;
 }
-.group .field:not(:last-of-type){
+
+.group .field:not(:last-of-type) {
   border-bottom: var(--globals-colours-grey) solid 1px;
 }
 
 .inlineEdit {
-    display: block;
-    height: 100%;
-    width: 2rem;
-    position: absolute;
-    background: var(--globals-colours-white-1);
-    z-index: 1;
-    top: 0;
-    right: calc(-2rem - 1px);
-    border-left: var(--globals-colours-grey) solid 1px;
-    transition: right 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    line-height: 2rem;
-    text-align: center;
-    color: var(--globals-colours-grey-2);
-    user-select: none;
-    cursor:pointer;
+  position: absolute;
+  top: 0;
+  right: calc(-2rem - 1px);
+  z-index: 1;
+  display: block;
+  width: 2rem;
+  height: 100%;
+  line-height: 2rem;
+  color: var(--globals-colours-grey-2);
+  text-align: center;
+  cursor: pointer;
+  background: var(--globals-colours-white-1);
+  border-left: var(--globals-colours-grey) solid 1px;
+  transition: right .25s cubic-bezier(.65, .05, .36, 1);
+  user-select: none;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
 }
 
-.inlineEdit:hover{
-    background:var(--globals-colours-white-2);
+.inlineEdit:hover {
+  background: var(--globals-colours-white-2);
 }
 
-.group:hover .inlineEdit{
-    right:0;
+.group:hover .inlineEdit {
+  right: 0;
 }
 
-.idFooter{
-flex: 1 1 auto;
-text-align: center;
-display: flex;
-justify-content: center;
-flex-direction: column;
-background: var(--globals-colours-white-3);
-color: var(--globals-colours-grey);
-cursor: pointer;
+.idFooter {
+  display: flex;
+  color: var(--globals-colours-grey);
+  text-align: center;
+  cursor: pointer;
+  background: var(--globals-colours-white-3);
+  flex: 1 1 auto;
+  justify-content: center;
+  flex-direction: column;
 }
