@@ -3920,11 +3920,9 @@ le-tls-sni@^0.1.0:
     node-forge "^0.6.43"
     rsa-compat "^1.2.7"
 
-leaflet-draw:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/leaflet-draw/-/leaflet-draw-0.4.3.tgz#d699ead435178ecff6784eefc83fc5d3ae77c9b8"
-  dependencies:
-    uglifycss "0.0.25"
+leaflet-editable:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/leaflet-editable/-/leaflet-editable-1.0.0.tgz#1befcefdbece550da8b432a9e8413a6c1d7017f6"
 
 leaflet@^1.0.2:
   version "1.0.2"
@@ -6631,10 +6629,6 @@ uglify-js@~2.7.3:
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
-
-uglifycss@0.0.25:
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/uglifycss/-/uglifycss-0.0.25.tgz#bea72bf4979eacef13a302cf47b2d1af3f344197"
 
 uid-number@~0.0.6:
   version "0.0.6"

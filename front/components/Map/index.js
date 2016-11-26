@@ -3,6 +3,8 @@ import {latLngBounds as LatLngBounds} from 'leaflet'
 import {} from 'leaflet/dist/leaflet.css'
 import {Map as LeafletMap} from 'react-leaflet'
 
+import {} from 'leaflet-editable'
+
 import KeyCombo from '../KeyCombo'
 import MapNav from '../MapNav'
 import FeatureInfoContainer from '../FeatureInfoContainer'
@@ -16,9 +18,6 @@ import LocationIconContainer from './LocationIconContainer'
 import {style, accessToken} from './config'
 import init from './init'
 import {map, mapContainer, mapHolder, featureInfoIsOpen, loader} from './style'
-
-import {FeatureGroup, Circle} from 'react-leaflet'
-import EditControl from './EditControl'
 
 class Map extends React.Component {
   componentWillMount(){
@@ -55,14 +54,12 @@ class Map extends React.Component {
             center={this.props.homeLocation}
             zoom={16}
             className={map}
+            editable={true}
             zoomControl={false}
             attributionControl={false}
           >
             <MapboxGlLayer accessToken={accessToken} style={style} />
-            <FeatureGroup>
-              <EditControl position="topright" onEdit={this._onEditPath} />
-              {layers}
-            </FeatureGroup>
+            {layers}
           </LeafletMap>
           <MapNav />
         </span>

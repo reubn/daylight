@@ -23,7 +23,7 @@
     "hpp": "^0.2.1",
     "humanize-duration": "^3.9.1",
     "leaflet": "^1.0.2",
-    "leaflet-draw": "^0.4.3",
+    "leaflet-editable": "^1.0.0",
     "letsencrypt-express": "^2.0.5",
     "lodash.escaperegexp": "^4.1.2",
     "mapbox-gl": "^0.26.0",
