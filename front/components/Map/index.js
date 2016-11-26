@@ -60,7 +60,7 @@ class Map extends React.Component {
           >
             <MapboxGlLayer accessToken={accessToken} style={style} />
             <FeatureGroup>
-             <EditControl position="topright" onEdit={this._onEditPath} />
+              <EditControl position="topright" onEdit={this._onEditPath} />
               {layers}
             </FeatureGroup>
           </LeafletMap>
