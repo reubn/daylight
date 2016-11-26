@@ -1,19 +1,23 @@
-.marker {
+.icon {
   display: flex;
   border-radius: 50%;
   background: radial-gradient(50% 49%, var(--globals-colours-white) 50%, var(--globals-colours-white-1) 100%);
-  box-shadow: 0 0 18px 6px rgba(0, 0, 0, .50);
+  box-shadow: 0 0 18px 6px var(--globals-colours-black-trans);
   justify-content: center;
   align-items: center;
 }
 
-.icon {
+.small{
+  box-shadow: 0 0 18px 3px var(--globals-colours-black-trans);
+}
+
+.innerIcon {
   width: 32px;
   height: 32px;
   background: linear-gradient(300deg, var(--globals-colours-purple) 0%, var(--globals-colours-purple-dark) 100%);
   -webkit-mask-size: 32px;
--webkit-mask-repeat: no-repeat;
--webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 
 .selected{
@@ -21,7 +25,7 @@
     border: var(--globals-colours-white) solid 2px;
 }
 
-.selected .icon{
+.selected .innerIcon{
   background: var(--globals-colours-white);
 }
 
@@ -36,7 +40,7 @@
     text-align: center;
     color: var(--globals-colours-white);
     font-weight: bold;
-    box-shadow: 0 0 6px 1px rgba(0, 0, 0, .50);
+    box-shadow: 0 0 6px 1px var(--globals-colours-black-trans);
     z-index: 2;
 }
 
