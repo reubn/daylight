@@ -1,9 +1,10 @@
 import React from 'react'
-import {latLngBounds as LatLngBounds} from 'leaflet'
+import {latLngBounds as LatLngBounds, Editable} from 'leaflet'
 import {} from 'leaflet/dist/leaflet.css'
 import {Map as LeafletMap} from 'react-leaflet'
 
 import {} from 'leaflet-editable'
+import mapIcon from './mapIcon'
 
 import KeyCombo from '../KeyCombo'
 import MapNav from '../MapNav'
@@ -55,6 +56,18 @@ class Map extends React.Component {
             zoom={16}
             className={map}
             editable={true}
+            editOptions={{
+              vertexMarkerClass: Editable.VertexMarker.extend({
+                initialize(...args){
+                  Editable.VertexMarker.prototype.initialize.call(this, ...args)
+                  this.setIcon(mapIcon({size: 10}))
+                }}),
+              middleMarkerClass: Editable.MiddleMarker.extend({
+                initialize(...args){
+                  Editable.MiddleMarker.prototype.initialize.call(this, ...args)
+                  this.setIcon(mapIcon({size: 10}))
+                }})
+            }}
             zoomControl={false}
             attributionControl={false}
           >
