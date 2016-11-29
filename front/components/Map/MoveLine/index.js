@@ -2,9 +2,12 @@ import React from 'react'
 
 import FeaturePopup from '../FeaturePopup'
 import GradientPolyline from './GradientPolyline'
+import EditLine from './EditLine'
 
-const MoveLine = ({displayFeature, activityTypes, selected, selectedFeatureSelected, selectFeature}) => (
+const MoveLine = ({displayFeature, activityTypes, selected, selectedFeatureSelected, selectFeature, ...props}) => (
   <GradientPolyline
+    {...props}
+    Component={EditLine}
     id={displayFeature.id}
     gradient={selected ? [{offset: 100, colour: '#fff'}] : activityTypes[displayFeature.activity].map((colour, index, array) => ({offset: (100 * index) / (array.length - 1), colour}))}
     opacity={0.9}
