@@ -2,9 +2,9 @@ import React from 'react'
 
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-import {featureInfo, hidden, header, title, latlng, edit, close as closeStyle, main, field, group, inlineEdit, idFooter} from './style'
+import {featureInfo, hidden, header, title, latlng, edit as editStyle, close as closeStyle, main, field, group, inlineEdit, idFooter} from './style'
 
-const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
+const FeatureInfo = ({feature, activityTypes, locationCategories, close, edit, editing}) => {
   if(!feature) return <section className={`${featureInfo} ${hidden}`} />
 
   const location = () => {
@@ -23,7 +23,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
               {feature.formattedLatLng}
             </span>
           </CopyToClipboard>
-          <span className={edit}>Edit</span>
+          <span className={editStyle}>Edit</span>
         </header>
         <span className={main}>
           <span className={field}>
@@ -59,7 +59,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close}) => {
             {feature.activityName}
           </span>
         </span>
-        <span className={edit}>Edit</span>
+        <span className={editStyle} onClick={() => edit(editing ? null : feature)}>{editing ? 'Stop' : 'Edit'}</span>
       </header>
       <span className={main}>
         <span className={field}>
