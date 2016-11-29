@@ -6,7 +6,8 @@ export default {
   selected: {
     range: null,
     displayFeatures: [],
-    selectedFeature: null
+    selectedFeature: null,
+    editingFeature: null
   },
   loading: false,
   updating: false
