@@ -31,14 +31,19 @@ class Map extends React.Component {
     const selectedFeatureSelected = !!this.props.selected.selectedFeature
     const selectedFeature = this.props.selected.selectedFeature
 
+    const editingFeatureSelected = !!this.props.selected.editingFeature
+    const editingFeature = this.props.selected.editingFeature
+
     const {layers, layerBounds} =
       this.props.selected.displayFeatures
       .reduce(({layers: exisingLayers, layerBounds: exisingBounds}, displayFeature) => {
         const selectedFeatureMode = selectedFeatureSelected && selectedFeature.id === displayFeature.id
+        const editingFeatureMode = editingFeatureSelected && editingFeature.id === displayFeature.id
+
         const layer =
           displayFeature.type === 'Move'
-          ? <MoveLineContainer displayFeature={displayFeature} selected={selectedFeatureMode} selectedFeatureSelected={selectedFeatureSelected} key={displayFeature.id} />
-          : <LocationIconContainer displayFeature={displayFeature} selected={selectedFeatureMode} selectedFeatureSelected={selectedFeatureSelected} key={displayFeature.id} />
+          ? <MoveLineContainer displayFeature={displayFeature} editing={editingFeatureMode} selected={selectedFeatureMode} selectedFeatureSelected={selectedFeatureSelected} key={displayFeature.id} />
+        : <LocationIconContainer displayFeature={displayFeature} editing={editingFeatureMode} selected={selectedFeatureMode} selectedFeatureSelected={selectedFeatureSelected} key={displayFeature.id} />
 
         return {layers: [...exisingLayers, layer], layerBounds: exisingBounds.extend(displayFeature.geo)}
       }, {layers: [], layerBounds: new LatLngBounds([])})
