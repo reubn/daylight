@@ -1,4 +1,5 @@
 import {latLng} from 'leaflet'
+import moment from 'moment'
 import Feature from '../Feature'
 
 class Move extends Feature {
@@ -7,7 +8,11 @@ class Move extends Feature {
     const {activity, geo} = feature
     this.type = 'Move'
     this.activity = activity
-    this.geo = geo.map(p => latLng(p))
+    this.geo = geo.map(p => {
+      const l = latLng(p)
+      if(p.time) l.time = moment(p.time)
+      return l
+    })
   }
   get activityName(){
     return (([f, ...r]) => f.toUpperCase()+r.join``)(this.activity)
