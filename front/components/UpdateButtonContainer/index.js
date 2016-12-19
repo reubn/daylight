@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 
 import updateRangeAction from '../../store/actions/updateRange'
 
-import UpdateButton from '../UpdateButton'
+import UpdateButton from './UpdateButton'
 
 const mapStateToProps = ({map: {selected: {range}, updating}}) => ({range, updating})
 const mapDispatchToProps = {

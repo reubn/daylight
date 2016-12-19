@@ -2,7 +2,7 @@ import {connect} from 'react-redux'
 
 import selectFeatureAction from '../../store/actions/selectFeature'
 
-import FeatureInfo from '../FeatureInfo'
+import FeatureInfo from './FeatureInfo'
 
 const mapStateToProps = ({map: {selected: {selectedFeature, editingFeature}}, aesthetics: {activityTypes, locationCategories}}) => ({feature: selectedFeature, editing: selectedFeature &&editingFeature && editingFeature.id === selectedFeature.id, activityTypes, locationCategories})
 const mapDispatchToProps = {

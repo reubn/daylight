@@ -1,8 +1,8 @@
 import {connect} from 'react-redux'
 
-import selectFeatureAction from '../../../store/actions/selectFeature'
+import selectFeatureAction from '../../../../store/actions/selectFeature'
 
-import MoveLine from '../MoveLine'
+import MoveLine from './MoveLine'
 
 const mapStateToProps = ({aesthetics: {activityTypes}}) => ({activityTypes})
 const mapDispatchToProps = {

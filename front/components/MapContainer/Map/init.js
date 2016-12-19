@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import Range from '../../models/Range'
+import Range from '../../../models/Range'
 
 export default ({params: {from, to, feature}, location: {action}, selectRange, selectFeature}) => {
   if(!from && !to) return selectRange(new Range({start: moment().subtract(1, 'd')}))

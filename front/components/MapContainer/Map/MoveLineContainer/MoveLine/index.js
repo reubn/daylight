@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FeaturePopup from '../FeaturePopup'
+import FeaturePopup from '../../FeaturePopup'
 import GradientPolyline from './GradientPolyline'
 import EditLine from './EditLine'
 

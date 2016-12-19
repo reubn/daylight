@@ -1,7 +1,7 @@
 import React from 'react'
 import {login, banner} from './style'
 
-import Message from '../Message'
+import Message from '../../Message'
 
 export default class Login extends React.Component {
   constructor(props){

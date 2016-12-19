@@ -3,7 +3,7 @@ import {replace} from 'react-router-redux'
 
 import logoutAction from '../../store/actions/logout'
 
-import LogInOut from '../LogInOut'
+import LogInOut from './LogInOut'
 
 const mapStateToProps = ({user: {loggedIn}}) => ({loggedIn})
 const mapDispatchToProps = {

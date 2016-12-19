@@ -7,7 +7,7 @@ import moment from 'moment'
 
 import './react-datepicker.css'
 
-import Range from '../../models/Range'
+import Range from '../../../models/Range'
 
 import {rangeSelector, arrow, slash} from './style'
 import StartDate from './StartDate.js'

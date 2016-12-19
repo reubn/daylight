@@ -6,13 +6,13 @@ import {Map as LeafletMap} from 'react-leaflet'
 import {} from 'leaflet-editable'
 import mapIcon from './mapIcon'
 
-import KeyCombo from '../KeyCombo'
-import MapNav from '../MapNav'
-import FeatureInfoContainer from '../FeatureInfoContainer'
+import KeyCombo from '../../KeyCombo'
+import MapNav from '../../MapNav'
+import FeatureInfoContainer from '../../FeatureInfoContainer'
 
 import MapboxGlLayer from './MapboxGlLayer'
 
-import Loader from '../Loader'
+import Loader from '../../Loader'
 import MoveLineContainer from './MoveLineContainer'
 import LocationIconContainer from './LocationIconContainer'
 

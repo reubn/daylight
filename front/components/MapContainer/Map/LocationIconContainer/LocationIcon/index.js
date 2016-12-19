@@ -1,8 +1,8 @@
 import React from 'react'
 import {Marker} from 'react-leaflet'
 
-import mapIcon from '../mapIcon'
-import FeaturePopup from '../FeaturePopup'
+import mapIcon from '../../mapIcon'
+import FeaturePopup from '../../FeaturePopup'
 
 const LocationIcon = ({locationCategories, iconImageSize, displayFeature, selected, selectFeature}) => (
   <Marker
