@@ -15,7 +15,7 @@ const login = require('./login')
 const logout = require('./logout')
 
 
-router.use('/@', protect, api)
+router.use('/-', protect, api)
 router.use('/~', protect, factories.router)
 
 router.use('/register', register)

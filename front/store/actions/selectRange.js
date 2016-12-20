@@ -19,7 +19,7 @@ function selectRangeAction(dispatch, getState, range, redirect=true){
 
   const serverPromises = Range.datesToRanges(onServerDates)
   .reduce((promises, serverRange) =>
-    [...promises, axios.get(`/@/day/${serverRange.toURL()}`)
+    [...promises, axios.get(`/-/day/${serverRange.toURL()}`)
     .then(function({data: {days, locations}}){
       const dayInstances = days.map(day => new Day(day))
       const locationInstances = locations.map(location => new Location(location))

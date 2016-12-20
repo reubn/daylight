@@ -9,7 +9,7 @@ function updateRangeAction(dispatch, getState, range, redirect=true){
   dispatch({type: 'MAP_LOADING'})
   dispatch({type: 'MAP_UPDATING'})
 
-  return axios.put(`/@/day/${range.toURL()}`)
+  return axios.put(`/-/day/${range.toURL()}`)
     .then(function({data: {days, locations}}){
       const dayInstances = days.map(day => new Day(day))
       const locationInstances = locations.map(location => new Location(location))
