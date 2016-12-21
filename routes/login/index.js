@@ -4,7 +4,7 @@ const passport = require('passport')
 
 const errorHandler = require('./errorHandler')
 
-router.post('/', passport.authenticate('login', {successRedirect: '/@/user', failWithError: true}))
+router.post('/', passport.authenticate('login', {successRedirect: '/-/user', failWithError: true}))
 
 // Error Handling
 router.use(errorHandler)
