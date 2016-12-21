@@ -51,6 +51,20 @@ const mapReducer = (state=initialState, action) => {
   if(action.type === 'SELECT_FEATURE') return {...state, selected: {...state.selected, selectedFeature: action.displayFeature}}
   if(action.type === 'SELECT_EDIT_FEATURE') return {...state, selected: {...state.selected, editingFeature: action.displayFeature}}
 
+
+  if(action.type === 'EDIT_FEATURE'){
+    const {day: dayId, id} = action.feature
+
+    const newDayCache = state.cache.days.reduce((done, day) => {
+      const {id: currentId} = day
+
+      if(currentId !== dayId) return [...done, day]
+      return [...done, Object.assign({}, day, {features: day.features.map(feature => feature.id === id ? action.feature : feature)})]
+    }, [])
+
+    return {...state, cache: {...state.cache, days: newDayCache}}
+  }
+
   return state
 }
 

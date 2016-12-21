@@ -9,8 +9,11 @@ class EditLine extends Polyline {
 
   componentDidUpdate({editing: previousEditing, ...props}){
     super.componentDidUpdate({...props})
-    const {editing} = this.props
-    if(editing !== previousEditing) this.leafletElement.toggleEdit()
+    const {editing, displayFeature, editFeature} = this.props
+    if(editing !== previousEditing){
+      this.leafletElement.toggleEdit()
+      if(!editing) editFeature({feature: displayFeature, payload: {geo: this.leafletElement.getLatLngs()}})
+    }
   }
 }
 
