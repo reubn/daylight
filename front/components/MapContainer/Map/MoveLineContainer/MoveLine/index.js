@@ -10,8 +10,8 @@ const MoveLine = ({displayFeature, activityTypes, selected, selectedFeatureSelec
     displayFeature={displayFeature}
     Component={EditLineContainer}
     id={displayFeature.id}
-    gradient={selected ? [{offset: 100, colour: '#fff'}] : activityTypes[displayFeature.activity].map((colour, index, array) => ({offset: (100 * index) / (array.length - 1), colour}))}
-    opacity={0.9}
+    gradient={activityTypes[displayFeature.activity].map((colour, index, array) => ({offset: (100 * index) / (array.length - 1), colour}))}
+    opacity={selectedFeatureSelected && !selected ? 0.3 : 0.9}
     weight={5}
     positions={displayFeature.geo}
     onMouseover={function(){if(!selectedFeatureSelected) this.bringToFront()}}
