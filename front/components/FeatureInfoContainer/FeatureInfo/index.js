@@ -23,7 +23,7 @@ const FeatureInfo = ({feature, activityTypes, locationCategories, close, edit, e
               {feature.formattedLatLng}
             </span>
           </CopyToClipboard>
-          <span className={editStyle}>Edit</span>
+          <span className={editStyle} onClick={() => edit(editing ? null : feature)}>{editing ? 'Stop' : 'Edit'}</span>
         </header>
         <span className={main}>
           <span className={field}>

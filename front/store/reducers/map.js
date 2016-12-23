@@ -65,6 +65,11 @@ const mapReducer = (state=initialState, action) => {
     return {...state, cache: {...state.cache, days: newDayCache}}
   }
 
+  if(action.type === 'EDIT_LOCATION'){
+    const {id} = action.location
+    return {...state, cache: {...state.cache, locations: {...state.cache.locations, [id]: action.location}}}
+  }
+
   return state
 }
 
