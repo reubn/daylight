@@ -14,7 +14,7 @@ import MapboxGlLayer from './MapboxGlLayer'
 
 import Loader from '../../Loader'
 import MoveLineContainer from './MoveLineContainer'
-import LocationIconContainer from './LocationIconContainer'
+import LocationMarkerContainer from './LocationMarkerContainer'
 
 import {style, accessToken} from './config'
 import init from './init'
@@ -40,7 +40,7 @@ class Map extends React.Component {
         const selectedFeatureMode = selectedFeatureSelected && selectedFeature.id === displayFeature.id
         const editingFeatureMode = editingFeatureSelected && editingFeature.id === displayFeature.id
 
-        const Component = displayFeature.type === 'Move' ? MoveLineContainer : LocationIconContainer
+        const Component = displayFeature.type === 'Move' ? MoveLineContainer : LocationMarkerContainer
         const layer = (
           <Component
             displayFeature={displayFeature}

@@ -4,7 +4,7 @@ import {Marker} from 'react-leaflet'
 import mapIcon from '../../mapIcon'
 import FeaturePopup from '../../FeaturePopup'
 
-const LocationIcon = ({locationCategories, iconImageSize, displayFeature, selected, selectedFeatureSelected, selectFeature}) => (
+const LocationMarker = ({locationCategories, iconImageSize, displayFeature, selected, selectedFeatureSelected, selectFeature}) => (
   <Marker
     position={displayFeature.geo}
     icon={mapIcon({cat: locationCategories[displayFeature.cat], imageSize: iconImageSize, selected})}
@@ -18,4 +18,4 @@ const LocationIcon = ({locationCategories, iconImageSize, displayFeature, select
   )
 
 
-export default LocationIcon
+export default LocationMarker
