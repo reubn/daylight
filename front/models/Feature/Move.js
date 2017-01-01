@@ -14,6 +14,9 @@ class Move extends Feature {
       return l
     })
   }
+  get name(){
+    return this.activityName
+  }
   get activityName(){
     return (([f, ...r]) => f.toUpperCase()+r.join``)(this.activity)
   }
@@ -24,6 +27,10 @@ class Move extends Feature {
     const distance = this.distance
     if(distance >= 1000) return `${(distance / 1000).toFixed(2)}km`
     return `${Math.round(distance)}m`
+  }
+
+  activityType(activityTypes){
+    return activityTypes[this.activity]
   }
 }
 
