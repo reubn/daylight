@@ -70,10 +70,17 @@ const MapboxGlLeaflet = L.Layer.extend({
     map._panes.tilePane.appendChild(this._glContainer)
 
     this._initGL()
+
+    this._offset = this._map.containerPointToLayerPoint([0, 0])
+
+    // work around https://github.com/mapbox/mapbox-gl-leaflet/issues/47
+    if(map.options.zoomAnimation){
+      L.DomEvent.on(map._proxy, L.DomUtil.TRANSITION_END, this._transitionEnd, this)
+    }
   },
 
   onRemove(map){
-    if(this._requestAnimFrame) L.Util.cancelAnimFrame(this._requestAnimFrame)
+    if(this._map.options.zoomAnimation) L.DomEvent.off(this._map._proxy, L.DomUtil.TRANSITION_END, this._transitionEnd, this)
     map.getPanes().tilePane.removeChild(this._glContainer)
     this._glMap.remove()
     this._glMap = null
@@ -85,13 +92,8 @@ const MapboxGlLeaflet = L.Layer.extend({
       zoomanim: this._animateZoom, // applys the zoom animation to the <canvas>
       zoom: this._pinchZoom, // animate every zoom event for smoother pinch-zooming
       zoomstart: this._zoomStart, // flag starting a zoom to disable panning
-      zoomend: this._zoomEnd // reset the gl map view at the end of a zoom
+      zoomend: this._zoomEnd
     }
-  },
-
-  addTo(map){
-    map.addLayer(this)
-    return this
   },
 
   _initContainer(){
@@ -124,12 +126,10 @@ const MapboxGlLeaflet = L.Layer.extend({
   },
 
   _update(e){
-        // update the offset so we can correct for it later when we zoom
+    // update the offset so we can correct for it later when we zoom
     this._offset = this._map.containerPointToLayerPoint([0, 0])
 
-    if(this._zooming){
-      return
-    }
+    if(this._zooming) return
 
     const size = this._map.getSize()
     const container = this._glContainer
@@ -140,8 +140,8 @@ const MapboxGlLeaflet = L.Layer.extend({
 
     const center = this._map.getCenter()
 
-        // gl.setView([center.lat, center.lng], this._map.getZoom() - 1, 0)
-        // calling setView directly causes sync issues because it uses requestAnimFrame
+    // gl.setView([center.lat, center.lng], this._map.getZoom() - 1, 0)
+    // calling setView directly causes sync issues because it uses requestAnimFrame
 
     const tr = gl.transform
     tr.center = mapboxgl.LngLat.convert([center.lng, center.lat])
@@ -150,10 +150,9 @@ const MapboxGlLeaflet = L.Layer.extend({
     if(gl.transform.width !== size.x || gl.transform.height !== size.y){
       container.style.width = `${size.x}px`
       container.style.height = `${size.y}px`
-      gl.resize()
-    } else {
-      gl._update()
-    }
+      if(gl._resize !== null && gl._resize !== undefined) gl._resize()
+      else gl.resize()
+    } else gl._update()
   },
 
     // update the map constantly during a pinch zoom
@@ -177,21 +176,28 @@ const MapboxGlLeaflet = L.Layer.extend({
   },
 
   _zoomEnd(){
-    const zoom = this._map.getZoom()
-    const center = this._map.getCenter()
-    const offset = this._map.latLngToContainerPoint(this._map.getBounds().getNorthWest())
+    const scale = this._map.getZoomScale(this._map.getZoom())
+    const offset = this._map._latLngToNewLayerPoint(this._map.getBounds().getNorthWest(), this._map.getZoom(), this._map.getCenter())
 
-      // update the map on the next available frame to avoid stuttering
-    this._requestAnimFrame = L.Util.requestAnimFrame(function(){
-        // reset the scale and offset
+    L.DomUtil.setTransform(this._glMap._canvas, offset.subtract(this._offset), scale)
+  },
+
+  _transitionEnd(e){
+    L.Util.requestAnimFrame(function(){
+      const zoom = this._map.getZoom()
+      const center = this._map.getCenter()
+      const offset = this._map.latLngToContainerPoint(this._map.getBounds().getNorthWest())
+
+      // reset the scale and offset
       L.DomUtil.setTransform(this._glMap._canvas, offset, 1)
 
-        // enable panning once the gl map is ready again
+      // enable panning once the gl map is ready again
       this._glMap.once('moveend', L.Util.bind(function(){
         this._zooming = false
+        this._zoomEnd()
       }, this))
 
-        // update the map position
+      // update the map position
       this._glMap.jumpTo({
         center,
         zoom: zoom - 1
