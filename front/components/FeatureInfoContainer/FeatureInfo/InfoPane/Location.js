@@ -10,7 +10,7 @@ export default ({feature, locationCategories}) => {
         <value>{feature.locationCategory(locationCategories).name}</value>
       </span>
       <span className={field}>
-        <label>Latitude and Longditude</label>
+        <label>Latitude and Longitude</label>
         <value>{feature.formattedLatLng}</value>
       </span>
       {feature.visits.sort(({startTime: a}, {startTime: b}) => a.diff(b)).map(visit => (
