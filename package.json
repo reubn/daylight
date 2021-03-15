@@ -9,7 +9,7 @@
   "main": "index.js",
   "browser": "front/app.js",
   "dependencies": {
-    "axios": "^0.15.2",
+    "axios": "^0.21.1",
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
